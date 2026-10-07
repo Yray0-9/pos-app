@@ -1,0 +1,41 @@
+@import "tailwindcss" source(none);
+@source "../templates";
+
+@theme {
+  --font-sans: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --color-canvas: #f7f8f5;
+  --color-ink: #24342e;
+  --color-muted: #5c6962;
+  --color-leaf: #24584b;
+  --color-leaf-soft: #e7f0e8;
+  --color-plum: #5c496e;
+  --color-line: #dadfd6;
+  --color-danger: #a13632;
+  --color-danger-soft: #fff1ef;
+  --color-forest: #163f34;
+  --color-lime: #d5edaa;
+}
+
+@layer base {
+  body { @apply bg-canvas font-sans text-lg text-ink antialiased; }
+  :focus-visible { outline: 3px solid var(--color-plum); outline-offset: 4px; }
+  summary { cursor: pointer; }
+  summary::marker { color: var(--color-plum); }
+  button:disabled { cursor: not-allowed; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  .touch-control { @apply inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 text-base font-semibold; }
+  .button-primary { @apply bg-leaf text-white hover:bg-ink disabled:bg-line disabled:text-muted; }
+  .button-secondary { @apply border border-leaf bg-white text-leaf hover:bg-leaf-soft; }
+  .feedback { @apply rounded-xl border px-5 py-4 text-base leading-relaxed; }
+  .feedback-error { @apply border-danger bg-danger-soft text-danger; }
+  .feedback-success { @apply border-leaf bg-leaf-soft text-leaf; }
+  .feedback-info { @apply border-plum bg-white text-plum; }
+  .surface-card { @apply rounded-3xl border border-line/70 bg-white shadow-[0_4px_24px_-16px_rgba(36,52,46,0.22)]; }
+  .eyebrow { @apply text-sm font-semibold tracking-[0.14em] uppercase; }
+  .hero-art { filter: drop-shadow(0 20px 24px rgb(0 0 0 / 0.18)); }
+}

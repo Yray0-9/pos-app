@@ -1,0 +1,48 @@
+{% extends 'kiosk/base.html' %}
+{% load static %}
+{% block content %}
+  <section aria-labelledby="welcome-title" class="relative isolate overflow-hidden rounded-[28px] bg-forest text-white">
+    <div class="absolute -top-36 -right-28 size-[440px] rounded-full border border-white/10" aria-hidden="true"></div>
+    <div class="absolute -right-8 bottom-0 size-64 rounded-full bg-white/[0.03]" aria-hidden="true"></div>
+    <div class="relative grid items-center gap-2 px-6 pt-8 pb-6 sm:grid-cols-[1.2fr_1fr] sm:px-9 sm:py-10 lg:px-11">
+      <div class="relative z-10">
+        <p class="eyebrow mb-4 text-lime">Small breaks. Good bites.</p>
+        <h1 id="welcome-title" class="max-w-lg text-[36px] leading-[1.08] font-semibold tracking-[-0.045em] sm:text-[44px] lg:text-[52px]">Your next<br>favorite <span class="text-lime">break.</span></h1>
+        <p class="mt-5 max-w-sm text-base leading-relaxed text-white/85 sm:text-lg">Everyday favorites, made for campus life.<br class="hidden lg:block"> A good bite is always a good idea.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-lime"><svg aria-hidden="true" viewBox="0 0 20 20" class="size-4" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m10 2 1.8 5.8L18 10l-6.2 2.2L10 18l-1.8-5.8L2 10l6.2-2.2L10 2Z"/></svg>Made for your everyday</span>
+      </div>
+      <div class="pointer-events-none relative -mt-4 flex justify-end sm:mt-0" aria-hidden="true">
+        <img src="{% static 'kiosk/illustrations/campus-bites.svg' %}" alt="" width="420" height="320" class="hero-art h-auto w-60 sm:w-full">
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="menu-title" class="mt-8">
+    <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+      <div><p class="eyebrow mb-1 text-muted">A little something for you</p><h2 id="menu-title" class="text-2xl font-semibold tracking-[-0.035em] sm:text-[28px]">Everyday favorites</h2></div>
+      <span class="text-sm text-muted sm:text-base">Bites, sips & little pick-me-ups</span>
+    </div>
+    <div class="surface-card flex flex-col gap-5 px-6 py-7 sm:flex-row sm:items-center sm:gap-6 sm:px-7">
+      <span class="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-leaf-soft text-leaf" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h14l2 15H7l2-15ZM12 12V9a4 4 0 0 1 8 0v3"/><path d="m13 20 2 2 4-4"/></svg></span>
+      <div class="flex-1"><h3 class="text-xl font-semibold tracking-tight">Something good is on its way.</h3><p class="mt-2 max-w-xl text-base leading-relaxed text-muted">We're getting the menu ready. Your campus favorites will appear here when ordering opens.</p></div>
+      <span class="self-start rounded-full bg-canvas px-4 py-2 text-sm font-medium text-muted sm:self-center">Menu coming soon</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="order-title" class="surface-card mt-5 overflow-hidden">
+    <div class="flex flex-wrap items-center justify-between gap-4 px-6 pt-6 sm:px-7">
+      <div class="flex items-center gap-3"><span class="flex size-11 items-center justify-center rounded-xl bg-canvas text-leaf" aria-hidden="true"><svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10l2 12H5L7 8ZM9 8V6a3 3 0 0 1 6 0v2"/></svg></span><h2 id="order-title" class="text-xl font-semibold tracking-tight">Your order</h2></div>
+      <span class="rounded-full border border-line px-3 py-1 text-sm text-muted">No items yet</span>
+    </div>
+    <div class="px-6 py-5 sm:px-7"><p class="text-base text-muted">A little empty for now. Your picks will feel right at home here.</p></div>
+    <div class="flex flex-col gap-4 border-t border-line/70 bg-canvas/70 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+      <p id="review-hint" class="max-w-md text-sm leading-relaxed text-muted sm:text-base">Add a favorite when the menu opens,<br class="hidden sm:block"> then take a quick look before you pay.</p>
+      <button type="button" disabled aria-describedby="review-hint" class="touch-control button-primary min-h-14 gap-6 sm:min-w-48">Review order <svg aria-hidden="true" viewBox="0 0 20 20" class="size-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></button>
+    </div>
+  </section>
+
+  <details class="mt-5 rounded-2xl border border-line/70">
+    <summary class="flex min-h-14 items-center justify-between gap-4 rounded-2xl px-5 py-4 text-base font-medium text-leaf"><span>First time here? Here's how it works.</span><svg aria-hidden="true" viewBox="0 0 20 20" class="size-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5 8 5 5 5-5"/></svg></summary>
+    <p class="px-5 pb-5 text-base leading-relaxed text-muted">Choose your favorites, review your order, pick a payment method, then view your digital receipt. For this campus demonstration, payments will be simulated.</p>
+  </details>
+{% endblock %}

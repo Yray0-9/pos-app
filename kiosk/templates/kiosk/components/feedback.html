@@ -1,0 +1,4 @@
+{# kind is error, success, loading, or info. Text is always escaped by Django. #}
+<div class="feedback {% if kind == 'error' %}feedback-error{% elif kind == 'success' %}feedback-success{% else %}feedback-info{% endif %}" role="{% if kind == 'error' %}alert{% else %}status{% endif %}" {% if kind == 'loading' %}aria-busy="true"{% endif %}>
+  <span class="font-semibold">{% if kind == 'error' %}Please check:{% elif kind == 'success' %}Success:{% elif kind == 'loading' %}Please wait:{% else %}Good to know:{% endif %}</span> {{ text }}
+</div>

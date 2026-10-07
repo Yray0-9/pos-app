@@ -8,7 +8,7 @@ This is the persistent checklist for our step-by-step work. Read and update it w
 
 The user wants guidance and understanding at each stage, an original interface, and complete coverage of the exam and photographed checklist. The sample UI is a reference for behavior only. Do not reproduce its branding, colors, or layout as our design.
 
-Current stage: Prompt 03 foundation and its authorized setup Git checkpoint recorded on codex/setup-foundation. Setup commit a20201a is pushed; PR #1 is open into main, with no review or merge. Next: genuine setup review, reusable E for safe UI branch preparation, and Prompt 04 UI foundation. Current user: M3 - Magos; deadline: 2026-10-07 at 21:00 Asia/Singapore. Other members' accounts and separately issued rubric/submission rules remain pending. No kiosk features exist. Checkboxes indicate verified completion, not intention; setup HTTP success is not a complete application pass.
+Current stage: Magos stated the UI milestone is completed/checked and explicitly requested its Git checkpoint. Reviewed original Common Table foundation on codex/ui-foundation is being recorded for review; setup PR #1 remains open/unmerged at head 717b165. This current explicit delegation overrides earlier guidance-only Git preference for this checkpoint. Catalog/cart/payments/receipt/reset remain unimplemented; review and actual member evidence gaps remain. Next numbered stage is Prompt 05, with feature branch preparation before editing. No merge or deployment is authorized. Deadline 2026-10-07 21:00 Asia/Singapore.
 
 Sources reviewed:
 - `C:/Users/Romul/Downloads/IT415_Practical_Exam.pdf`: all 8 pages.
@@ -300,3 +300,28 @@ At each implementation milestone: explain the change, implement the agreed scope
 ## Authorized setup Git checkpoint
 
 User invoked reusable B on 2026-10-07. The existing Git author Yray0-9 was preserved, and authenticated GitHub account Yray0-9 was verified with push access. Setup commit: [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f). Source branch: codex/setup-foundation; target: main. [PR #1](https://github.com/Yray0-9/pos-app/pull/1) exists and is attached to this chat. It is unmerged and has no reviews at this checkpoint. No reviewer was messaged or assigned; genuine teammate review still needs a confirmed account. MEMBER_REGISTER.md records the actual evidence and remaining individual gaps. Documentation updates recording the resulting links remain part of this same scoped milestone.
+
+## Local UI branch preparation
+
+Reusable E completed on 2026-10-07 at about 12:17 Asia/Singapore. Clean setup branch 717b165 was the base; setup PR #1 was checked and is still open/unmerged. Created local codex/ui-foundation at the same commit and recorded intended Prompt 04 work under Magos, not completed feature authorship. No files were discarded, no identities changed, and no commits/pushes/PRs/merges or UI implementation occurred. Parent setup is an explicit dependency: future UI PR compares against codex/setup-foundation while it remains unmerged; inspect/retarget only through later authorized Git work. Branch records are uncommitted on the UI branch. Next numbered stage: Prompt 04 only.
+
+
+## Prompt 04 outcome — original interface foundation
+
+Verified locally on 2026-10-07, about 12:20–12:33 Asia/Singapore, against setup HEAD `717b165` plus uncommitted UI changes. Reusable E authorization and current branch were confirmed before application edits. Existing branch-preparation records were preserved. Requester: Magos; implementation: Codex assistance, with human evaluation/explanation pending. No Agbas/Daro work is asserted.
+
+- Added the `kiosk` app and root route/view; `pos_app` retains project-wide configuration. The view renders templates without database/session/cart operations.
+- Added original Common Table branding, cream/green/plum styling, static SVG artwork/favicon, system typography, a skip link, progress include, feedback/messages includes, and a full-width menu area above the empty order area. No current transaction step is asserted. Disabled review has an explanatory hint; the only disclosure is a real native HTML interaction.
+- Tailwind CSS/CLI 4.3.3, pnpm 11.19.0 and Node 24.19.0 were observed. Pinned dependencies/lockfile, explicit Django-template source detection, CSS theme/configuration, production/watch scripts, and built local CSS exist. No CDN or external font is used. Package caches remain ignored.
+- System/dependency checks, root/CSS/favicon HTTP responses, CSS reproducibility, watcher updates, feedback escaping/semantics, active-step template variants, keyboard skip/focus/disclosure, and desktop/tablet/narrow overflow checks passed. See TEST_RESULTS.md and the saved screenshot for exact scope.
+- F02/F20 have foundation evidence only; products and the functional transaction flow remain pending. Error/success/loading feedback variants are reusable markup, not demonstrated payment behavior. No full functional checklist item is upgraded solely from this foundation.
+- No application models, migrations, catalog seed, cart calculations, payment flows, receipts, reset, login, or inventory were implemented. No Git mutations occurred in this stage. Existing setup PR remains the dependency; UI branch/commit/push/PR review evidence is still to be recorded through reusable B.
+
+Next numbered prompt: 05, catalog and transaction data foundations, after the genuine interface Git checkpoint and next feature branch preparation. The earlier seven broad milestones are a planning outline; numbered BUILD_PROMPTS.md controls the smaller staged implementation requests.
+
+
+## Prompt 04 visual refinement and Git preference
+
+2026-10-07, approximately 12:39–12:52 Asia/Singapore. Magos described the initial rendered design as old-fashioned and requested a more modern, modest, appealing design before moving on. This authorizes design iteration within the existing UI milestone, not catalog/data/transaction implementation. The revised page has a lowercase wordmark/CT symbol, a dark forest welcome panel with restrained lime details, stronger editorial typography, an original local food SVG, a cooler light canvas, smaller horizontal menu-unavailable card, and a more polished full-width order card. The ordered Choose/Review/Pay/Receipt information and accessible controls remain. The name, catalog proposal, data direction and products-above-order structure are retained. The actual visual revision is pending user feedback; no satisfaction or approval is asserted.
+
+Magos explicitly intends to handle Git actions personally. The assistant should tell them when the genuine milestone is ready to record and guide/check results, rather than running commits/pushes/PR/merge/branch operations under prior authorization. After design acceptance, preserve this interface milestone before moving into Prompt 05 on its prepared feature branch. Instructor/member evidence requirements and actual review gaps still apply; no action or contribution is inferred from the preference alone.

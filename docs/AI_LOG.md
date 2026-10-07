@@ -175,3 +175,106 @@ No force pushes, fabricated history, merging, or deployment. Do not send message
 Expected output:
 A genuine scoped commit and review PR when access permits, evidence links, checks, and remaining review requirements. Return to the next numbered build stage; do not merge automatically.
 ```
+
+## AI-GIT-02 - Local UI branch preparation
+
+- Date/time: 2026-10-07, about 12:17 Asia/Singapore.
+- Responsible requester / intended contributor: M3 - Magos. Existing configured identity preserved; no teammate impersonation or completed UI authorship asserted.
+- Actual user prompt: reusable E, reproduced below.
+- Assistant result: read guide/plan/register; inspected clean setup checkout and existing branch list; verified setup PR #1 open/unmerged; created local codex/ui-foundation from codex/setup-foundation at `717b165c852ad2c771fbc506ffb3578529a75b46`.
+- Dependency rationale: local main contains only the initial commit, so it cannot provide the required foundation. A dependent branch retains setup without merging it. Eventual UI PR targets the setup branch while the parent PR remains unmerged; later authorized integration can inspect/retarget safely.
+- Verification: branch/merge-base equal the intended setup head; zero committed difference from parent before documentation; private .env, virtual environment, local database retained; no kiosk directory created.
+- Changes: branch-preparation records only, uncommitted on the new UI branch. No commit, push, new PR, merge, reset, or feature implementation occurred.
+- Human evaluation / actual UI work / explanation: pending. Next numbered prompt: 04.
+
+### AI-GIT-02 - verbatim five-field prompt used
+
+```text
+Context:
+We are ready for the next numbered kiosk feature stage. Read docs/BUILD_PROMPTS.md, EXAM_PLAN.md, and MEMBER_REGISTER.md, and inspect the current checkout. I authorize preparing the local feature branch before we edit that feature.
+
+Objectives:
+Put the next feature's actual work on an identifiable branch without losing current changes.
+
+Requirements:
+Identify the next milestone and actual contributor from confirmed facts. Inspect the current branch and working changes. Reuse the appropriate feature branch if one already exists; otherwise create a descriptive codex/ branch from the correct integration state. Preserve all local files and avoid carrying unrelated work into the feature. If uncommitted setup or another feature must be recorded first, explain the concrete dependency and use only independently authorized actions; do not discard it. Record the real branch and intended task, distinguishing intended assignment from completed contribution. Verify the resulting branch state.
+
+Constraints:
+No impersonation, resets, force operations, commits, pushes, PRs, merges, or automatic feature implementation. If the state prevents a safe branch transition, leave files intact and report it.
+
+Expected output:
+A safely prepared and documented local feature branch, or a specific unresolved checkout dependency. Identify the next numbered prompt to paste.
+```
+
+
+## AI-04 — Original UI foundation
+
+- Date: 2026-10-07, approximately 12:20–12:33 Asia/Singapore; exact message timestamp not exported.
+- Responsible requester: M3 Magos. Tool: Codex. Type: generation of a scoped interface foundation plus tooling/configuration verification.
+- Actual user prompt: five-field Prompt 04 was pasted; reproduced below from the matching guide text. Branch authorization was confirmed from reusable E and current checkout before UI edits.
+- Relevant assistant response excerpt (verbatim): "The styled page has no horizontal overflow at desktop, tablet, or narrow-screen sizes. Keyboard checks confirmed the skip link, visible focus outline, and expandable ordering explanation. All controls are at least 48 CSS pixels tall."
+- Response summary: created kiosk app/root route, reusable original base/home/progress/feedback/messages templates, local CSS theme/build and favicon; pinned actual Tailwind 4.3.3 packages with pnpm lockfile; documented build/run responsibilities and verified foundation scope. No transaction implementation or Git mutation.
+- Assistant evaluation: original calm design and full-width menu/order hierarchy follow the accepted proposal; explicit unavailable/disabled states avoid false functionality. Feedback variants render/escape correctly but are not connected to payments. Browser keyboard and width checks passed; hardware, screen reader, zoom and future flow remain pending.
+- Assistant adaptations: used Tailwind v4 CSS @theme/@source rather than outdated v3 configuration; chose system fonts/local SVGs for no runtime CDN dependence; no JavaScript needed for native disclosure. Explicitly skipped Parcel source-build script after platform prebuilt watch verification. Restarted runserver after newly created static directory initially returned CSS 404; recorded build-before-run guidance.
+- Verification: U01–U16 in TEST_RESULTS.md. Network/noninteractive sandbox failures and resolution are recorded as tooling observations, not genuine application debugging/refactoring contribution claims. No refactoring stage is invented.
+- Commit/PR: none in this stage; uncommitted on codex/ui-foundation at setup HEAD 717b165. Reusable B is next for genuine interface history; reusable E before Prompt 05 feature edits. Setup PR #1 review/merge remains pending.
+- Human evaluation / own adaptations / member code explanation: pending Magos's own response. No AI-authored evaluation is being presented as human understanding; no work is attributed to Agbas/Daro.
+
+### AI-04 — verbatim five-field prompt used
+
+```text
+Context:
+Setup is verified and evidence documents exist. Apply the shared rules and the decisions in EXAM_PLAN.md and DESIGN.md. First confirm that branch preparation was performed through reusable E (or equivalent explicit authorization) before changing UI files. If it was not authorized, inspect and explain the missing checkpoint without mutating Git or implementing feature files yet.
+
+Objectives:
+Create the reusable visual foundation for our original kiosk, without implementing transaction features yet.
+
+Requirements:
+Create the kiosk Django app and route if needed. Configure a reproducible local Tailwind build using actual supported tooling, Django-template content detection as required by the installed version, and documented commands. The evaluation app should use built local CSS without requiring a CDN connection. Build a base template with our agreed original branding, navigation/progress treatment, readable typography, touch controls, accessible feedback components, and responsive spacing. Preview the foundation in a browser when available and inspect overflow, focus visibility, and CSS loading. Record verified results and design decisions.
+
+Constraints:
+Use Django templates and modest JavaScript; no unnecessary React/Vue framework. Do not copy sample UI assets or layout. No pretend working payment buttons or full transaction implementation. Keep decorative animation subtle and respect reduced motion.
+
+Expected output:
+A functioning styled base page, Tailwind configuration/build scripts, README build instructions, and an explanation of template/static-file responsibilities. Report visual checks accurately and stop before Prompt 05.
+```
+
+
+## AI-04b — User-requested visual revision
+
+- Date: 2026-10-07, approximately 12:39–12:52 Asia/Singapore; precise user message timestamp not exported.
+- Actual requester: M3 Magos. Prompt summary (not a verbatim transcript): first design looks old-fashioned; make it moderately modern and appealing before moving into Git or Prompt 05. Magos will personally perform Git actions and wants reminders/guidance at the appropriate time.
+- Actual prompt excerpt (verbatim): "for now i want you to satisfy me a good design."
+- Assistant output summary: revised wordmark/CT identity, darker forest hero, lime accent, new cooler canvas, larger typography, original SVG food illustration, compact horizontal menu-unavailable surface and polished full-width order card. Preserved local assets, touch/keyboard access, honest unavailable/disabled states and the stage boundary. Updated persistent Git preference and design review status.
+- Assistant evaluation: the new rendering has stronger hierarchy and more contemporary composition, with local asset delivery, width/focus/control/contrast checks passing. This is an assistant assessment; user satisfaction and acceptance are pending. No catalog/data/payment implementation or genuine refactor/bug-fix contribution is claimed.
+- Verification: TEST_RESULTS.md modern-revision section and saved desktop screenshot. Template-cache/server refresh and browser target-selection corrections were recorded accurately; no fabricated runtime failure/review evidence.
+- Human evaluation: previous rendered version explicitly rejected as old-fashioned. User evaluation of this revision, personal understanding and any own edits remain pending.
+- Git evidence: same uncommitted codex/ui-foundation at setup HEAD 717b165. No Git mutations. Magos will perform Git actions; assistant should identify the checkpoint after design acceptance and guide rather than act automatically.
+
+
+## AI-GIT-03 — Explicit UI milestone checkpoint delegation
+
+- Requester: M3 Magos. Date: 2026-10-07, Asia/Singapore; exact user message timestamp not exported.
+- User explicitly pasted reusable B after seeing the modern revision and stated the milestone is completed and checked. This authorizes this assistant-run commit/push/PR checkpoint, superseding earlier user-managed preference for this action only.
+- Scope: real UI milestone and evidence, configured author preserved; source codex/ui-foundation, parent/target codex/setup-foundation while setup PR #1 remains unmerged. No merging, deployment or reviewer message.
+- Assistant work: inspect real checkout/auth/PR/diff, rerun relevant checks, prepare meaningful scoped commit and review PR, and record actual returned Git links. Outcomes appended after the operations; no prospective SHA/review is invented.
+- Human code evaluation, instructor identity verification, other member work and independent review remain pending. No contribution is attributed to Agbas or Daro.
+
+### AI-GIT-03 — verbatim five-field prompt used
+
+```text
+Context:
+We have completed and checked the current kiosk milestone. Apply the shared rules in docs/BUILD_PROMPTS.md and inspect the actual repository, current branch/PR, and MEMBER_REGISTER.md. I want this milestone recorded in Git and prepared for review now.
+
+Objectives:
+Preserve real incremental history and provide a concrete review PR for this milestone.
+
+Requirements:
+Review the diff and checks. Preserve unrelated user changes and credentials. Use a suitable feature branch with the codex/ prefix unless an agreed member branch already applies; use configured authorship without impersonation. Commit only the milestone and relevant evidence with a meaningful message, push to the confirmed intended repository, and create/update a scoped PR identifying source/target branches, behavior, and actual validation. Attach the PR to this chat. Record actual commit/branch/PR links and member responsibility. Identify the real reviewer needed, source of feedback, and unresolved member-contribution gaps. If a review has occurred, address the actual feedback and record its resolution; never invent review.
+
+Constraints:
+No force pushes, fabricated history, merging, or deployment. Do not send messages to a reviewer without my explicit instruction. If remote access or required information is missing, complete the local reviewable work and explain what remains.
+
+Expected output:
+A genuine scoped commit and review PR when access permits, evidence links, checks, and remaining review requirements. Return to the next numbered build stage; do not merge automatically.
+```

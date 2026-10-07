@@ -4,6 +4,8 @@ Prepared: 2026-10-07 (Asia/Singapore). Prompt 02 planning output.
 
 ## Status and assignment context
 
+**Current visual revision:** Magos requested a more modern rendered result after Prompt 04. Section 11 documents the revised foundation and palette refinements; its user acceptance is pending. Earlier proposal/checkpoint sections preserve their historical context.
+
 The user accepted the proposed design direction on 2026-10-07: Common Table, cream/green/plum colors, the six-product catalog, products above a full-width order list, and SQLite with a session cart. This is the accepted planning baseline, not an implemented interface. Detailed interaction/data policies below remain design specifications to verify during implementation. No screens, models, migrations, dependencies, or Git operations were created by this stage. The customer workflow follows `docs/EXAM_PLAN.md`; the professor's sample UI is a behavioral reference only.
 
 User-supplied details:
@@ -234,3 +236,35 @@ Official references supporting technical and accessibility facts (our design rec
 - [WCAG target-size minimum](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
 
 Next: Prompt 03 (setup and evidence records) when requested. Magos's identity and today's 21:00 Asia/Singapore deadline are recorded. Individual GitHub accounts and any separate professor instructions still need to be supplied. Keep required functionality and genuine evidence first; optional enhancements remain excluded.
+
+
+## 10. Prompt 04 implementation checkpoint
+
+2026-10-07: the accepted Common Table direction now has a locally verified base page. Earlier sections preserve the design proposal at its original planning stage; data and transaction behaviors remain unimplemented. This checkpoint does not approve extra features or alter the accepted catalog.
+
+Implemented: system sans typography (18px body), cream canvas, green brand/hero, plum details, restrained borders, generous spacing, menu area above the full-width order area, our own static line artwork, 48px minimum controls, 56px review/disclosure, visible 3px CSS focus outline and reduced-motion CSS. The progress include supports Choose/Review/Pay/Receipt; none is active on this pre-order foundation. Empty/unavailable menu and order copy is explicit. Review is disabled, not connected to pretend checkout. The native disclosure works without JavaScript. Reusable error/success/info/loading feedback uses escaped text, alert/status roles and loading aria-busy; no transaction outcomes are invented.
+
+Desktop (1280×900), tablet (768×1024) and narrow (360×800) browser previews showed no horizontal overflow. Keyboard skip link moved focus to main; the disclosure opened using Enter and had a visible outline. Computed body text was 18px; all current control heights were at least 48px. Text contrast checks passed for the used palette; detailed ratios are in TEST_RESULTS.md. Actual touchscreen hardware, screen-reader operation, 200% zoom, OS reduced-motion toggling, and the future transaction screens were not tested. Original SVGs are code assets, not professor-sample artwork.
+
+[Foundation screenshot](evidence/ui-foundation-desktop.jpg). Built stylesheet: kiosk/static/kiosk/css/app.css; editable source: kiosk/assets/input.css. All runtime assets are local. Prompt 05 is next after the scoped Git checkpoint and feature branch preparation; it implements the accepted data foundation rather than changing the design silently.
+
+
+## 11. Modern foundation revision — pending visual acceptance
+
+Requested by Magos after seeing the first Prompt 04 page. The user wants modern appeal without excessive styling and wants to review the design before progressing. The revision was implemented within the existing UI branch/milestone and checked locally on 2026-10-07. This is a requested design iteration, not a fabricated refactoring or bug-fix stage.
+
+- Original Common Table identity now uses a lowercase, tightly spaced wordmark and a custom CT symbol. No online font, logo asset, professor sample asset or frontend framework was added.
+- Cooler light canvas `#F7F8F5`; dark forest hero `#163F34`; restrained lime accent `#D5EDAA`. Existing leaf, ink, muted, plum and error colors remain available. This updates the original warm-canvas proposal in response to user feedback; new colors are our design choices, not exam requirements.
+- Hero title is 52px at wide desktop, 44px tablet and 36px narrow screens, with compact line spacing. Other reading text stays 16–18px; this is an intentional refinement of the earlier smaller headline proposal.
+- Original vector rice bowl, toast and drink artwork adds character without a remote image/CDN dependency. It is decorative, uses empty alt and aria-hidden, and is not a product card or selectable catalog. Desktop/tablet uses two hero columns; narrow screens place the illustration below the text.
+- Content max-width 1120px. Menu area remains above the full-width order area. Menu-unavailable status is a compact horizontal card on wider screens, stacked on narrow screens. Subtle shadows, layered order-card footer and restrained badges replace the large empty panels. There is still no active transaction and Review order is disabled.
+- Informational progress remains a plain four-part line treatment. Real controls retain at least 48px height and visible focus; native ordering disclosure is keyboard-accessible. No decorative animation was added.
+
+Verified: local CSS/art/favicon delivery, Django check, desktop/tablet/narrow no horizontal overflow, original illustration loaded, keyboard skip/disclosure and target heights. New text contrast: ink/canvas 12.27:1; muted/canvas 5.39:1; white/forest 11.70:1; lime/forest 9.21:1. These checks do not establish complete accessibility compliance. See TEST_RESULTS.md for pending physical touch, screen-reader and zoom checks.
+
+[Revised desktop screenshot](evidence/ui-foundation-modern-desktop.jpg). [Earlier foundation screenshot](evidence/ui-foundation-desktop.jpg) remains historical evidence. User reaction to the revised rendered result is pending. Stay at design review rather than silently advancing to catalog/data implementation.
+
+
+## 12. UI milestone submitted for the Git review checkpoint
+
+After the revised preview, Magos stated the current milestone was completed and checked and explicitly requested commit/push/PR creation. The revised visual foundation is therefore the scope being recorded for review. This later request supersedes the earlier wait-before-Git state, but does not invent a detailed human design evaluation, instructor acceptance or independent code review. The design remains original and transaction requirements remain future work.

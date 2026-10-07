@@ -15,7 +15,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | codex/setup-foundation, tracking origin/codex/setup-foundation |
+| Current local branch | codex/ui-foundation; local only, no upstream or UI PR yet |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
 | Integration branch base | main; `9e959add21248068edc3230e7774f0cb65d365d3` remains the initial integration state until an authorized merge |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation | Current requester; Git author and PR author Yray0-9; instructor identity/contribution verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (local, intended Prompt 04) | Current requester; setup Git/PR author Yray0-9; UI feature implementation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -87,3 +87,32 @@ Authenticated GitHub login Yray0-9 has push permission for Yray0-9/pos-app. The 
 PR #1 was created and attached to this chat. It is open, not merged, with no actual review/feedback to resolve yet. Choose a genuine non-author reviewer; the other members' accounts remain pending. An AI inspection or PR creation does not replace that review. A follow-up documentation commit records the actual checkpoint links on this same branch; it is genuine evidence maintenance, not an artificial extra application stage. Final integration SHA remains pending.
 
 Later API verification found a [Copilot bot entry](https://github.com/Yray0-9/pos-app/pull/1#pullrequestreview-5437513512) with state COMMENTED at 2026-10-07 12:06:44 Asia/Singapore. Its body reports that it could not review because the requester had reached the quota limit. The inline comment list was empty. This is not a completed substantive review or human approval; there are no requested code changes to address from it. Record the attempted review accurately and leave actual review/merge pending. No reviewer was contacted by the assistant.
+
+## Local UI branch preparation (2026-10-07, 12:17 Asia/Singapore)
+
+- User explicitly invoked reusable E; only local branch preparation and documentation were authorized.
+- Intended contributor/requester: M3 - Magos, using the existing configured Git identity. This records intent, not completed UI work or a member demonstration.
+- Intended task: Prompt 04, original Common Table UI foundation, kiosk app/route, reusable HTML base, local Tailwind build, and scoped visual checks. None implemented during this branch-preparation step.
+- Entry state: clean codex/setup-foundation at `717b165c852ad2c771fbc506ffb3578529a75b46`. Setup PR #1 verified open and unmerged; main remains the initial integration state locally.
+- Created local `codex/ui-foundation` from `codex/setup-foundation` at that same SHA. No existing appropriate UI branch was found. No commit, push, PR creation, merge, reset, force operation, or identity change occurred.
+- This is a dependent branch: while setup remains unmerged, the eventual UI PR should compare against codex/setup-foundation to show UI-only changes. After setup is merged, inspect main and retarget/reconcile through a separately authorized Git checkpoint; do not silently merge, rewrite history, or include setup as new UI authorship.
+- Verified branch point and zero committed difference from its parent before recording this step. The private .env, venv, local database, and all tracked files were preserved. No kiosk directory exists yet.
+- Branch-preparation record edits remain uncommitted on codex/ui-foundation for the next scoped milestone. UI push/PR, implementation evidence, reviewer, and human explanations remain pending.
+
+
+## Prompt 04 — local implementation evidence
+
+- Date: 2026-10-07, approximately 12:20–12:33 Asia/Singapore.
+- Actual requester/responsible member: M3 Magos. Codex produced the UI foundation with AI assistance. Human evaluation, own code explanation, and individual demonstration remain pending; no work is attributed to M1 Agbas or M2 Daro.
+- Actual local branch: codex/ui-foundation, prepared before UI edits through reusable E, based on setup commit 717b165. Intended assignment from the earlier preparation is now backed by uncommitted app/templates/CSS/build files and verified checks, not by a feature commit yet.
+- Actual task: original Common Table reusable UI foundation; root kiosk route, Tailwind local build, accessible shared components, responsive browser inspection and evidence updates. No catalog/cart/payment feature is claimed.
+- Evidence: TEST_RESULTS.md Prompt 04 section, DESIGN.md checkpoint, AI_LOG.md AI-04, and docs/evidence/ui-foundation-desktop.jpg (assistant browser capture; not a member Git or instructor demonstration).
+- UI commit SHA, push, PR URL/source/target, real non-author reviewer, feedback and merge: pending. No Git mutation occurred in Prompt 04. Existing configured identity was not changed.
+- Setup PR #1 remains open; its Copilot quota entry does not constitute substantive review. While setup is unmerged, UI review should compare against codex/setup-foundation. Genuine teammate review and their own implementation branches/contributions remain required or need an instructor-approved arrangement.
+
+
+## UI design revision and user-managed Git
+
+Magos requested a more modern design after rejecting the first rendered result as old-fashioned. Codex revised the existing uncommitted UI milestone and verified its local visuals/accessibility basics; evidence is in TEST_RESULTS.md and ui-foundation-modern-desktop.jpg. Revised visual acceptance and Magos's own evaluation/explanation remain pending. No Agbas/Daro work is asserted.
+
+Magos now intends to perform Git operations personally. Notify/guide when the accepted interface milestone should be recorded and inspect supplied/actual evidence afterward; do not execute operations automatically under prior authorization. UI commit/push/PR/review and next branch records remain pending. Existing setup review and real member-contribution gaps are unchanged.

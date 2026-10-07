@@ -6,7 +6,7 @@ Prepared: 2026-10-07 (Asia/Singapore).
 
 Copy **one numbered prompt's entire text block** into this chat at a time. Let that stage finish, read the explanation, and resolve its failures before moving to the next. The guide prepares future work; creating this file does not start implementation.
 
-Current checkpoint: Prompt 03 setup is committed/pushed on codex/setup-foundation; [PR #1](https://github.com/Yray0-9/pos-app/pull/1) is open into main with genuine review and merge pending. Before editing the next feature, invoke reusable E to establish its actual contributor's branch, then use Prompt 04. E must account for the unmerged setup dependency safely; do not discard or silently merge it. Use B after each real milestone and C only after actual review/checks. Do not wait until the entire app is finished to record history.
+Current checkpoint: Magos explicitly invoked reusable B to commit/push the completed UI milestone and prepare a review PR. This request delegates the current checkpoint despite the earlier user-managed Git preference. Local codex/ui-foundation is the correct pre-established branch; its setup dependency remains unmerged, so the UI PR targets codex/setup-foundation. Checks are rerun and evidence reviewed; resulting Git links will be recorded after creation. No merge, deployment or reviewer message is authorized. Next numbered build stage: Prompt 05, after the next feature branch is explicitly prepared.
 
 New source reviewed: `IT415 Acceptance Checklist.pdf` (4 pages). It requires at least seven real development stages in committed history, one shared repository, actual member/PR evidence, and individual verification. Deleted merged branches may be evidenced through their PRs/commits. See MEMBER_REGISTER.md for the working matrix; do not treat pending as P or N/A.
 
@@ -15,6 +15,10 @@ Every prompt uses the professor's five fields: **Context, Objectives, Requiremen
 `docs/EXAM_PLAN.md` is the requirement checklist. Keep it, this guide, and the evidence records in the project so work can continue across chats. The original PDFs and checklist image remain the assignment sources. If a source cannot be accessed later, say so and use the reviewed plan provisionally; do not invent its contents.
 
 ### Shared rules for every prompt
+
+**Current user preference (2026-10-07 visual revision): Magos will handle Git actions personally. The assistant should identify the proper checkpoint, inspect state and guide the user. Do not execute Git mutations under an earlier general Git authorization. Reusable B/E may be used as guidance-only checkpoints; execute actions only if Magos explicitly delegates them again. Keep real incremental history and member evidence requirements.**
+
+**Later explicit delegation:** Magos pasted reusable B after the visual revision, authorizing the assistant to commit/push/open the UI review PR for this checkpoint. This does not grant blanket authorization for later Git operations, merging or reviewer communication.
 
 These rules are part of each prompt below:
 
