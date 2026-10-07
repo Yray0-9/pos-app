@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 06 selection/cart is implemented and locally verified on cart-review, based on catalog evidence 796b5da. Six database-backed cards, session quantities, server Decimal totals and working add/increase/decrease/remove controls exist. All 24 tests pass (14 data plus 10 cart tests). Current feature/evidence changes are uncommitted; no cart PR exists. Catalog [PR #3](https://github.com/Yray0-9/pos-app/pull/3) remains the recorded dependency. Next: the scoped Git checkpoint, then Prompt 07 on the same cart-review branch. Review, payment, receipt and reset are not implemented.
+**Current milestone:** Prompt 06 selection/cart implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) committed/pushed on cart-review; [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open/unmerged into catalog-data (base 796b5da). All 24 tests and configuration/dependency/migration/JavaScript/scope checks passed. Genuine review pending; quota-only bot COMMENTED notice, no inline/discussion findings or CI checks/statuses. Next numbered stage: Prompt 07 on the same cart-review branch after inspecting/reusing its state. No new branch, merge, deployment, reviewer contact or automatic feature work. Review/payment/receipt/reset remain unimplemented; F07-F08 are pending.
 
 ## Course and group
 
@@ -132,7 +132,7 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 Working catalog selection and a server-calculated session cart now exist. Order review/checkout, payment, receipt and reset remain unimplemented. Review is disabled for both empty and nonempty carts during this stage; Prompt 07 must also reject empty orders at its endpoint. All eventual payments are simulated. Inventory, login, reports, discounts, printing and deployment remain outside initial scope. Actual member contributions, explanations and genuine review remain pending.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), on codex/ui-foundation. [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) targets codex/setup-foundation. Genuine review/integration remains pending; the earlier quota comment was not approval. **Next numbered stage: Prompt 07 after the Prompt 06 Git checkpoint; reuse cart-review.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), on codex/ui-foundation. [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) targets codex/setup-foundation and remains unmerged. The cart checkpoint is now complete in PR #4. **Next numbered stage: Prompt 07, reusing cart-review after checking its actual state.**
 
 
 The historical UI workspace revision removed the large hero and adapted the sample menu/order organization using our own theme/artwork. Prompt 06 connects that layout to real products/cart state. [Current cart screenshot](docs/evidence/cart-desktop.jpg); [historical UI preview](docs/evidence/ui-foundation-workspace-desktop.jpg). Magos requested the current milestone; personal visual acceptance and instructor approval are not inferred.
@@ -168,3 +168,9 @@ Each item permits quantities 1-99. Direct quantity/price/total submissions are i
 The saved screenshot captures two rice bowls, one wrap and one lemonade (PHP 279.50); the live cart can change through further interaction. No completed sale was created. To clear this demonstration order, use its Remove controls. Customer reset, receipt ownership and payment idempotency are future work.
 
 Run manage.py test kiosk for data/cart checks. Rebuild CSS after template/CSS changes. Restart the --noreload development server after Python changes. Current server was restarted and remains running on 127.0.0.1:8000.
+
+## Selection/cart Git checkpoint
+
+Implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) is pushed on [cart-review](https://github.com/Yray0-9/pos-app/tree/cart-review), with [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open into catalog-data. Configured author Romulo Magos retained; authenticated publisher Yray0-9. Actual evidence is in MEMBER_REGISTER.md and TEST_RESULTS.md. A documentation-only follow-up records returned links/status.
+
+The [bot quota comment](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047) is not approval. A genuine non-author reviewer (Agbas/Daro with confirmed account, or an instructor-accepted reviewer) must inspect the diff, verify the stated behavior and provide actual feedback. No reviewer contacted and no merge. Other member feature contributions and individual explanations remain pending. Next: Prompt 07 on the same branch after state inspection; no new branch is necessary merely because the prompt number changes.
