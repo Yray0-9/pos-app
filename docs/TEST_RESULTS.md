@@ -242,3 +242,33 @@ Reviewed 21 changed/new files, including code, built local CSS, ten cart tests, 
 Scoped stage/whitespace/current-private-secret review passed for 21 files. Commit f901b32620a3a53c298664f945813bf34f34cf28 created by configured author Romulo Magos; clean checkout after commit. Ordinary git push -u origin cart-review succeeded; local HEAD and origin/cart-review matched. Diff against origin/catalog-data is 21 milestone/evidence files. env/database/cache/tmp excluded.
 
 PR #4 https://github.com/Yray0-9/pos-app/pull/4: open/unmerged, head cart-review at implementation SHA, base catalog-data 796b5da, publisher Yray0-9. Review inspection returned quota-only Copilot COMMENTED notice, no inline/discussion findings, no check runs/statuses. No human approval, CI success, merge or review resolution claimed. Parent PRs remain open. Current checkpoint validation is 24 tests plus configuration/dependency/migration/Node/whitespace/scope checks; previous visual/CSS checks not rerun unnecessarily. Documentation-only follow-up adds actual results; final publish/head/clean-state check follows its commit.
+
+## Prompt 07 - order review and Back preservation
+
+2026-10-07, approximately 18:15-18:45 Asia/Singapore. Tested local uncommitted files on cart-review, HEAD 11f7335f0311bb66e2de5f35a250dc09726af8fb; this HEAD does not contain the new review implementation. Requester Magos, Codex-run checks, not individual instructor verification.
+
+| Check | Actual observation | Status |
+| --- | --- | --- |
+| Existing checkout | Clean cart-review at entry; appropriate already prepared 06-07 branch reused | Pass; no Git mutation |
+| Configuration/dependencies/drift | manage.py check: no issues; pip check: no broken requirements; makemigrations --check --dry-run: no changes detected | Pass |
+| Local environment recovery | First test attempt could not load a secret because private .env was missing; existing init_env.py created ignored local configuration without printing values | Resolved; not an application bug or fabricated history stage |
+| Database initialization | Local SQLite had no tables; all 19 existing migrations applied; seed created six products; second seed created zero and preserved six | Pass; no deletion/rewrite/new migration |
+| Automated suite | manage.py test kiosk: 35 tests, 2.051s on final template/logic run, no system-check issues; previous 24 plus 11 review tests | Pass |
+| Exact summary/Back/edit | Selection and review agree at PHP 279.50; Back/GET preserves state; rice increase changes to PHP 364.50; decrease and removal produce PHP 240.00 | Pass |
+| Stale/invalid progression | Empty orders, unavailable/missing/corrupt quantities, oversize total, malformed session metadata, missing/forged/cross-session/stale tokens and changed catalog prices/names rejected | Pass |
+| All unavailable/deleted | Raw saved order retained on GET; specific repair message precedes empty state; explicit refresh removes invalid entries; genuine empty cannot continue | Pass regression |
+| HTTP methods/CSRF | GET cannot submit Continue; review/payment require GET; enforced CSRF client rejects missing token with 403 then accepts valid POST | Pass |
+| Confirmation lifetime | Serial repeated Continue/Back/payment-entry retains unchanged facts and UUID; edited facts invalidate confirmation; direct unconfirmed payment entry returns to review | Pass; not payment idempotency evidence |
+| Completion boundary | Transaction and TransactionItem remain zero in review tests; payment entry states payment not available | Pass; no simulated/real payment completion |
+| Tailwind | Initial restored install lacked Node on PATH; prepended bundled Node directory for the process, build then passed; generated local CSS updated | Resolved; no version/lock changes |
+| Live HTTP | Fresh cookie jar with actual CSRF: six cards; 279.50 selection/summary; Back/edit 364.50; stale Continue rejected; fresh Continue opens placeholder; three navigation cycles preserve order; a second empty session cannot enter payment; local CSS/JS return 200 | Pass on restarted final Python server, not browser visual QA |
+| Browser visual/accessibility | Browser inventory empty; opening an in-app tab returned Browser not available: iab | Unrun: new overflow/focus/contrast/touch/screen-reader checks and screenshot |
+| Final scope/privacy | 20 intended changed/new files; current private key absent from those files; environment/database/tmp/node_modules ignored; local six products and zero sales/items; configured git diff --check passes | Pass; unrelated er excluded |
+
+Code-inspection adaptation: initial review guard checked empty before needs_refresh; this obscured the reason when every saved product became unavailable/deleted. Moved needs_refresh first and added the real regression case; suite grew from 34 to 35 and passed. This is an in-stage correction, not a fabricated independent bug-fix commit. Summary value labels use screen-reader-only treatment on desktop instead of disappearing from the accessibility tree; physical screen-reader behavior remains untested.
+
+The development server was restarted after Python changes and is available at 127.0.0.1:8000 with Django 6.1.2 and no configuration issues. HTTP testing used only its own session cookies; no existing customer browser cart was deliberately changed. Test catalog mutations/sales stay in the separate test database. No commit/push/PR update/merge or member/reviewer contact occurred.
+
+Pending: new human browser review (desktop/tablet/narrow, focus/tab order, touch targets/labels/contrast), Magos's personal explanation/evaluation, real non-author review, genuine Agbas/Daro work/accounts, all payment/success/receipt/reset checks, concurrency/completion idempotency and final integrated acceptance. Older screenshots cover the selection milestone only.
+
+An unrelated untracked root file `er` appeared during the stage (created at 18:40, containing Git configuration output). Its origin was not established; it was left intact and is outside the review milestone. Exclude it from the next scoped checkpoint. Private environment/database, ignored temporary tools and dependency folders are also outside the shared diff.

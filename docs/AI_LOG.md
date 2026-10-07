@@ -389,3 +389,27 @@ Fresh GitHub state: catalog/UI/setup parents open/unmerged, catalog head 796b5da
 Actual feedback source: [Copilot quota notice](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047), COMMENTED; bot explicitly could not review. No inline findings, discussion comments, requested code changes, CI checks/statuses or approval. No invented feedback/resolution. Genuine non-author review needed from Agbas/Daro after confirming accounts or an instructor-accepted reviewer. Magos's independent understanding and Agbas/Daro implementation/contribution evidence remain pending. The configured name change is preserved as observed; no identity/configuration was changed by the assistant.
 
 This documentation-only follow-up records the real returned commit/PR/review evidence under the current checkpoint authorization; it is evidence maintenance, not an artificial new application development stage. Next numbered stage Prompt 07 reuses cart-review after inspection. No automatic feature implementation.
+
+## AI - Prompt 07 order review (2026-10-07)
+
+Responsible requester: M3 Magos. AI tool: Codex in this chat. The following five-field record summarizes the actual submitted prompt; it is not a verbatim transcript export.
+
+- Context: selection/cart verified; apply shared rules and F07-F08, F02, F20.
+- Objectives: review the exact order and return to editing without losing it.
+- Requirements: names, quantities, unit prices, subtotals/total; Back and Continue; current server validation; empty blocked; consistent design; repeated navigation/edit verification; policy for missing/unavailable records.
+- Constraints: no payment completion, duplicate total calculator, frozen editable amount or discarded items on Back.
+- Expected output: checked flow, evidence and session explanation; stop before Prompt 08.
+
+Additional actual user concern: whether six feature branches plus main are necessary and whether the other members could contribute only small later changes. Assistant response: the count is proposed, not mandated; reuse cart-review for 06-07 and group meaningful tasks. Supporting/cosmetic edits alone cannot be assumed to satisfy individual implemented-feature requirements. QR/card and receipt/reset are suggested real remaining tasks, not accepted assignments or completed contributions.
+
+Generated/adapted output (assistant summary): review module binds signed displayed facts to fresh server-calculated order; GET summary is read-only; Back preserves cart; POST Continue requires CSRF/current facts and stores temporary confirmation/attempt; guarded payment placeholder clearly says unavailable; base progress/header and reusable summary keep styling consistent. Existing Decimal calculator and cart validation reused. No new model/migration/dependency, completion, success, receipt or reset code.
+
+Assistant evaluation: signed comparison prevents old or forged displayed amounts from being treated as current authority; current database prices/names are recomputed. Serial repeated navigation/confirmation is tested; concurrent session writes and atomic duplicate-payment prevention remain unestablished. Invalid saved items warn and require repair rather than being silently dropped by GET. New templates specify 56px controls and accessible labels; browser appearance/accessibility cannot be asserted without the pending checks.
+
+Actual adaptations/errors: missing private environment prevented initial test startup; existing initializer safely created ignored local configuration. Empty SQLite was initialized using existing migrations and repeatable seed. Restored Tailwind tooling first failed to find Node; setting bundled Node on the process PATH fixed the build. A live HTTP helper initially could not be written because the ignored tmp directory was absent; creating that directory resolved tooling only. Code inspection found the all-stale cart warning was hidden by an early empty guard; reordered guards and added unavailable/deleted regression coverage, raising 34 tests to 35. Desktop summary labels were retained using sr-only classes. These are actual events, not invented retrospective bugs/reviews or artificial commits.
+
+Verification: configuration/dependency/migration checks passed; 35 automated tests passed on final logic; local CSS build passed; restarted-server live HTTP/CSRF verified summary agreement, Back/edit, stale-confirmation rejection, repeated navigation, empty-session guard and local assets. Browser tool unavailable, no new visual/focus/overflow/touch/screen-reader result or screenshot claimed. Existing selection screenshots are historical.
+
+Branch/evidence: existing clean cart-review at 11f7335 reused under its earlier 06-07 preparation and current scoped implementation request. Changes are local/uncommitted and not in PR #4 yet; no Git mutation, contact, merge or deployment. Member work remains Magos-requested and AI-assisted; Agbas/Daro implementation/accounts, non-author review and all members' explanation remain pending. Suggested next: scoped B, then payment branch inspection/preparation and Prompt 08.
+
+Human evaluation/adaptation (Magos): Pending. Please personally exercise Review/Back/edit/Continue and explain why session cart IDs/quantities persist while server prices/totals are recalculated. This assistant-written record is not Magos's own review or instructor sign-off. Full transcript reference/export remains pending.

@@ -4,4 +4,7 @@ from . import views
 
 app_name = 'kiosk'
 urlpatterns = [path('', views.home, name='home'),
-               path('cart/', views.cart_action, name='cart_action')]
+               path('cart/', views.cart_action, name='cart_action'),
+               path('review/', views.review_order, name='review'),
+               path('review/continue/', views.continue_to_payment, name='continue_payment'),
+               path('payment/', views.payment_entry, name='payment')]

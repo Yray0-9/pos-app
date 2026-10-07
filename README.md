@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 06 selection/cart implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) committed/pushed on cart-review; [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open/unmerged into catalog-data (base 796b5da). All 24 tests and configuration/dependency/migration/JavaScript/scope checks passed. Genuine review pending; quota-only bot COMMENTED notice, no inline/discussion findings or CI checks/statuses. Next numbered stage: Prompt 07 on the same cart-review branch after inspecting/reusing its state. No new branch, merge, deployment, reviewer contact or automatic feature work. Review/payment/receipt/reset remain unimplemented; F07-F08 are pending.
+**Current milestone:** Prompt 07 order review is implemented and checked locally on the existing cart-review branch (HEAD 11f7335f0311bb66e2de5f35a250dc09726af8fb). These new changes are uncommitted and are not yet in PR #4. All 35 data/cart/review tests pass; live HTTP/CSRF navigation and the local CSS build pass. New browser visual/focus/overflow checks remain pending because the browser tool is unavailable. Back preserves the session cart; Continue revalidates the exact current order and opens a guarded payment entry placeholder. No payment completion, receipt or customer reset is implemented. Next: a separately requested scoped Git checkpoint B, then branch inspection/preparation as needed before Prompt 08. No Git mutations, new branch, reviewer contact, merge or deployment occurred in Prompt 07. Genuine peer review, other members' feature contributions/explanations and final main integration remain pending.
 
 ## Course and group
 
@@ -29,7 +29,7 @@ git clone https://github.com/Yray0-9/pos-app.git
 Set-Location pos-app
 ```
 
-Cloning is an instruction, not a claim that the group has demonstrated cloning. Setup is available on the `codex/setup-foundation` branch in [PR #1](https://github.com/Yray0-9/pos-app/pull/1), which is not merged into main yet. For reviewing this milestone after cloning, use `git switch --track origin/codex/setup-foundation` if no local branch exists; use `git switch codex/setup-foundation` if it already exists. Do not assume main contains the setup before review/merge.
+Cloning is an instruction, not a claim that the group has demonstrated cloning. Setup is available on the `codex/setup-foundation` branch in [PR #1](https://github.com/Yray0-9/pos-app/pull/1), which is not merged into main yet. For the published selection/cart milestone, use `git switch --track origin/cart-review` if no local branch exists, or `git switch cart-review` if it already exists. Prompt 07 is currently local and must be recorded through its Git checkpoint before another clone can obtain it. Do not assume main contains the setup before review/merge.
 
 For a new local environment with Python 3.14 installed:
 
@@ -64,6 +64,7 @@ Internet is needed for the initial package download. The resulting `kiosk/static
 This computer currently exposes pnpm through Codex's bundled path rather than a normal PATH entry. The actual verified command prefix here is:
 
 ```powershell
+$env:PATH = 'C:\Users\Romul\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin;' + $env:PATH
 & 'C:\Users\Romul\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd' install --frozen-lockfile
 & 'C:\Users\Romul\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd' run build:css
 ```
@@ -80,7 +81,7 @@ References: [official Tailwind CLI instructions](https://tailwindcss.com/docs/in
 .\venv\Scripts\python.exe manage.py runserver 127.0.0.1:8000 --noreload
 ```
 
-Open [localhost](http://127.0.0.1:8000/). `/` serves the Common Table foundation; `/admin/` remains the standard Django admin route. Stop the server with Ctrl+C. Build CSS before starting the server. If a new static directory was created after starting with `--noreload`, restart the server so Django discovers it. Styling itself can be rebuilt and viewed after a browser reload. With `--noreload`, template edits may also require a server restart because the template loader caches them; restart when the old HTML persists.
+Open [localhost](http://127.0.0.1:8000/). `/` serves selection, `/review/` shows the current order, `/review/continue/` accepts a CSRF-protected confirmation POST, and `/payment/` is a guarded placeholder. `/admin/` remains the standard Django admin route. Stop the server with Ctrl+C. Build CSS before starting the server. If a new static directory was created after starting with `--noreload`, restart the server so Django discovers it. Styling itself can be rebuilt and viewed after a browser reload. With `--noreload`, template edits may also require a server restart because the template loader caches them; restart when the old HTML persists.
 
 Prompt 05 applied the new kiosk migration and Django's standard dependency migrations. Before running a fresh prepared checkout, run `manage.py migrate` and `manage.py seed_catalog` as shown below. No superuser, customer login or custom admin feature has been created.
 
@@ -89,12 +90,12 @@ Prompt 05 applied the new kiosk migration and Django's standard dependency migra
 `pos_app` is the Django **project**: global settings and top-level routes. `kiosk` is the Django **app**: models, catalog/cart calculation, views, templates and assets. The root GET loads available products and reads the session cart without changing its contents. The CSRF-protected /cart/ POST route applies order edits.
 
 - `kiosk/templates/kiosk/base.html`: shared document, branding, stylesheet link, progress slot, messages, main content, and footer. Future screens extend its content block.
-- `kiosk/templates/kiosk/home.html`: includes the live workspace and original SVG symbols, with the cart JavaScript asset. The workspace/product-card includes render database-backed cards and the current order. Review stays disabled until Prompt 07.
+- `kiosk/templates/kiosk/home.html`: includes the live workspace and original SVG symbols, with the cart JavaScript asset. The workspace/product-card includes render database-backed cards and the current order. Review is enabled only for a nonempty, valid order within the supported total.
 - `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback/messages, product_card.html, workspace.html and original inline menu_art.html SVG symbols. The obsolete disabled fixture template was removed. All displayed order money comes from server context.
 - `kiosk/assets/input.css`: editable Tailwind source and shared controls. Edit this rather than the generated stylesheet.
 - `kiosk/static/kiosk/`: namespaced browser assets, including built CSS and our own SVG favicon and decorative campus-food illustration. Django's `{% static %}` resolves these files; `runserver` serves them during local DEBUG development. Production static serving is outside this stage.
 
-The progress list is informational with Choose marked current. It has no fake navigation links. Decorative artwork is static, focus outlines are visible, and reduced-motion preferences are respected. JavaScript restores focus after order updates and serializes actions within this page; cross-tab/session concurrency is not guaranteed.
+The progress list is informational and marks Choose, Review or Pay according to the current page. It has no fake navigation links. Decorative artwork is static, focus outlines are visible, and reduced-motion preferences are respected. JavaScript restores focus after order updates and serializes actions within this page; cross-tab/session concurrency is not guaranteed.
 
 ## Checks and future build steps
 
@@ -103,7 +104,7 @@ The progress list is informational with Choose marked current. It has no fake na
 .\venv\Scripts\python.exe manage.py check
 ```
 
-The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). All 24 data/cart tests passed, along with configuration/dependency/migration checks and the local CSS build. Browser selection, quantity/removal arithmetic, reload persistence, keyboard focus, touch sizes and desktop/tablet/narrow overflow were checked. Payment/receipt/reset and full exam acceptance remain pending.
+The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). All 35 data/cart/review tests passed, along with configuration/dependency/migration checks and the local CSS build. Live HTTP checks verified review, Back/edit, stale confirmation rejection, repeated navigation and fresh-session empty guards. Prior Prompt 06 browser evidence covers selection only; new review-page visual, keyboard, screen-reader and touch checks remain pending. Payment/receipt/reset and full exam acceptance remain pending.
 
 ## Development and evidence workflow
 
@@ -130,12 +131,12 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 ## Current limitations
 
-Working catalog selection and a server-calculated session cart now exist. Order review/checkout, payment, receipt and reset remain unimplemented. Review is disabled for both empty and nonempty carts during this stage; Prompt 07 must also reject empty orders at its endpoint. All eventual payments are simulated. Inventory, login, reports, discounts, printing and deployment remain outside initial scope. Actual member contributions, explanations and genuine review remain pending.
+Working selection, a server-calculated session cart and order review now exist. Continue opens a guarded payment entry placeholder; method selection, payment completion, receipt and reset remain unimplemented. Empty, damaged, unavailable or oversized orders cannot continue. Repeated serial navigation is verified; simultaneous-tab/session-write races and payment idempotency are not established by this stage. All eventual payments are simulated. Inventory, login, reports, discounts, printing and deployment remain outside initial scope. Actual member contributions, explanations and genuine review remain pending.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), on codex/ui-foundation. [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) targets codex/setup-foundation and remains unmerged. The cart checkpoint is now complete in PR #4. **Next numbered stage: Prompt 07, reusing cart-review after checking its actual state.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), on codex/ui-foundation. [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) targets codex/setup-foundation and remains unmerged. The cart checkpoint is now complete in PR #4. **Prompt 07 is now local on cart-review. Next: scoped B to record this review milestone, then Prompt 08 after inspecting/preparing its branch.**
 
 
-The historical UI workspace revision removed the large hero and adapted the sample menu/order organization using our own theme/artwork. Prompt 06 connects that layout to real products/cart state. [Current cart screenshot](docs/evidence/cart-desktop.jpg); [historical UI preview](docs/evidence/ui-foundation-workspace-desktop.jpg). Magos requested the current milestone; personal visual acceptance and instructor approval are not inferred.
+The historical UI workspace revision removed the large hero and adapted the sample menu/order organization using our own theme/artwork. Prompt 06 connects that layout to real products/cart state. [Prompt 06 cart screenshot](docs/evidence/cart-desktop.jpg); [historical UI preview](docs/evidence/ui-foundation-workspace-desktop.jpg). Magos requested the current milestone; personal visual acceptance and instructor approval are not inferred.
 
 
 The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.
@@ -174,3 +175,15 @@ Run manage.py test kiosk for data/cart checks. Rebuild CSS after template/CSS ch
 Implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) is pushed on [cart-review](https://github.com/Yray0-9/pos-app/tree/cart-review), with [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open into catalog-data. Configured author Romulo Magos retained; authenticated publisher Yray0-9. Actual evidence is in MEMBER_REGISTER.md and TEST_RESULTS.md. A documentation-only follow-up records returned links/status.
 
 The [bot quota comment](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047) is not approval. A genuine non-author reviewer (Agbas/Daro with confirmed account, or an instructor-accepted reviewer) must inspect the diff, verify the stated behavior and provide actual feedback. No reviewer contacted and no merge. Other member feature contributions and individual explanations remain pending. Next: Prompt 07 on the same branch after state inspection; no new branch is necessary merely because the prompt number changes.
+
+## Try the order-review milestone
+
+Choose two Chicken Rice Bowls, one Chicken Wrap and one Cucumber Lemonade, then tap Review order. The summary shows unit prices PHP 85.00, 70.00 and 39.50; quantities 2, 1 and 1; subtotals PHP 170.00, 70.00 and 39.50; total PHP 279.50. Back to selection keeps those exact quantities. Increase rice to three and review again: total PHP 364.50. Continue to Payment opens a clearly labeled placeholder with that current total; no sale is recorded.
+
+Selection, review and payment entry all call the same server calculator. A signed confirmation describes the order actually shown, including session context/revision and current names/prices. Continue compares it with freshly calculated database facts; edits or catalog changes require a fresh review. Submitted browser totals/prices do not set the amount due. Ordinary GET/Back navigation does not rewrite the cart.
+
+If saved items are missing, unavailable or invalid, review warns and blocks Continue. Back to selection and use Update order to remove invalid entries explicitly (a valid edit also repairs them with feedback). Only valid available lines contribute to the displayed total; an all-invalid saved cart explains the repair before becoming a genuinely empty order. Historical completed sales are unaffected.
+
+`review.html` and `payment_entry.html` extend the shared base and reuse `components/order_summary.html`. Review needs no new JavaScript. Labels remain available to assistive technology at desktop widths and visible on narrow screens; this is template inspection, not a completed screen-reader check. Controls specify 56px minimum height. New visual/keyboard/touch verification remains pending.
+
+The checkout lacked a private environment file and initialized database at the start of this stage. The existing initializer created an ignored local environment; existing migrations and repeatable catalog seeding restored six products without deleting a database or rewriting migration files. No dependency versions changed.

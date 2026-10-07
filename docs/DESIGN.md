@@ -305,3 +305,15 @@ Choose is the active progress step. Success/error feedback is escaped; loading d
 Verified browser layouts: desktop 1280x900 side-by-side menu/order; tablet 768x1024 two product columns and order below; narrow 360x800 one product column and order below. No horizontal overflow observed. A single page scroll reaches the whole order; a tall order is not squeezed into a nested scroll. Physical touch and full screen-reader testing remain pending. Current preview: [cart desktop](evidence/cart-desktop.jpg). Magos's new visual evaluation remains pending; implementation is not assumed approval of all future screens.
 
 Later Git checkpoint: live selection design is in implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28), published on cart-review with [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open into catalog-data. Screenshot remains actual Prompt 06 evidence; no new visual acceptance or independent review is inferred from publication.
+
+## 14. Prompt 07 - implemented review direction
+
+The selection layout in section 13 remains current. Review uses an original centered panel up to 940px wide, the same cream/green/plum palette, restrained type and spacing, and the existing informational progress component with Review current. Payment entry marks Pay current but states clearly that payment is not available yet.
+
+The review heading is “Everything look good?” above a white summary card, unit count and a tinted green total strip. Desktop aligns product, unit price, quantity and subtotal; narrower screens stack labeled values under each product. Shared order_summary.html serves both review and the payment entry placeholder so their content agrees. Product text is escaped; unit-price/quantity/subtotal labels remain available to assistive technology at wider breakpoints.
+
+Back to selection is a link and Continue to Payment is a CSRF-protected POST button, each with a specified 56px minimum height and existing focus/touch classes. Invalid or empty orders show escaped feedback and disable Continue while the endpoint also enforces the rule. No working-looking payment method buttons are shown before their stage.
+
+Ordinary Back never clears the cart. Edits recalculate before review; a signed stale confirmation cannot advance. If products disappear/become unavailable, review shows valid lines plus a repair message and blocks progression, including when no valid lines remain. The customer explicitly repairs the order on selection. Repeated navigation preserves confirmed facts while unchanged; actual edits invalidate them.
+
+This is implemented template/state behavior, not a new human-approved visual result. 35 automated tests and live HTTP navigation pass; local Tailwind is rebuilt. Browser control was unavailable, so new desktop/tablet/narrow overflow, focus, contrast, physical touch, screen-reader and screenshot checks remain pending. Older selection screenshots do not prove review-page appearance. No professor UI assets/theme were copied.

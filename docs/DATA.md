@@ -1,6 +1,6 @@
-# Common Table data foundation - Prompt 05
+# Common Table data, cart and review foundations
 
-Implemented locally on `catalog-data`, based on UI evidence commit `3ce83e25975870cc8fbadb42c3267086729117d7`. SQLite is the accepted exam storage choice. This stage creates tables and seed data, not a working cart or payment flow. Requester: M3 Magos, assisted by Codex; member explanation/independent review remain pending.
+Implemented locally on `catalog-data`, based on UI evidence commit `3ce83e25975870cc8fbadb42c3267086729117d7`. SQLite is the accepted exam storage choice. Prompt 05 created tables and seed data. Prompt 06 added the session cart; Prompt 07 adds review confirmation. Payment completion remains future work. Requester: M3 Magos, assisted by Codex; member explanation/independent review remain pending.
 
 ```mermaid
 erDiagram
@@ -108,3 +108,19 @@ Native POST/redirect forms and JSON server-rendered fragments share the same act
 Implementation follows [Django sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/), [CSRF guidance](https://docs.djangoproject.com/en/6.1/howto/csrf/) and [Fetch behavior](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch). Tests used a separate in-memory database. No dependency or schema changes in this stage. Current selection/cart is uncommitted on cart-review; the earlier Prompt 05 storage/code/PR records remain historical evidence.
 
 Prompt 06 calculation/session implementation is now recorded as [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) on cart-review and [PR #4](https://github.com/Yray0-9/pos-app/pull/4) into catalog-data. No storage/schema changes at the Git checkpoint; review/payment completion/reset work remains pending.
+
+## Prompt 07 review confirmation and editable-cart lifetime
+
+`kiosk.cart.calculate_order()` remains the single calculation source for selection, review, Continue validation and guarded payment entry. Review uses live available Product records and Decimal amounts; no separate arithmetic is implemented in the review module or template.
+
+- GET /review/ calculates and renders the order without mutating the saved cart. Back is an ordinary GET to selection; it does not clear any namespace field.
+- The hidden signed token binds exactly displayed JSON-safe facts: customer_context UUID, cart revision, product IDs/names/unit prices/quantities/subtotals and total. Monetary strings retain two decimal places. Signing prevents tampering; it does not make old prices authoritative.
+- POST /review/continue/ requires CSRF and recomputes the cart. Empty, needs-refresh or over-limit orders, malformed context/revision, forged/other-session tokens and changed displayed facts are rejected with helpful feedback. The customer reviews the new order before proceeding.
+- An accepted POST saves `reviewed_order` comparison facts and a `payment_attempt` UUID under session['kiosk'], with explicit namespace reassignment. Repeated serial confirmation of the same facts reuses the attempt; different facts create a new attempt and clear old method/cash fields. Existing cart edits invalidate these reserved fields.
+- GET /payment/ revalidates current facts and the stored attempt before rendering a placeholder. No choice, charge, processing, sale completion or success/receipt is implemented. This stage does not establish atomic completion or duplicate-payment guarantees; those remain mandatory later work.
+
+Missing/deleted/unavailable records and corrupt quantities are omitted from valid totals with needs_refresh set. Review blocks progression and preserves raw state until explicit cart repair. Check needs_refresh before empty so an all-invalid saved order explains the correction. A repaired empty order still cannot advance. Price/name changes require a fresh confirmation; they do not change historical transaction snapshots.
+
+The editable cart and confirmation are temporary per-session customer state. Completed Transaction/TransactionItem snapshots are durable history; ordinary Back does not delete either, and future New Transaction must clear active customer state while retaining historical sale records. Full consecutive-customer reset/isolation is still Prompt 10 work. Simultaneous-tab writes are not guaranteed by the current session design.
+
+Reference: [Django signing documentation](https://docs.djangoproject.com/en/6.1/topics/signing/). The implementation uses the installed Django Signer sign_object/unsign_object API.

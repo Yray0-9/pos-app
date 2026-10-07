@@ -38,7 +38,7 @@ class CartTests(TestCase):
         for product in Product.objects.all():
             self.assertContains(response, product.name)
             self.assertContains(response, f'₱{product.price:.2f}')
-        self.assertContains(response, 'id="review-order" type="button" disabled')
+        self.assertContains(response, 'id="review-order" type="submit" disabled')
         self.assertContains(response, 'Tap an item on the menu')
         self.assertEqual(response.context['order']['total'], Decimal('0.00'))
         self.assertNotIn('kiosk', self.client.session)
@@ -192,7 +192,8 @@ class CartTests(TestCase):
         self.assertEqual(response.redirect_chain, [('/', 302)])
         self.assertContains(response, '&lt;script&gt;alert(1)&lt;/script&gt;')
         self.assertNotContains(response, '<script>alert(1)</script>')
-        self.assertContains(response, 'id="review-order" type="button" disabled')
+        self.assertContains(response, 'id="review-order" type="submit"')
+        self.assertNotContains(response, 'id="review-order" type="submit" disabled')
         self.assertIn('no-store', response.headers['Cache-Control'])
         Product.objects.all().update(is_available=False)
         self.assertContains(self.client.get('/'), 'No items are available right now')

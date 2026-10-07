@@ -8,7 +8,7 @@ This is the persistent checklist for our step-by-step work. Read and update it w
 
 The user wants guidance and understanding at each stage, an original interface, and complete coverage of the exam and photographed checklist. Magos's latest request permits adapting the sample's menu-and-order organization while retaining Common Table's own branding, colors, typography, products and artwork. DESIGN.md section 13 is the current layout direction; earlier behavioral-reference-only statements describe the previous plan.
 
-Current stage: Prompt 06 selection/cart implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) committed/pushed on cart-review; [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open/unmerged into catalog-data (base 796b5da). All 24 tests and configuration/dependency/migration/JavaScript/scope checks passed. Genuine review pending; quota-only bot COMMENTED notice, no inline/discussion findings or CI checks/statuses. Next numbered stage: Prompt 07 on the same cart-review branch after inspecting/reusing its state. No new branch, merge, deployment, reviewer contact or automatic feature work. F01/F03-F06 have local evidence, F02/F20 only selection-stage evidence. Individual Magos explanation, Agbas/Daro implementation/accounts, real peer review and main integration remain pending.
+Current stage: Prompt 07 order review is implemented and checked locally on the existing cart-review branch (HEAD 11f7335f0311bb66e2de5f35a250dc09726af8fb). These new changes are uncommitted and are not yet in PR #4. All 35 data/cart/review tests pass; live HTTP/CSRF navigation and the local CSS build pass. New browser visual/focus/overflow checks remain pending because the browser tool is unavailable. Back preserves the session cart; Continue revalidates the exact current order and opens a guarded payment entry placeholder. No payment completion, receipt or customer reset is implemented. Next: a separately requested scoped Git checkpoint B, then branch inspection/preparation as needed before Prompt 08. No Git mutations, new branch, reviewer contact, merge or deployment occurred in Prompt 07. Genuine peer review, other members' feature contributions/explanations and final main integration remain pending.
 
 Sources reviewed:
 - `C:/Users/Romul/Downloads/IT415_Practical_Exam.pdf`: all 8 pages.
@@ -390,3 +390,22 @@ A real browser bug (hidden action field shadowed form.action) was found and fixe
 Actual feedback source: [Copilot quota notice](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047), COMMENTED; bot explicitly could not review. No inline findings, discussion comments, requested code changes, CI checks/statuses or approval. No invented feedback/resolution. Genuine non-author review needed from Agbas/Daro after confirming accounts or an instructor-accepted reviewer. Magos's independent understanding and Agbas/Daro implementation/contribution evidence remain pending. The configured name change is preserved as observed; no identity/configuration was changed by the assistant.
 
 This documentation-only follow-up records the real returned commit/PR/review evidence under the current checkpoint authorization; it is evidence maintenance, not an artificial new application development stage. Next numbered stage Prompt 07 reuses cart-review after inspection. No automatic feature implementation.
+
+## Prompt 07 - current order review, 2026-10-07
+
+Implemented and verified locally on the existing cart-review branch, based on HEAD 11f7335. Scope is order review and guarded entry to the next stage, not F09 payment-method selection or payment completion.
+
+| Requirement | Implemented behavior / evidence | Remaining limitation |
+| --- | --- | --- |
+| F07 order summary | Current names, unit prices, quantities, subtotals and total reuse the same calculator as selection; 279.50 example agrees, edits recalculate to 364.50/240.00 | New browser visual check and human demonstration pending |
+| F08 Back | Ordinary GET/Back preserves selections and quantities; repeated navigation and editing verified | Concurrent session writes across tabs not guaranteed |
+| F02 touch controls | Same palette/base/progress; Back and Continue specify at least 56px height; responsive summary and retained accessible labels | Physical touch, focus/contrast/overflow and screen-reader checks on these pages unrun |
+| F20 state correctness (partial) | Continue freshly validates cart and signed displayed facts; empty/stale/invalid/unavailable/oversized orders blocked; direct payment entry guarded | Entire seven-step flow, payment, receipt and reset still pending |
+
+Missing/deleted/unavailable products and corrupt quantities are excluded by the shared calculator with a warning. GET review does not silently remove raw selections. Continue is blocked until explicit Update order or a valid cart edit repairs them; an all-invalid cart explains repair, then genuinely empty carts remain blocked. Database price/name changes require renewed confirmation rather than freezing an editable order.
+
+35 automated tests pass, including 11 review tests; live HTTP with a fresh cookie jar/real CSRF passes, local CSS build passes, existing migration drift/configuration/dependency checks pass. Browser tool unavailable: no new screenshot or visual acceptance inferred from older evidence. No completed sales written and no migrations/models/dependency versions changed by this feature.
+
+Branch count is not a fixed exam requirement. Six feature branches plus main were proposed; 06-07 deliberately share cart-review. Genuine Agbas QR/card implementation and Daro receipt/reset implementation are possible remaining tasks, subject to their agreement/accounts and shared interface review. Small cosmetic commits alone cannot be assumed to satisfy each-member feature/understanding requirements. Work remains attributed to Magos with Codex assistance; other member contributions and Magos's independent explanation are pending.
+
+Next: separately authorized scoped Git checkpoint B for the uncommitted review milestone, then inspect/prepare the payment branch and paste Prompt 08. No Git mutation or automatic next-stage implementation occurred here.
