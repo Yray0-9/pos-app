@@ -157,3 +157,51 @@ Pending: Magos's visual acceptance, physical touchscreen, screen reader, 200% zo
 - Final branch/status/scope/whitespace checks performed after documentation edits; only evidence/current-status documentation should differ from the UI base. No catalog/model/seed/migration/runtime changes, commits, pushes, PR updates or merges.
 
 No fresh remote server, CI, reviewer or instructor verification asserted. Existing UI tests remain tests of the UI milestone. Prompt 05 verification is pending.
+
+## Prompt 05 and authorized UI evidence commit
+
+2026-10-07, approximately 13:44-14:03 Asia/Singapore. Verifier Codex tools; requester Magos. Final tested state: catalog-data at HEAD 3ce83e25975870cc8fbadb42c3267086729117d7 plus uncommitted data/evidence files. Not a human teammate/instructor test record.
+
+| Check | Actual result |
+| --- | --- |
+| Initial checkout/setup | Seven evidence edits only; no .env or database initially. First showmigrations failed due to missing DJANGO_SECRET_KEY. Existing init_env.py created ignored private .env with no values printed; retry showed standard migrations unapplied |
+| UI commit requested by user | Switched to UI preserving edits; selected exactly seven documentation files; staged secret/scope/whitespace scan passed. Commit 3ce83e2 succeeded with configured author Yray0-9. No push, PR or merge; UI ahead of local origin by one |
+| Simple task branch | Created catalog-data from new UI commit; removed unused codex/catalog-data after confirming zero unique commits. Exact SHA/branch verified; local .env preserved; no upstream |
+| Data generation/check | New kiosk 0001_initial generated for three models; manage.py check passed |
+| First test run | 14 tests ran; required-context case reached NOT NULL IntegrityError rather than ValidationError and caused cascading broken-transaction errors. Other data cases passed. Missing noneditable/server-managed values needed explicit model validation |
+| Applied fix/retest | Transaction.clean checks required attempt/context/reference/timestamp explicitly. Extended null/empty checks; final 14 tests passed in separate in-memory SQLite, including unique IDs, Decimal roundtrip/arithmetic, method/cash consistency, invalid money/quantities, snapshot retention, seed preservation, DB constraints and atomic rollback |
+| Local migration | Inspected database: empty zero-byte file created by setup inspection, no existing data. Migration plan inspected; 19 migrations applied, including kiosk 0001 and standard dependencies. Nothing deleted or rewritten |
+| Local seed/reseed | First command 6 created/0 preserved; second 0 created/6 preserved. IDs unchanged; each stored product passed full_clean and prices were Decimal with agreed two-decimal values |
+| Runtime state | Local Transaction/TransactionItem counts both 0. Test sales were isolated to the test database, not demonstration receipts |
+| Configuration/migration consistency | manage.py check passed; makemigrations --check --dry-run reported No changes detected; migration executor found no outstanding migrations |
+| Existing root | Django client root HTTP 200; presentation remains static/unavailable; no template/CSS/URL/view changes in this stage |
+| Final source scope | Final whitespace/private-file/status review performed after evidence updates. Environment, database and generated caches remain excluded from feature files; historical main private-file issue remains separate |
+
+The initial test failure and its real fix belong to this data milestone; they are not counted as a separate fabricated bug-fix stage. No browser styling checks rerun because no rendered code changed. No UI cart/payment, idempotent endpoint, receipt authorization/reset, browser-back, real peer review or all-member acceptance pass asserted. No fresh remote/PR/CI inspection this stage.
+
+## Reusable E for Prompt 06 - checkout inspection only
+
+2026-10-07, approximately 14:03-14:06 Asia/Singapore. Verifier Codex tools; requester Magos. Actual branch catalog-data at 3ce83e25975870cc8fbadb42c3267086729117d7, no upstream. Existing local branches: main, codex/setup-foundation, codex/ui-foundation, catalog-data; no cart-review. UI remains one commit ahead of its locally recorded origin ref.
+
+Initial inventory: seven modified documentation files, new DATA.md and seven Python model/seed/migration/test package files. No catalog implementation commit since the prior turn. Whitespace inspection passed. No remote/PR state refresh and no application tests rerun; prior 14 tests remain results for Prompt 05.
+
+Branch transition was not performed: uncommitted catalog prerequisite needs its own scoped checkpoint, while current user constraints forbid committing it. No stash, resets, removals, Git mutations, migrations or runtime changes. Only five evidence/plan documents changed in this inspection; app/source, README, private environment and local database hashes were checked against the captured baseline after editing. Final branch/HEAD and whitespace/status were verified. No Prompt 06 pass claimed.
+
+## Combined B/E catalog pre-commit review
+
+2026-10-07, approximately 14:10-14:16 Asia/Singapore. Verifier Codex; requester Magos. Before catalog commit: catalog-data at UI evidence SHA 3ce83e2 plus reviewed milestone/evidence changes.
+
+- Reran 14 tests: pass in separate test SQLite. manage.py check and pip check passed; makemigrations --check --dry-run found no changes. No new implementation changes required.
+- Local database: six products passed full_clean; completed sales/items zero; migration executor has no pending migrations. Existing root response HTTP 200. Prior seed/visual tests retained; no additional browser/transaction-flow pass claimed.
+- Verified origin fetch/push exactly matches intended GitHub repo with no embedded credentials, configured name Yray0-9. Secret absent from shareable files; .env, database and ignored checkpoint helper excluded.
+- Fresh authenticated API confirmed Yray0-9 push access, public repo, main at 141af01, UI remote 3cad483, no catalog/cart-review refs or existing catalog PR. Parent PRs #1/#2 open/unmerged; bot quota messages remain non-substantive review.
+- Published UI evidence parent 3ce83e2; ordinary push succeeded without force. Private main history unchanged. Privately compared key values: current development key differs from tracked main key; no values printed.
+- Catalog staged scope/whitespace/secret review and actual commit/PR results are recorded after their operations. Next stage remains conditional on completing B; no cart code or reviewer messages.
+
+## Catalog B - actual commit/push/PR checks
+
+- Staged 15 selected files; whitespace/scope/private-secret checks passed. Commit a02288bca6d1fda50cfea7191066b25cf47e46e2 created with configured author Yray0-9; clean checkout observed after commit. No application changes during checkpoint.
+- Ordinary UI parent push 3cad483..3ce83e2 succeeded. Catalog push created origin/catalog-data/upstream; local/remote-tracking heads matched implementation SHA.
+- PR #3 created/attached, open/unmerged, author Yray0-9, head catalog-data at implementation SHA, base codex/ui-foundation at 3ce83e2. Fresh API status found Copilot COMMENTED quota message/no inline findings; checks/statuses empty. No CI/reviewer approval claimed.
+- Reviewed diff against UI parent covers this milestone/evidence only. No main change, force push, merge, deployment or reviewer contact. Current private key differs from publicly tracked main key; no values printed. Original main history issue remains unresolved.
+- Follow-up docs record actual evidence before E. App checks are the already passing 14 tests/configuration/dependency/migration checks; no browser or payment acceptance added.

@@ -287,3 +287,11 @@ Local Tailwind build, Django check, root rendering, valid inline artwork referen
 ### Later checkout observation
 
 The next reusable E request found the workspace revision already committed as 3cad483 and clean; this supersedes section 13's earlier uncommitted-state snapshot. Magos requested proceeding to the next feature branch, which is prepared as codex/catalog-data from that commit. This supports advancing with the current layout; detailed personal visual evaluation, instructor approval and peer review are not inferred. No design or application code changed during branch preparation.
+
+## 14. Prompt 05 data decisions implemented
+
+SQLite product, completed Transaction and TransactionItem tables now exist. DATA.md documents every field. Unit prices use eight total digits/two decimals; sale/subtotal/paid/change use ten/two. Product price, line subtotal and sale total must be positive; quantity range is 1-99 per line. These limits and optional product descriptions are implementation choices, not professor rules. Session/customer behavior and original workspace design are unchanged.
+
+Stable seed keys create only missing products; existing catalog edits are intentionally preserved. Historical lines retain name/unit-price/quantity/subtotal snapshots when products are edited/deleted. Database uniqueness protects public references and payment-attempt UUIDs. Python clean/full_clean enforces exact Decimal cash-change and line arithmetic; database checks enforce supported methods/ranges and exact QR/card values. Future shared completion must call full_clean, validate aggregate totals/nonempty orders and save all records atomically. No database-enforced immutable history, payment endpoint, session authorization or reset implementation is claimed.
+
+All 14 data tests passed; local migrate/seed/reseed and migration-drift checks passed. See TEST_RESULTS.md. Magos requested simplifying future branch names; catalog-data is the actual local feature branch based on UI evidence commit 3ce83e2. Later authorized checkpoint recorded data code as a02288bca6d1fda50cfea7191066b25cf47e46e2 and [PR #3](https://github.com/Yray0-9/pos-app/pull/3); UI parent evidence is published. Genuine review pending; no cart work or merge. Stop before Prompt 06 implementation.

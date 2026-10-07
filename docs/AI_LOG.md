@@ -307,3 +307,39 @@ Assistant evaluation: the UI base preserves required foundation files and exclud
 Magos explicitly requested committing the prior branch-preparation changes on the UI branch and simpler future branch names. The latest UI was already recorded at 3cad483; seven pending files contain evidence/status records only. Assistant switched from the unused catalog branch to codex/ui-foundation, preserving all pending files. Scoped local commit requested; push/PR/merge and future feature commits are not automatically authorized. Proposed branch grouping is six feature branches plus main, subject to genuine task/member needs. Historical names and authorship remain unchanged. Actual returned commit/base are recorded after the operation, not invented in advance.
 
 Setup observation for Prompt 05: local .env/database absent; initial showmigrations failed with missing DJANGO_SECRET_KEY. Existing scripts/init_env.py created a new ignored private development .env without displaying values. Subsequent showmigrations succeeded with all standard migrations unapplied. No existing database was deleted and no production credential changed. This is an observed local setup issue, not a fabricated application bug-fix stage.
+
+## AI-05 - catalog and completed-sale data foundation
+
+Requester M3 Magos; approximately 13:44-14:03 Asia/Singapore work interval (not exact exported user timestamp). Actual user pasted Prompt 05's five-field context/objective/requirements/constraints/expected output and additionally requested a UI-branch commit, fewer understandable branches and removal of the codex prefix if possible. Prompt 05 is preserved verbatim in BUILD_PROMPTS.md; the Git/naming additions are summarized here, not invented as a professor rule.
+
+Assistant response: commit the seven previous evidence records on UI as actual SHA 3ce83e2, then create simpler catalog-data from that updated base and safely remove the unused prior task name. No push/PR/merge. Proposed six feature branches plus main by grouping cart/review and payment stages; genuine extra/member branches may be needed. Existing published branches unchanged. Restored missing local development env via existing script, preserving privacy.
+
+Implemented Product, Transaction and TransactionItem, generated/applied new initial migration, added create-missing-only six-product seed and 14 meaningful data tests. Exact Decimal arithmetic/amount rules, DB uniqueness/constraints, snapshots, historical deletion protection and rollback were verified. DATA.md explains all fields, limits, guarantees and planned shared server pricing/completion/session duties. UI binding/cart/payment behavior is deferred to the stated next stages.
+
+Actual debugging: initial tests exposed missing required values on editable=False fields reaching DB NOT NULL rather than model ValidationError; further test errors followed a broken test transaction. Added explicit server-field requirements in Transaction.clean and expanded empty/reference/time cases. All 14 tests then passed. No retroactive fake error, extra stage or separate bug-fix commit is claimed. Local seed/migration/HTTP checks and limitations are in TEST_RESULTS.md.
+
+Assistant evaluation: storage and exact validated monetary/snapshot values are ready for later transaction code; Model.save alone does not perform full_clean, and schema constraints do not prove aggregate totals, nonempty order, immutable app behavior, payment retries or session authorization. These remain explicit service-stage responsibilities. User code evaluation/explanation and genuine other-member implementation/review remain pending.
+
+Current data code/evidence are uncommitted on catalog-data. UI evidence commit is local and still requires publishing to be visible on GitHub. No impersonation, reviewer contact, inventory/login/report features or live gateway. Stop before Prompt 06.
+
+## AI-E-03 - requested next branch; catalog checkpoint still pending
+
+Requester: M3 Magos. Actual request pasted reusable E and authorized local branch preparation only; explicit constraint excerpt: "No impersonation, resets, force operations, commits, pushes, PRs, merges, or automatic feature implementation." Inspection interval: 2026-10-07, approximately 14:03-14:06 Asia/Singapore, not an exported user-message timestamp.
+
+Assistant inspection found unchanged catalog-data HEAD 3ce83e2, seven modified documents and eight untracked data/guide files. No cart-review branch exists. Next assignment is Prompt 06 (later 07 on the same planned branch), intended for Magos with AI assistance, not an already implemented task. Previous authorization covered the UI evidence commit only and was already fulfilled.
+
+Assistant outcome: kept catalog-data and all files intact; no Git mutation or feature implementation. Documented the specific prerequisite: commit the existing catalog milestone through an authorized checkpoint before changing task branches. Source/env/database preservation checked without displaying private values. No new tests, commits, PRs, peer review or member contributions asserted. Next: reusable B or user-performed catalog checkpoint, E again, then Prompt 06.
+
+## AI-GIT-05 - combined B then E explicitly requested
+
+Magos pasted reusable B followed by reusable E in the same message. B authorizes this catalog commit/push/review PR; E authorizes the next local task branch only after the catalog checkpoint. No merge, deployment, reviewer messages or Prompt 06 implementation. The previously requested simple names apply: catalog-data, then intended cart-review. Author Yray0-9 preserved; no contributions assigned to other members.
+
+Pre-commit review reran all 14 data tests (pass), Django configuration check (pass), pip check (pass), migration drift check (no changes), migration-state/product validation and existing root HTTP 200. Local sales/items remain zero. Reviewed models, seed, initial migration, tests and relevant evidence; no unrelated user edits identified. Private values excluded from selected/shareable contents.
+
+Fresh GitHub readback: account Yray0-9, intended public repository Yray0-9/pos-app, push access true; no catalog branch/PR or cart-review remote branch. Setup/UI PRs open and unmerged; existing reviews are Copilot COMMENTED quota messages, not approvals. Used cached credentials privately; sandbox-only credential lookup was unavailable, permitted access succeeded without exposing values. Published existing UI evidence commit 3ce83e2 as the catalog PR's parent dependency. Main public .env history remains unresolved; current local development key differs from that tracked key. No main cleanup/history rewrite is authorized by this checkpoint. Actual catalog SHA/PR are recorded after creation.
+
+### AI-GIT-05 - actual catalog outcome
+
+Created implementation a02288bca6d1fda50cfea7191066b25cf47e46e2 with unchanged configured author Yray0-9; 15 scoped files. Published UI evidence parent 3ce83e2, pushed catalog-data with tracking, created and attached PR #3 (https://github.com/Yray0-9/pos-app/pull/3) into codex/ui-foundation. Fresh status verified open/unmerged/expected SHA. Actual review source [Copilot quota entry](https://github.com/Yray0-9/pos-app/pull/3#pullrequestreview-5438370873) is COMMENTED quota exhaustion with no inline findings, not a successful review/approval. Check runs/statuses empty; no CI pass. No code feedback exists to resolve.
+
+Documentation-only follow-up records returned links and pending reviewer/member/integration gaps on the same catalog branch. E follows from the complete recorded state; no Prompt 06 implementation or merged PR. Confirmed public main includes prior .env history, while current local key differs; left unrelated main untouched and recorded the issue. No author impersonation, teammate attribution or reviewer message.
