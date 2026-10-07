@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** local `codex/catalog-data` branch prepared for Prompt 05 from clean UI commit `3cad483`. The menu-and-order workspace is recorded in that pre-existing commit; six cards and Review remain disabled previews. Catalog models, cart, payments, receipt and reset remain future work. Branch/evidence preparation only was performed in this stage.
+**Current milestone:** Prompt 05 data foundation verified locally on `catalog-data`. Product, completed-sale and sale-item models, migrations, repeatable seed and 14 passing data tests exist. Six products are stored in SQLite; the screen still shows disabled static previews until Prompt 06. Data changes are uncommitted. UI evidence commit `3ce83e2` is on `codex/ui-foundation`, locally ahead of origin by one; not pushed by this stage.
 
 ## Course and group
 
@@ -18,7 +18,7 @@ See [member register](docs/MEMBER_REGISTER.md) for actual evidence and unverifie
 
 Python 3.14.4 and Django 6.1.2 were observed in the existing Windows virtual environment. All currently installed application packages are pinned in `requirements.txt`; pip itself is tooling and is not a runtime requirement. `python-dotenv` loads the private environment file.
 
-The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records, and a Django session cart. Templates and CSS now exist; no JavaScript is needed for this foundation. SQLite suits this local exam demonstration because it needs no separate database service. The cart will hold active state; completed sale snapshots will preserve receipt values. Money calculations will use Python Decimal. These models and behaviors remain future work.
+The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records, and a Django session cart. Templates and CSS now exist; no JavaScript is needed for this foundation. SQLite suits this local exam demonstration because it needs no separate database service. The cart will hold active state; completed sale snapshots will preserve receipt values. Money calculations will use Python Decimal. The three persistent models are now implemented; session cart and customer transaction behavior remain future work.
 
 ## Set up on Windows PowerShell
 
@@ -82,7 +82,7 @@ References: [official Tailwind CLI instructions](https://tailwindcss.com/docs/in
 
 Open [localhost](http://127.0.0.1:8000/). `/` serves the Common Table foundation; `/admin/` remains the standard Django admin route. Stop the server with Ctrl+C. Build CSS before starting the server. If a new static directory was created after starting with `--noreload`, restart the server so Django discovers it. Styling itself can be rebuilt and viewed after a browser reload. With `--noreload`, template edits may also require a server restart because the template loader caches them; restart when the old HTML persists.
 
-No migrations have been applied in Prompt 03. Admin login and database-backed sessions are not ready until the later authorized migration/setup stage. Do not run migration commands solely from this document during Prompt 03.
+Prompt 05 applied the new kiosk migration and Django's standard dependency migrations. Before running a fresh prepared checkout, run `manage.py migrate` and `manage.py seed_catalog` as shown below. No superuser, customer login or custom admin feature has been created.
 
 ## Template and static-file responsibilities
 
@@ -103,7 +103,7 @@ The progress list is informational, with no fake links. No transaction is active
 .\venv\Scripts\python.exe manage.py check
 ```
 
-The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). Foundation checks include HTTP/CSS delivery, deterministic CSS builds, watcher updates, feedback escaping/semantics, keyboard focus, and desktop/tablet/narrow-screen overflow. No transaction acceptance test is claimed. Model migrations, seeding, and feature tests remain for their authorized stages.
+The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). Foundation checks include HTTP/CSS delivery, deterministic CSS builds, watcher updates, feedback escaping/semantics, keyboard focus, and desktop/tablet/narrow-screen overflow. No transaction acceptance test is claimed. Prompt 05 migrations, repeatable seeding and 14 data tests are verified; cart/payment/receipt endpoint tests remain for their authorized stages.
 
 ## Development and evidence workflow
 
@@ -130,9 +130,9 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 ## Current limitations
 
-No working products, cart, checkout, payment, receipt, or reset exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
+Catalog records now exist; working product selection, cart, checkout, payment, receipt and reset remain unimplemented. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next: Prompt 05; reusable E is now completed for codex/catalog-data.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next numbered stage: Prompt 06 after the catalog Git checkpoint and suitable branch preparation.**
 
 
 The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is now in pre-existing commit 3cad483, matching the local origin/UI ref. Magos requested preparing the next branch; detailed visual evaluation remains unrecorded. Current remote PR/review state was not refreshed during branch preparation.
@@ -142,6 +142,19 @@ The UI branch is now remotely available for review. After cloning, use `git swit
 
 ## Catalog branch preparation and integration issue
 
-Reusable E created local `codex/catalog-data` from UI commit `3cad483`; no feature implementation or Git publication performed. Paste Prompt 05 next. Branch records are the only new working changes.
+Reusable E initially created `codex/catalog-data`. Following Magos's naming/commit request, the evidence records were committed on UI as `3ce83e2`; an unused local task branch was replaced with `catalog-data` from that updated base. Prompt 05 now has uncommitted models/migration/seed/tests/evidence. No push, PR change or merge occurred.
 
 The currently recorded main/origin/main commit `141af01` tracks `.env` and generated package/cache artifacts while omitting prepared application sources. It was left untouched and was not used as the catalog base. Resolve this before integration/publication; if the private key was published, replace it. No secret values are included in evidence. Main cleanup/review/merge and fresh remote/PR checks are separate work requiring appropriate authorization.
+
+## Data setup and verification
+
+```powershell
+.\venv\Scripts\python.exe manage.py migrate
+.\venv\Scripts\python.exe manage.py seed_catalog
+.\venv\Scripts\python.exe manage.py test kiosk
+.\venv\Scripts\python.exe manage.py makemigrations --check --dry-run
+```
+
+Read [DATA.md](docs/DATA.md) for every stored field, money/quantity limits, storage guarantees and the planned shared calculation/completion flow. Seed again safely: it creates only missing agreed products and preserves IDs, custom edits, unrelated records and sales. The local database is ignored; commit migrations and seed code instead. Test sales use a separate in-memory database.
+
+The UI evidence commit 3ce83e2 remains local. Magos can publish that specific commit with `git push origin codex/ui-foundation` from any branch after checking the current state. Catalog work needs its own scoped commit/review checkpoint. Future simple task names/grouping are recorded in BUILD_PROMPTS.md; six feature branches plus main are proposed, not a fixed rubric requirement or completed member record.

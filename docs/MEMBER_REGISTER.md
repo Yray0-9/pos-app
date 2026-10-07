@@ -15,7 +15,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | codex/catalog-data, local only; based on UI commit 3cad483d1e930c23c0ae7d8f0e34ae451cdadd57; no upstream yet |
+| Current local branch | catalog-data, local only; UI evidence base 3ce83e25975870cc8fbadb42c3267086729117d7; Prompt 05 implemented/tested but uncommitted |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
 | Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); codex/catalog-data (local, intended Prompt 05 only) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (local Prompt 05 implemented/tested, uncommitted; prior codex/catalog-data name removed) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -147,3 +147,24 @@ Dependency: catalog branch builds on the prepared UI/setup history. A future sco
 Magos requested recording the previous seven branch/evidence files on codex/ui-foundation. They are documentation for real setup/UI/next-branch state; no catalog code is included. Local configured author is preserved. Commit result will be recorded after creation on the next task branch. GitHub visibility requires a later push; no publication is asserted yet.
 
 Proposed simplified grouping: existing codex/setup-foundation and codex/ui-foundation; catalog-data for Prompt 05; cart-review for 06-07; payments for 08-09; receipt-reset for 10. Six feature branches plus main are planned, not a completed branch inventory. Later review, genuine fixes/refactors, docs and member implementation tasks may require more. No teammate contribution is established by this proposal. The unused local codex/catalog-data has no feature commits; replace it from the updated UI base without retaining a duplicate task branch.
+
+## UI evidence commit and Prompt 05 actual contribution record
+
+- User-requested local UI documentation commit: 3ce83e25975870cc8fbadb42c3267086729117d7, configured author Yray0-9; message Record UI verification and catalog branch preparation. Seven reviewed evidence files only; secret/scope/whitespace checks passed. Local origin/UI remains 3cad483, so publication of this commit is pending. No new PR or independent review is asserted; commit URL becomes viewable after push.
+- Actual feature branch: catalog-data from that UI evidence commit; no upstream. Unused codex/catalog-data had zero unique commits and was safely removed after replacement; published branch names retained. Application foundation/local files preserved.
+- Actual requester/responsible member: M3 Magos, assisted by Codex. Implemented/tested Prompt 05 models, initial migration, repeatable catalog seed and data tests. Human evaluation/explanation/demonstration remain pending; Agbas/Daro work is not asserted.
+- Data commit/push/PR/source-target/reviewer/feedback/merge: pending. Intended later PR target remains codex/ui-foundation while its dependency is unintegrated, with actual remote state checked at that checkpoint. Evidence: DATA.md, TEST_RESULTS.md and AI_LOG.md.
+
+## Reusable E for cart/review - checkout dependency unresolved
+
+2026-10-07, approximately 14:03-14:06 Asia/Singapore. Current requester: M3 Magos. Intended next work: Prompt 06 selection/session cart controls, then Prompt 07 review/navigation, on planned cart-review (simple name previously requested). This is an intended task, not an implemented contribution. No Agbas/Daro work inferred.
+
+Actual checkout remains catalog-data at 3ce83e25975870cc8fbadb42c3267086729117d7, no upstream. No cart-review branch exists. Seven tracked documents and eight new files (DATA guide plus seven Python package/model/seed/migration/test files) remain uncommitted from Prompt 05. The initial migration was already applied locally, so moving or discarding it would break reproducibility/history. Models/seed/tests are the catalog prerequisite, not completed cart work.
+
+No independent catalog commit authorization applies: previous explicit commit request was fulfilled on UI only; this E expressly prohibits commits/pushes/PRs/merges. Left branch/files intact and recorded the dependency. Next action: a scoped catalog Git checkpoint (reusable B or Magos's own actions), then E again before Prompt 06. Source/target/commit/PR evidence for catalog still pending. Main issue, UI publication, reviews and individual contributions remain unresolved.
+
+## Combined B/E authorization and verified dependency
+
+Magos explicitly requested catalog checkpoint B, then next-branch E. Actual account/configured author Yray0-9 retained. Seven prior docs plus DATA guide/model/seed/migration/tests are this catalog milestone, with no teammate contribution asserted. Existing UI evidence commit 3ce83e25975870cc8fbadb42c3267086729117d7 is now pushed as the parent dependency; no UI merge.
+
+Fresh repo/PR inspection confirmed public Yray0-9/pos-app and push access, no catalog/cart-review remote branches or catalog PR yet. Parent PRs remain open/unmerged and their bot quota entries are not genuine approval. Intended catalog PR source catalog-data, target codex/ui-foundation while parent is unintegrated. Real non-author review needed from Agbas/Daro with confirmed accounts or an instructor-accepted reviewer; none contacted. E intends cart-review for Magos's Prompt 06-07 work, not a completed contribution.
