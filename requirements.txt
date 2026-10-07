@@ -1,0 +1,6 @@
+# Verified Windows/Python 3.14.4 environment for Prompt 03.
+asgiref==3.12.1
+Django==6.1.2
+python-dotenv==1.2.4
+sqlparse==0.6.0
+tzdata==2026.5
