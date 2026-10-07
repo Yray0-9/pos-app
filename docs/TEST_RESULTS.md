@@ -129,3 +129,19 @@ Still untested: physical touchscreen, screen-reader operation, zoom/reduced-moti
 - [PR #2](https://github.com/Yray0-9/pos-app/pull/2) created/attached: open, merged=false, author Yray0-9, source codex/ui-foundation, target codex/setup-foundation, initial head exactly the implementation SHA. No check runs/statuses returned; no CI pass asserted.
 - Empty reviews at creation; later inspection found [Copilot COMMENTED quota entry](https://github.com/Yray0-9/pos-app/pull/2#pullrequestreview-5437802476), no inline findings. Genuine human review/feedback resolution pending.
 - Main/setup parent verified before push; no force push, merge or deployment. Evidence follow-up changes docs only. A documentation-recording helper first failed to parse an f-string before any file writes; corrected helper recorded actual returned links. This is not an application bug-fix stage. Final branch/remote verification follows the evidence push.
+
+## Prompt 04 menu-and-order workspace revision
+
+2026-10-07, approximately 13:00-13:18 Asia/Singapore. Verifier: Codex tools/browser; requester Magos. Tested state: codex/ui-foundation at HEAD fa76162e758e72da445f729ce0d5e99d0faa8d71 plus uncommitted workspace/evidence changes, not PR #2's committed UI. No independent member verification asserted.
+
+- Tailwind 4.3.3 production build succeeded. Built CSS SHA256: 5345f2764755584dcbc9b641a4ba322f7faf9df71fad4059d7aebfa50e514f9e.
+- Django manage.py check: no issues (0 silenced). Root via Django test client: HTTP 200; six product preview buttons and Review disabled; six SVG use references resolve to unique inline symbol IDs; document IDs unique; stylesheet/favicon references local. No database/migration work required.
+- Browser displayed local CSS and all six original illustrations. Desktop 1280x900: three product columns beside order panel; document clientWidth=scrollWidth=1265. Compact desktop 1024x768: two product columns beside panel, widths=1009. Tablet 768x1024: two product columns with order below, widths=753. Narrow 360x800: one column with order below, widths=345. No horizontal overflow observed. Page requires vertical scrolling to view all content.
+- At narrow width, skip control 48px, Review 56px, disclosure 56px. Desktop product preview buttons approximately 321.6px high. Decorative plus marks are not separate working controls.
+- Tab focused Skip to content with a solid plum outline (computed 2.4px); Enter focused main-content. Native summary Enter opened the future-flow explanation with a visible focus outline, then closed again. Disabled product/payment controls cannot initiate a transaction.
+- Saved and visually inspected docs/evidence/ui-foundation-workspace-desktop.jpg. Previous screenshots retained as historical evidence. Browser viewport override restored; local preview retained.
+- Final git diff --check passed after evidence edits. Browser readback confirmed the local built stylesheet was loaded (37 top-level CSS rules) and system typography applied. No branch/commit/push/PR/merge mutations during this revision.
+
+Browser recovery observation: the previous turn's tab was no longer available. Its empty tab inventory was verified and a new localhost preview was opened. No application defect or bug-fix stage is claimed. Local development server was restarted to refresh cached templates under --noreload. These are preview operations, not exam transaction tests.
+
+Pending: Magos's visual acceptance, physical touchscreen, screen reader, 200% zoom, OS reduced-motion toggle, other browsers/OS, fresh clone and all functional POS scenarios. Static card names/prices and zero total are fixtures; no trusted-money/cart acceptance pass is claimed. Reusing existing palette checks does not establish full accessibility compliance.

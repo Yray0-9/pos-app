@@ -4,7 +4,7 @@ Prepared: 2026-10-07 (Asia/Singapore). Prompt 02 planning output.
 
 ## Status and assignment context
 
-**Current visual revision:** Magos requested a more modern rendered result after Prompt 04. Section 11 documents the revised foundation and palette refinements; its user acceptance is pending. Earlier proposal/checkpoint sections preserve their historical context.
+**Current visual revision:** Section 13 is the current user-requested menu-and-order workspace. It replaces the large hero and earlier full-width order layout. This revision is locally implemented and checked; Magos's visual acceptance is pending. Sections 1-12 preserve earlier decisions/checkpoints and do not override section 13's current layout.
 
 The user accepted the proposed design direction on 2026-10-07: Common Table, cream/green/plum colors, the six-product catalog, products above a full-width order list, and SQLite with a session cart. This is the accepted planning baseline, not an implemented interface. Detailed interaction/data policies below remain design specifications to verify during implementation. No screens, models, migrations, dependencies, or Git operations were created by this stage. The customer workflow follows `docs/EXAM_PLAN.md`; the professor's sample UI is a behavioral reference only.
 
@@ -25,7 +25,7 @@ Confirmed preferences: original design, modern and calm, Django foundation, Tail
 
 Use a light warm canvas, dark green text/actions, soft sage state surfaces, and a restrained plum accent. Product names and prices are the main visual content. No required photography, oversized decorative payment illustrations, category filters, or animation-heavy transitions. Small original line symbols may support labels; controls remain understandable without them.
 
-Originality decisions: no dark navy header/orange action palette, no copied sample logo or product assets, no fixed right-hand cart, and no imitation receipt illustration. Our products appear above a full-width order list. Common controls such as quantity buttons and cash keypads remain familiar for usability.
+Originality decisions: no copied navy/orange theme, logo, product artwork or receipt illustration. The original proposal used products above a full-width order list. Magos subsequently requested the sample's workspace organization; section 13 now specifies the desktop menu beside an order panel. Common quantity controls and cash keypads remain familiar for usability.
 
 ### Color tokens
 
@@ -77,9 +77,9 @@ Equivalent calculation example for verification: rice bowl x2 = 170.00, wrap x1 
 
 ## 3. Original layout and responsive behavior
 
-### Selection screen: products above a full-width order list
+### Historical selection proposal: products above a full-width order list
 
-This text wireframe is a planning illustration, not an implemented screen:
+This earlier text wireframe is retained as planning history; section 13 replaces its layout. It is not the current screen:
 
 ```text
 +------------------------------------------------------------+
@@ -214,7 +214,7 @@ No previous-customer details go in localStorage or permanent client-side cart/re
 | Decision | Proposal | Status |
 | --- | --- | --- |
 | Identity | Common Table; Campus bites and everyday favorites | Direction accepted 2026-10-07 |
-| Palette/layout | Cream/green/plum; products above full-width order list | Direction accepted 2026-10-07 |
+| Palette/layout | Common Table colors; latest menu beside desktop order panel | Earlier full-width plan accepted; latest layout requested by Magos, rendered acceptance pending |
 | Catalog | Six items and prices in section 2 | Direction accepted 2026-10-07 |
 | Storage | SQLite catalog/completed sales; database-backed session cart | Direction accepted 2026-10-07 |
 | Money policy | Decimal; two decimals; reject excess fractional digits | Supporting design specification; implementation verification pending |
@@ -268,3 +268,18 @@ Verified: local CSS/art/favicon delivery, Django check, desktop/tablet/narrow no
 ## 12. UI milestone submitted for the Git review checkpoint
 
 After the revised preview, Magos stated the current milestone was completed and checked and explicitly requested commit/push/PR creation. The revised visual foundation is therefore the scope being recorded for review. This later request supersedes the earlier wait-before-Git state, but does not invent a detailed human design evaluation, instructor acceptance or independent code review. The design remains original and transaction requirements remain future work.
+
+## 13. Current menu-and-order workspace - visual review pending
+
+Magos explicitly requested adapting the sample UI's organization while keeping our own theme/project. The sample was visually rechecked: its selection screen places a product grid beside an order panel with a visible total/action area. The current local revision adopts that familiar pattern, not its navy/orange theme, branding, assets or exact screen reproduction. This overrides the earlier products-above-order layout; colors and data architecture remain our own. It is a design iteration within Prompt 04, not a new feature or fabricated bug-fix/refactor stage.
+
+- Compact white Common Table header, CT symbol, calm green/light canvas, system typography and plain four-step progress. The large welcome hero is removed.
+- Content max-width 1320px. At 1024px and above, flexible menu plus a 340px sticky order panel. Product grid is three columns at 1280px and above, two at 420-1279px, and one below 420px. Below 1024px, order panel follows products in normal flow. One vertical page scroll; no nested order scroll in this preview.
+- Six cards show the agreed names and two-decimal PHP prices, short descriptions and original inline food SVG artwork. No sample artwork or external font/image/CDN is used.
+- Right panel provides an explicit empty order, 0 items, static zero total and disabled Review order. Every product card is also genuinely disabled and labeled unavailable. These fixtures do not satisfy product selection, quantity controls or trusted calculation requirements; later stages bind server product/cart data.
+- Typography: 28/32px page heading, 18px product names, 16px descriptions, 20px prices. Existing touch controls, focus, escaped feedback and reduced-motion styling remain.
+- Future review, payment choices, cash/QR/card, success, receipt and reset retain the state/validation design in earlier sections. They will use the same visual language and clear totals/actions; no new payment screens or state behavior were implemented here.
+
+Local Tailwind build, Django check, root rendering, valid inline artwork references, desktop/tablet/narrow overflow and keyboard skip/disclosure checks passed. Full accessibility and application acceptance remain pending. See TEST_RESULTS.md for observed sizes and limits.
+
+[Current workspace screenshot](evidence/ui-foundation-workspace-desktop.jpg). User satisfaction/acceptance is pending. Local branch codex/ui-foundation at fa76162 plus uncommitted changes; PR #2 still contains the earlier hero design. No Git mutations were performed. Review this result before the scoped Git checkpoint and reusable E/Prompt 05.

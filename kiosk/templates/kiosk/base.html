@@ -11,18 +11,18 @@
 </head>
 <body class="min-h-screen">
   <a href="#main-content" class="touch-control fixed top-4 left-4 z-50 -translate-y-32 bg-ink text-white focus:translate-y-0">Skip to content</a>
-  <header class="bg-canvas">
-    <div class="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-4 px-5 py-6 sm:px-8 lg:px-10">
+  <header class="border-b border-line/70 bg-white">
+    <div class="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
       <a href="{% url 'kiosk:home' %}" aria-label="Common Table home" class="flex min-h-12 items-center gap-3 rounded-xl">
         <span class="flex size-12 items-center justify-center rounded-2xl bg-forest text-lime" aria-hidden="true">
           <svg viewBox="0 0 32 32" class="size-8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 8a9 9 0 1 0 0 16M16 12h12m-6 0v12"/></svg>
         </span>
-        <span><span class="block text-2xl leading-tight font-bold tracking-[-0.055em] sm:text-[28px]">common table<span class="text-leaf">.</span></span><span class="block text-sm text-muted sm:text-base">A little campus comfort.</span></span>
+        <span><span class="block text-2xl leading-tight font-bold tracking-[-0.055em] sm:text-[28px]">common table<span class="text-leaf">.</span></span><span class="block text-sm text-muted sm:text-base">Self-service campus kiosk.</span></span>
       </a>
-      <span class="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-leaf"><span class="size-1.5 rounded-full bg-leaf" aria-hidden="true"></span>Campus kiosk</span>
+      <span class="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-leaf"><span class="size-1.5 rounded-full bg-leaf" aria-hidden="true"></span>Menu preview</span>
     </div>
   </header>
-  <div class="mx-auto max-w-[1120px] px-5 sm:px-8 lg:px-10">
+  <div class="mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-10">
     {% block progress %}{% include 'kiosk/components/progress.html' with current_step=0 %}{% endblock %}
     <main id="main-content" tabindex="-1" class="pb-12">
       {% include 'kiosk/components/messages.html' %}

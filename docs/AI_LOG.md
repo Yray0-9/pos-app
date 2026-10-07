@@ -283,3 +283,13 @@ A genuine scoped commit and review PR when access permits, evidence links, check
 ### AI-GIT-03 — observed outcome
 
 Configured author/authenticated account Yray0-9 retained. Actual implementation [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b) pushed with tracking on codex/ui-foundation. [PR #2](https://github.com/Yray0-9/pos-app/pull/2) created into codex/setup-foundation, open/unmerged and attached. No reviewer communication, merge or deployment. After initial empty reviews, [Copilot quota entry](https://github.com/Yray0-9/pos-app/pull/2#pullrequestreview-5437802476) appeared with COMMENTED/no inline findings; no successful review/approval asserted. Follow-up evidence-only docs commit records actual returned links, not an extra application stage. Genuine review, other member features and human explanations remain pending. Next numbered stage: Prompt 05 after explicit feature branch preparation.
+
+## AI-04c - User-requested sample workspace adaptation
+
+- Requester: M3 Magos; 2026-10-07, approximately 13:00-13:18 Asia/Singapore (work interval, not exact exported user timestamp).
+- Actual prompt excerpt: "i want the Design like in the sample UI but don't copy the theme and project like only the UI". Full request is available in this chat; this entry summarizes it rather than fabricating a five-field prompt.
+- Assistant response/adaptation: visually revisited Sample UI PDF selection/order screens. Replaced large welcome hero with six original illustrated product previews beside a desktop order panel; preserved Common Table colors/branding, local assets, disabled functionality and responsive/keyboard behavior. Updated shared design rules to reflect the latest explicit layout request.
+- Verification: local Tailwind build, Django check, test-client preview/disabled/SVG checks, desktop/tablet/narrow overflow, keyboard skip/disclosure and saved screenshot. TEST_RESULTS.md records actual outcomes/limits.
+- Assistant evaluation: the workspace gives menu choices and the order total/action a clearer relationship, using a familiar ordering pattern. This is the assistant's assessment, not Magos's satisfaction or peer approval. Cards/prices are static fixtures pending later data implementation.
+- Human evaluation: latest request indicates dissatisfaction with the earlier rendering. Feedback on this new result, own explanation and any personal edits remain pending.
+- Git/member evidence: same UI branch at fa76162 plus uncommitted revision; no new commit/PR/review, no impersonation or teammate contribution. PR #2 contains the earlier committed layout. No Git mutations or progression to Prompt 05.

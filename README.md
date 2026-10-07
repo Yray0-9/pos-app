@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 04 UI foundation, committed/pushed on `codex/ui-foundation` and available in [PR #2](https://github.com/Yray0-9/pos-app/pull/2) through Magos's explicitly requested Git checkpoint. The Common Table page includes the requested modern visual revision. Reusable Django templates, local Tailwind build, keyboard access, and responsive spacing exist. Catalog, cart, payments, receipt, and reset remain future work; this is not a completed POS.
+**Current milestone:** Prompt 04 design review. A new local, uncommitted workspace revision shows six illustrated preview cards beside an empty desktop order panel, retaining Common Table's original styling. [PR #2](https://github.com/Yray0-9/pos-app/pull/2) contains the earlier committed foundation, not this revision. Reusable Django templates, local Tailwind, keyboard access and responsive spacing exist. Preview cards and Review order are disabled; catalog data, cart, payments, receipt and reset remain future work.
 
 ## Course and group
 
@@ -89,8 +89,8 @@ No migrations have been applied in Prompt 03. Admin login and database-backed se
 `pos_app` is the Django **project**: global settings and top-level routes. `kiosk` is the Django **app**: the kiosk route/view and related templates/assets. The root view only renders HTML; it does not access a cart or database.
 
 - `kiosk/templates/kiosk/base.html`: shared document, branding, stylesheet link, progress slot, messages, main content, and footer. Future screens extend its content block.
-- `kiosk/templates/kiosk/home.html`: the current menu-unavailable and empty-order foundation. Review is truly disabled. The native disclosure explains the future flow without JavaScript.
-- `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback, and Django message rendering. Error feedback uses `alert`; informational/success/loading feedback uses `status`; loading includes `aria-busy`. These variants were rendered in verification, not connected to invented transactions.
+- `kiosk/templates/kiosk/home.html`: the menu-and-order preview workspace. Six static product fixtures show the agreed names/prices; no model/session state is read. Product selection and Review are truly disabled. The native disclosure explains the future flow without JavaScript.
+- `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback and messages, plus product_preview.html and original inline SVG symbols in menu_art.html. Template artwork is included in the HTML; built CSS/favicon are static assets. Feedback semantics were verified separately, not connected to invented transactions.
 - `kiosk/assets/input.css`: editable Tailwind source and shared controls. Edit this rather than the generated stylesheet.
 - `kiosk/static/kiosk/`: namespaced browser assets, including built CSS and our own SVG favicon and decorative campus-food illustration. Django's `{% static %}` resolves these files; `runserver` serves them during local DEBUG development. Production static serving is outside this stage.
 
@@ -132,10 +132,10 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 No working products, cart, checkout, payment, receipt, or reset exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next numbered stage: Prompt 05, catalog and transaction data foundations, after explicit feature branch preparation.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Current next action: visual review of the local workspace revision, then a scoped Git checkpoint; reusable E and Prompt 05 follow afterward.**
 
 
-The current revision uses a darker hero, stronger wordmark/type, restrained lime accents and original SVG food artwork, with compact menu and order surfaces. The menu is still explicitly unavailable. [Current design preview](docs/evidence/ui-foundation-modern-desktop.jpg). Magos subsequently requested this completed milestone be recorded for review; this is not an instructor approval or a claim of independent teammate review.
+The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is uncommitted and awaits Magos's feedback; it is not included in PR #2 yet.
 
 
 The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.

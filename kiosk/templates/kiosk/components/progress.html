@@ -1,4 +1,4 @@
-<nav aria-label="Order progress" class="pt-1 pb-6">
+<nav aria-label="Order progress" class="pt-5 pb-6">
   <ol class="grid grid-cols-4 gap-2 text-sm sm:gap-5 sm:text-base">
     <li class="flex items-center gap-2 border-t-2 pt-3 {% if current_step == 1 %}border-leaf font-semibold text-leaf{% else %}border-line text-muted{% endif %}" {% if current_step == 1 %}aria-current="step"{% endif %}><span class="text-xs text-plum sm:text-sm">01</span> Choose</li>
     <li class="flex items-center gap-2 border-t-2 pt-3 {% if current_step == 2 %}border-leaf font-semibold text-leaf{% else %}border-line text-muted{% endif %}" {% if current_step == 2 %}aria-current="step"{% endif %}><span class="text-xs text-plum sm:text-sm">02</span> Review</li>
