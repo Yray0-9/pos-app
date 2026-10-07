@@ -70,3 +70,5 @@ Use the bundled Node/pnpm fallback documented in README if those commands are no
 Remaining exam evidence: your own evaluation/demo, other members' actual contributions/explanations, genuine PR review/feedback/merge, truthful committed-development/refactor audit, instructor access/clone verification and the final integration revision. Public website: https://common-table-kiosk.vercel.app. Main integration is requested. No grade or complete process compliance is guaranteed by this guide.
 
 No-database replay/global-lock limits are documented and tested in DATA.md; ordinary browser reset is distinct from revoking an intentionally copied cookie.
+
+Final current Git update: completed application was integrated/pushed to main via normal merge0764e08; source runtime matches the public/local checked build. Other members/review/instructor process acceptance remain pending.

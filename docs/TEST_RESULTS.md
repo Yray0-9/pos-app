@@ -313,3 +313,5 @@ The local server on8000 was verified by workspace/manage.py command before resta
 Historical migrations/models/seed/tests were archived intact, not rewritten.
 
 Integration verification: review-history merge retains identical tested runtime and adds exact inactive historical records; 21 tests passed in1.384s. Main merged in isolated worktree; current private/generated artifacts excluded from index. Main-specific checks follow before commit/push.
+
+Main-specific verification:21 tests passed in1.367s from isolated main checkout; Django check and staged diff clean; no remaining conflicts. Initial test invocation from parent cwd was corrected to the worktree cwd (discovery path mismatch, not an app failure). Main merge0764e08 and cart-reviewc7cd068 pushed without force; ls-remote confirms both. Runtime diff main versus checked feature is empty. Generated/private files are absent from final index; source and incoming history retained. Human browser/process checks remain pending.

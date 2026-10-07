@@ -37,3 +37,5 @@ evidence and final demonstrated Git SHA remain separate acceptance items.
 
 Official setup: [Django on Vercel](https://vercel.com/docs/frameworks/full-stack/django),
 [Python runtime/version](https://vercel.com/docs/functions/runtimes/python).
+
+Git integration completed: normal main merge0764e08 pushed and verified; runtime diff with checked/deployed completion is empty. Cart-reviewc7cd068 also pushed. This evidence update changes documentation only; no unnecessary redeploy or claim of Git-triggered deployment. Current main excludes private and generated artifacts; historical commits retained.

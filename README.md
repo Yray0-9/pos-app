@@ -7,8 +7,7 @@ simulations, success, digital receipt and New Transaction. All amounts are PHP.
 **Checked local preview:** http://127.0.0.1:8000/
 **Current storage:** no database. Fixed server catalog and signed-cookie active state.
 21 automated tests pass; local and public HTTP acceptance pass. Browser touch/layout
-checks and genuine group/review/history evidence remain pending. Main integration was
-requested; see MEMBER_REGISTER.md for actual Git outcomes rather than assuming a merge.
+checks and genuine group/review/history evidence remain pending. Completion is integrated/pushed to main through normal merge [0764e08](https://github.com/Yray0-9/pos-app/commit/0764e0815e1b6f678e1c9c6b2e4a2de2e577931c). See MEMBER_REGISTER.md for actual Git outcomes.
 
 ## Run on Windows
 
@@ -99,8 +98,7 @@ Vercel native Django preset detects manage.py/WSGI, uses Python 3.14 and require
 and collects static files. Production uses a fresh private Vercel signing secret,
 DEBUG=False, validated hosts and secure cookies. .vercelignore excludes environment
 files, local tools/plan, databases, venv, node_modules and docs. No private plan was
-uploaded or pushed. Automatic Git deployment is disconnected while main integration
-is being resolved. Deployment used tested local files; a live URL is not proof of
+uploaded or pushed. Automatic Git deployment is disconnected; main integration is now pushed and its runtime matches the deployed build. Deployment used tested local files; a live URL is not proof of
 an integrated Git commit or instructor approval.
 
 Instructor: Reban Cliff A. Fajardo, MIT. Members: M1 Agbas, M2 Daro, M3 Magos.

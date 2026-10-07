@@ -430,3 +430,5 @@ Main integration outcomes and real SHA/evidence will be recorded after successfu
 no review or member contribution is manufactured. Human evaluation remains pending.
 
 Git reconciliation: remote cart-review had two earlier commits absent from the current local base. Normal merge produced real conflicts in docs, review/views/routes and CSS. Exact older source/evidence was archived; current runtime resolved to the tested completion. This is actual conflict resolution, not fabricated reviewer feedback. Main integration remains the next operation.
+
+Actual requested integration: configured identity restored to confirmed Romulo Magos; completione4fa2ba committed, remote-review mergec7cd068 committed, main merge0764e08 committed/pushed and feature pushed; remote refs verified. MainREADME conflict resolved to current setup;1999 tracked private/generated paths excluded from index. Main tests21 pass; no source/runtime change versus deployed completion. No force push/history rewrite or pretend reviewer/member work. The private local plan stays ignored. Human assessment remains pending.

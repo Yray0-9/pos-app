@@ -15,9 +15,9 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | cart-review, HEAD f901b32 at combined-build entry; required completion code/evidence local and uncommitted; no branch/account/Git mutations in this build |
+| Current local branch | main after integration; cart-review history retained at c7cd068 |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
-| Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
+| Integration branch state | main/origin/main merge0764e08 verified; current tree excludes .env/database/generated files; historical private file remains in earlier commits |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
 | Final demonstrated integration commit | Pending; the initial commit is not the final app |
 | Instructor repository access | Pending instructor verification |
@@ -227,3 +227,28 @@ Completion commit e4fa2ba was recorded under Romulo Magos (romulomagos16@gmail.c
 ## Requested main integration — actual merge preparation
 
 User explicitly required final application in main after the public deployment. An isolated main worktree preserves the running local project/private environment. Normal merge parents are existing main 21bd344 and reconciled completion branch c7cd068 (which contains completion e4fa2ba plus remote review ff76ff6/11f7335). Older main README conflict resolved to verified setup. Private/generated artifacts are excluded from the new main index; historical commits are retained without force push/history rewriting. No actual non-author review/approval occurred. Final merge SHA/push evidence is recorded after success.
+
+## Actual main merge and publication evidence
+
+- [Completion e4fa2ba](https://github.com/Yray0-9/pos-app/commit/e4fa2ba): full simulations,
+  no-database conversion, deployment configuration/evidence; author Romulo Magos.
+- [Review-history merge c7cd068](https://github.com/Yray0-9/pos-app/commit/c7cd068cb14e15be51365c826442df93bdd6516a):
+  preserves real incoming ff76ff6/11f7335 and archives superseded source/evidence.
+- [Main merge0764e08](https://github.com/Yray0-9/pos-app/commit/0764e0815e1b6f678e1c9c6b2e4a2de2e577931c):
+  existing main21bd344 + completed featurec7cd068; normal merge explicitly requested
+  by Magos; pushed without force and remote SHA verified.
+- 1999 tracked private/generated artifact paths excluded from new main index; source,
+  original commit history and unrelated incoming er file preserved. No private local
+  plan committed/pushed/deployed. Old public .env remains in historical commits; fresh
+  local/production keys differ and are private. No history rewrite was authorized.
+- Main tests21 pass in1.367s and check/diff pass; runtime diff versus tested feature is
+  empty. Public deployment runtime agrees; deployment is manual CLI, not Git auto-deploy.
+- No independent reviewer/feedback/approval was invented. The user requested integration
+  before that process evidence existed. Earlier PR target/status records are historical;
+  no new PR/review/comment or reviewer notification was fabricated/sent.
+- Agbas/Daro authored features and individual explanations remain unverified. Account
+  switching cannot turn Magos/AI work into their personal contribution. Instructor
+  acceptance of incomplete group/process evidence remains unresolved.
+
+This evidence follow-up documents the executed merge; its eventual commit follows
+0764e08 without changing application runtime. Final instructor demonstration still pending.
