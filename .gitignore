@@ -21,6 +21,7 @@ __pycache__/
 
 # Dependencies, temporary builds, and generated test artifacts
 node_modules/
+/.pnpm-store/
 /dist/
 /build/
 /tmp/

@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 03 foundation and evidence records. The kiosk app, HTML screens, Tailwind CSS, catalog, payments, and receipts have not been implemented. Only the Django scaffold is available; do not treat it as a completed POS.
+**Current milestone:** local `codex/catalog-data` branch prepared for Prompt 05 from clean UI commit `3cad483`. The menu-and-order workspace is recorded in that pre-existing commit; six cards and Review remain disabled previews. Catalog models, cart, payments, receipt and reset remain future work. Branch/evidence preparation only was performed in this stage.
 
 ## Course and group
 
@@ -18,7 +18,7 @@ See [member register](docs/MEMBER_REGISTER.md) for actual evidence and unverifie
 
 Python 3.14.4 and Django 6.1.2 were observed in the existing Windows virtual environment. All currently installed application packages are pinned in `requirements.txt`; pip itself is tooling and is not a runtime requirement. `python-dotenv` loads the private environment file.
 
-The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records, and a Django session cart. Only configuration exists at this stage. SQLite suits this local exam demonstration because it needs no separate database service. The cart will hold active state; completed sale snapshots will preserve receipt values. Money calculations will use Python Decimal. These models and behaviors remain future work.
+The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records, and a Django session cart. Templates and CSS now exist; no JavaScript is needed for this foundation. SQLite suits this local exam demonstration because it needs no separate database service. The cart will hold active state; completed sale snapshots will preserve receipt values. Money calculations will use Python Decimal. These models and behaviors remain future work.
 
 ## Set up on Windows PowerShell
 
@@ -50,15 +50,51 @@ Skip environment creation if the existing `venv` is already working. Invoke its 
 
 The template enables local development debugging and localhost hosts. It is not production configuration. Time display is configured for Asia/Singapore.
 
-## Run the current scaffold
+## Build the local styles
+
+Observed tooling: Node.js 24.19.0, pnpm 11.19.0, Tailwind CSS and CLI 4.3.3. `package.json` pins direct CSS dependencies; `pnpm-lock.yaml` records resolved dependencies. Use Node 24 and pnpm 11.19.0, then run from the repository root:
+
+```powershell
+pnpm install --frozen-lockfile
+pnpm run build:css
+```
+
+Internet is needed for the initial package download. The resulting `kiosk/static/kiosk/css/app.css` is deliberately kept in source control at the Git checkpoint, so the evaluation page uses local CSS without downloading Tailwind or fonts at runtime. Do not commit `node_modules` or the package cache. When editing templates or source CSS, run `pnpm run watch:css` in a separate interactive terminal; stop with Ctrl+C, then run `pnpm run build:css` for the final minified file.
+
+This computer currently exposes pnpm through Codex's bundled path rather than a normal PATH entry. The actual verified command prefix here is:
+
+```powershell
+& 'C:\Users\Romul\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd' install --frozen-lockfile
+& 'C:\Users\Romul\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd' run build:css
+```
+
+Use ordinary `pnpm` on a computer where it is installed on PATH. Automated terminals may use `$env:CI = 'true'` for a noninteractive install. The locked install was also verified using `--offline` after the packages had been downloaded; a fresh clone/install on another computer remains untested.
+
+Tailwind v4 uses CSS configuration: `kiosk/assets/input.css` declares the palette/typeface with `@theme`, disables broad scanning with `source(none)`, and registers `../templates` with `@source`. This detects literal classes inside Django templates and includes; no v3 `tailwind.config.js` is required. Add explicit source paths if JavaScript later contains classes. Keep full class names literal. `pnpm-workspace.yaml` deliberately skips the Parcel watcher source-build script; the downloaded platform-specific prebuilt watcher worked in the Windows watch verification.
+
+References: [official Tailwind CLI instructions](https://tailwindcss.com/docs/installation/tailwind-cli), [source detection](https://tailwindcss.com/docs/detecting-classes-in-source-files), and [pnpm 11 build policy](https://pnpm.io/blog/releases/11.0).
+
+## Run the current foundation
 
 ```powershell
 .\venv\Scripts\python.exe manage.py runserver 127.0.0.1:8000 --noreload
 ```
 
-Open [localhost](http://127.0.0.1:8000/). At this milestone, the debug scaffold may show Django's default welcome page; it is not the kiosk. `/admin/` is the only configured route. Stop the server with Ctrl+C.
+Open [localhost](http://127.0.0.1:8000/). `/` serves the Common Table foundation; `/admin/` remains the standard Django admin route. Stop the server with Ctrl+C. Build CSS before starting the server. If a new static directory was created after starting with `--noreload`, restart the server so Django discovers it. Styling itself can be rebuilt and viewed after a browser reload. With `--noreload`, template edits may also require a server restart because the template loader caches them; restart when the old HTML persists.
 
 No migrations have been applied in Prompt 03. Admin login and database-backed sessions are not ready until the later authorized migration/setup stage. Do not run migration commands solely from this document during Prompt 03.
+
+## Template and static-file responsibilities
+
+`pos_app` is the Django **project**: global settings and top-level routes. `kiosk` is the Django **app**: the kiosk route/view and related templates/assets. The root view only renders HTML; it does not access a cart or database.
+
+- `kiosk/templates/kiosk/base.html`: shared document, branding, stylesheet link, progress slot, messages, main content, and footer. Future screens extend its content block.
+- `kiosk/templates/kiosk/home.html`: the menu-and-order preview workspace. Six static product fixtures show the agreed names/prices; no model/session state is read. Product selection and Review are truly disabled. The native disclosure explains the future flow without JavaScript.
+- `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback and messages, plus product_preview.html and original inline SVG symbols in menu_art.html. Template artwork is included in the HTML; built CSS/favicon are static assets. Feedback semantics were verified separately, not connected to invented transactions.
+- `kiosk/assets/input.css`: editable Tailwind source and shared controls. Edit this rather than the generated stylesheet.
+- `kiosk/static/kiosk/`: namespaced browser assets, including built CSS and our own SVG favicon and decorative campus-food illustration. Django's `{% static %}` resolves these files; `runserver` serves them during local DEBUG development. Production static serving is outside this stage.
+
+The progress list is informational, with no fake links. No transaction is active, so none of its steps is marked current on the foundation page. Future views can supply the verified current step. Decorative artwork is static, focus outlines are visible, and reduced-motion preferences are respected in the CSS.
 
 ## Checks and future build steps
 
@@ -67,7 +103,7 @@ No migrations have been applied in Prompt 03. Admin login and database-backed se
 .\venv\Scripts\python.exe manage.py check
 ```
 
-The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). There are no kiosk feature tests yet. `manage.py test`, model migrations, product seeding, and Tailwind install/build commands will be added when those features/tooling exist and have been verified. Do not assume commands or dependency versions for future work.
+The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). Foundation checks include HTTP/CSS delivery, deterministic CSS builds, watcher updates, feedback escaping/semantics, keyboard focus, and desktop/tablet/narrow-screen overflow. No transaction acceptance test is claimed. Model migrations, seeding, and feature tests remain for their authorized stages.
 
 ## Development and evidence workflow
 
@@ -94,4 +130,18 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 ## Current limitations
 
-No working products, cart, checkout, payment, receipt, reset, or Tailwind/HTML interface exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
+No working products, cart, checkout, payment, receipt, or reset exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
+
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next: Prompt 05; reusable E is now completed for codex/catalog-data.**
+
+
+The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is now in pre-existing commit 3cad483, matching the local origin/UI ref. Magos requested preparing the next branch; detailed visual evaluation remains unrecorded. Current remote PR/review state was not refreshed during branch preparation.
+
+
+The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.
+
+## Catalog branch preparation and integration issue
+
+Reusable E created local `codex/catalog-data` from UI commit `3cad483`; no feature implementation or Git publication performed. Paste Prompt 05 next. Branch records are the only new working changes.
+
+The currently recorded main/origin/main commit `141af01` tracks `.env` and generated package/cache artifacts while omitting prepared application sources. It was left untouched and was not used as the catalog base. Resolve this before integration/publication; if the private key was published, replace it. No secret values are included in evidence. Main cleanup/review/merge and fresh remote/PR checks are separate work requiring appropriate authorization.

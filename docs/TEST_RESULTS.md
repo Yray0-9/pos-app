@@ -62,3 +62,98 @@ For each future check: record date/time, responsible member/verifier, requiremen
 - API state: open, merged=false, author Yray0-9, no reviews at this checkpoint. No review feedback was fabricated/resolved and no merge/deployment performed.
 - Instructor access, other members' accounts/work, peer review, fresh clone demonstration, and the functional acceptance matrix remain pending.
 - After evidence commit c7860f7 was pushed, remote PR head matched that commit and the working tree was clean; changes since a20201a were documentation-only. GitHub check runs/statuses were empty, so no CI pass is asserted. The later Copilot COMMENTED entry reported quota exhaustion and had no inline findings; it is not a successful code review or human approval. This actual review attempt was inspected and recorded; no application changes were required from it.
+
+
+## Prompt 04 — UI foundation verification
+
+Date: 2026-10-07, approximately 12:20–12:33 Asia/Singapore. Verifier: Codex tools/browser, requester Magos; this is not a human member/instructor test record. State: local codex/ui-foundation at HEAD `717b165c852ad2c771fbc506ffb3578529a75b46` plus uncommitted foundation/doc changes. Prior Prompt 03 limitations above describe that earlier stage.
+
+| ID | Action / expected result | Actual observed result |
+| --- | --- | --- |
+| U01 | Confirm reusable E before feature editing | Current codex/ui-foundation and prior explicit E record confirmed; branch head equals setup dependency; four existing documentation edits preserved |
+| U02 | Inspect tooling and lock dependencies | Node 24.19.0; pnpm 11.19.0; Tailwind/CLI 4.3.3 pinned in package.json and pnpm-lock.yaml |
+| U03 | Locked install after cache download | `install --frozen-lockfile --offline` succeeded with CI=true; 33 packages reused, no download. No fresh clone/new-machine install claimed |
+| U04 | Production CSS build | `run build:css` succeeded, Tailwind v4.3.3. Repeated final builds produced identical SHA256 `f7c78186d96fe4b7fb9fa30360d1e7ed0b870fbf8f52bf3313f93b2207654197` |
+| U05 | Watch mode detects Django-template changes | Interactive `run watch:css` remained active; temporary template with decoration-double triggered rebuild and generated utility. Probe removed, watcher stopped and final minified CSS rebuilt |
+| U06 | Django configuration and Python dependencies | `manage.py check`: no issues (0 silenced); `python -m pip check`: no broken requirements |
+| U07 | Root and local static delivery | Root HTTP 200, Common Table title/local CSS link; stylesheet HTTP 200 text/css and bytes identical to built file; SVG favicon HTTP 200; `findstatic` resolved kiosk CSS |
+| U08 | Reusable feedback and progress rendering | Scratch Django rendering checked error alert, other status roles, loading aria-busy, escaped script input; each progress step 1–4 emitted exactly one aria-current. Not payment outcome tests |
+| U09 | Desktop preview at 1280×900 | Inspected branding/hero/menu/order/disclosure; document clientWidth=scrollWidth=1265 (scrollbar excluded), no horizontal overflow |
+| U10 | Tablet preview at 768×1024 | Inspected spacing/legibility; clientWidth=scrollWidth=753, no horizontal overflow |
+| U11 | Narrow preview at 360×800 | Header/text wrapped; clientWidth=scrollWidth=345, no horizontal overflow |
+| U12 | Keyboard skip/focus/disclosure | Tab showed Skip to content with plum outline; Enter focused main-content; disclosure Enter opened instructions and had visible focus outline. Browser viewport override restored |
+| U13 | Typography and controls | Computed body font 18px. Skip control 48px; brand link about 56px; disabled Review and disclosure 56px high |
+| U14 | Palette contrast calculation | ink/canvas 12.00:1; muted/white 5.75:1; muted/soft-green 4.94:1; leaf/white 8.16:1; plum/white 7.97:1; error/error-surface 6.18:1. Border/decorative and disabled-control colors are not claimed as normal text contrast tests |
+| U15 | Save visual evidence | docs/evidence/ui-foundation-desktop.jpg saved from final full-page browser view; preview retained at localhost |
+| U16 | Final shareable-file/checkout verification | Final root/CSS/hash passed; private secret absent from all 33 shareable tracked/new files; .env, venv, node_modules and .pnpm-store ignored; git diff --check passed; still codex/ui-foundation with uncommitted changes; probe removed |
+
+Observed issues and resolution: initial registry access was denied by sandbox EACCES; the authorized dependency operation completed with permitted access. pnpm reported an undecided Parcel watcher build script; the workspace now explicitly skips it, and its platform prebuilt watcher passed U05. Noninteractive sandbox commands attempted module-store recreation and were interrupted; permitted local install/build completed. These are development-tool setup limitations, not fabricated kiosk bug-fix stages. Initial CSS HTTP 404 occurred because runserver --noreload started before the new static directory existed; restarting discovered the directory and U07/browser CSS then passed. Build-before-run guidance was added. The temporary probe was removed.
+
+Pending: physical touch interaction, actual screen-reader test, 200% zoom, OS reduced-motion preference toggle, other browsers/operating systems, fresh clone/new-machine setup and all catalog/cart/payment/receipt/reset scenarios. Reduced-motion support was inspected in source, not claimed as OS-tested. No models or migrations were added/run. Interface Git evidence and actual teammate evaluation/review remain pending. The root view does not require initialized database tables.
+
+
+## Prompt 04 modern visual revision
+
+2026-10-07, approximately 12:39–12:52 Asia/Singapore. Verifier: Codex tools/browser; requester Magos. Same local UI branch/setup HEAD plus uncommitted design revision. Earlier U01–U16 describe the first foundation, not this revised CSS hash.
+
+- Tailwind 4.3.3 local production build passed. Revised CSS SHA256: `27e3b533fff98da349fe60268eff2fd470ba2ed2c45ad1c751b7c658287c8c33`.
+- Root HTTP 200 contains revised title and original illustration reference. CSS, illustration and favicon returned HTTP 200 with bytes matching local files. Both SVGs parsed as valid XML. Decorative hero image loaded successfully in the browser.
+- `manage.py check` and `git diff --check` passed. Progress rendering still produces exactly one active step for each supplied step 1–4; the foundation itself has no active transaction.
+- Browser inspected at 1280×900, 768×1024 and 360×800. Document clientWidth equaled scrollWidth: 1265, 753 and 345 respectively. No horizontal overflow. Artwork moves below text on narrow screens; order controls and disclosure wrap.
+- At narrow width, control heights: skip 48px, brand 50px, disabled Review 56px, disclosure 80px. Tab exposed the skip link with visible plum outline; Enter focused main-content. Native summary Enter opened the explanation and had a visible outline; it was closed again for the screenshot.
+- Contrast calculations: ink/new-canvas 12.27:1, muted/new-canvas 5.39:1, white/forest 11.70:1, lime/forest 9.21:1. Previously verified error/white/soft-green token combinations are retained.
+- Saved revised full-page screenshot: docs/evidence/ui-foundation-modern-desktop.jpg. Earlier screenshot retained. Temporary browser viewport override restored; updated preview retained at localhost.
+
+Observed preview issue: --noreload kept the earlier HTML in the template loader cache while serving the revised CSS. Restarting the local development server loaded the revised templates; README now mentions this behavior. Two browser keyboard attempts targeted a child span/assumed button role and failed; targeting the native summary succeeded. These are preview/tool targeting observations, not fabricated application bug-fix stages. The initial patch was rejected because it attempted delete/add of the same home.html in one patch; no partial file edits occurred from that rejected patch, and the files were then updated normally.
+
+Still untested: physical touchscreen, screen-reader operation, zoom/reduced-motion preference toggles and future transaction screens. No functional POS acceptance pass is claimed. Revised design acceptance is pending Magos. No commits, pushes, PR changes, branches or merges were performed in this revision.
+
+
+## UI Git checkpoint — pre-commit review
+
+2026-10-07, Asia/Singapore; local codex/ui-foundation at setup HEAD 717b165 plus reviewed UI/evidence changes. Magos explicitly authorized this checkpoint after the visual revision. Checks performed by Codex are not independent peer review.
+
+- Rerun `manage.py check`: no issues (0 silenced); `python -m pip check`: no broken requirements.
+- Rerun `pnpm run build:css`: Tailwind 4.3.3 succeeded; output matches the recorded revised SHA256 27e3b533fff98da349fe60268eff2fd470ba2ed2c45ad1c751b7c658287c8c33.
+- Root response checked through Django test client: HTTP 200, revised heading/art reference, all stylesheet/favicon/illustration URLs local and files present, only order button genuinely disabled. Feedback error/status roles, loading aria-busy and escaped script content passed.
+- Reviewed route/config/template/CSS/build/evidence diff and untracked file inventory. Files belong to the original UI milestone and its evidence; no unrelated user edits identified. Private secret absent from shareable files; ignored local env/venv/database/package caches preserved.
+- Confirmed origin fetch/push match Yray0-9/pos-app without embedded credentials. Existing authenticated account Yray0-9 has push permission. Remote setup SHA matches local parent 717b165; main still initial 9e959ad. No remote UI branch or matching UI PR existed before this checkpoint.
+- Setup PR #1 verified open/unmerged. Its Copilot COMMENTED entry still reports quota exhaustion; inline findings empty, no substantive review feedback to resolve. No peer-review pass asserted.
+- Prior desktop/tablet/narrow/focus checks and screenshots retained; no new app changes justified repeating all browser checks. Physical touch/screen-reader/zoom and full POS scenarios remain pending.
+
+
+## UI checkpoint — actual Git/PR evidence
+
+- Staged whitespace/scope/private-secret checks passed for 28 UI/evidence files. Local .env, venv, database and caches excluded/preserved.
+- Created implementation commit `6ff4a07cbc410b3436c6f6e2c4ed152fac33977b` with configured author Yray0-9. Clean working tree observed immediately after commit; UI push with origin tracking succeeded.
+- [PR #2](https://github.com/Yray0-9/pos-app/pull/2) created/attached: open, merged=false, author Yray0-9, source codex/ui-foundation, target codex/setup-foundation, initial head exactly the implementation SHA. No check runs/statuses returned; no CI pass asserted.
+- Empty reviews at creation; later inspection found [Copilot COMMENTED quota entry](https://github.com/Yray0-9/pos-app/pull/2#pullrequestreview-5437802476), no inline findings. Genuine human review/feedback resolution pending.
+- Main/setup parent verified before push; no force push, merge or deployment. Evidence follow-up changes docs only. A documentation-recording helper first failed to parse an f-string before any file writes; corrected helper recorded actual returned links. This is not an application bug-fix stage. Final branch/remote verification follows the evidence push.
+
+## Prompt 04 menu-and-order workspace revision
+
+2026-10-07, approximately 13:00-13:18 Asia/Singapore. Verifier: Codex tools/browser; requester Magos. Tested state: codex/ui-foundation at HEAD fa76162e758e72da445f729ce0d5e99d0faa8d71 plus uncommitted workspace/evidence changes, not PR #2's committed UI. No independent member verification asserted.
+
+- Tailwind 4.3.3 production build succeeded. Built CSS SHA256: 5345f2764755584dcbc9b641a4ba322f7faf9df71fad4059d7aebfa50e514f9e.
+- Django manage.py check: no issues (0 silenced). Root via Django test client: HTTP 200; six product preview buttons and Review disabled; six SVG use references resolve to unique inline symbol IDs; document IDs unique; stylesheet/favicon references local. No database/migration work required.
+- Browser displayed local CSS and all six original illustrations. Desktop 1280x900: three product columns beside order panel; document clientWidth=scrollWidth=1265. Compact desktop 1024x768: two product columns beside panel, widths=1009. Tablet 768x1024: two product columns with order below, widths=753. Narrow 360x800: one column with order below, widths=345. No horizontal overflow observed. Page requires vertical scrolling to view all content.
+- At narrow width, skip control 48px, Review 56px, disclosure 56px. Desktop product preview buttons approximately 321.6px high. Decorative plus marks are not separate working controls.
+- Tab focused Skip to content with a solid plum outline (computed 2.4px); Enter focused main-content. Native summary Enter opened the future-flow explanation with a visible focus outline, then closed again. Disabled product/payment controls cannot initiate a transaction.
+- Saved and visually inspected docs/evidence/ui-foundation-workspace-desktop.jpg. Previous screenshots retained as historical evidence. Browser viewport override restored; local preview retained.
+- Final git diff --check passed after evidence edits. Browser readback confirmed the local built stylesheet was loaded (37 top-level CSS rules) and system typography applied. No branch/commit/push/PR/merge mutations during this revision.
+
+Browser recovery observation: the previous turn's tab was no longer available. Its empty tab inventory was verified and a new localhost preview was opened. No application defect or bug-fix stage is claimed. Local development server was restarted to refresh cached templates under --noreload. These are preview operations, not exam transaction tests.
+
+Pending: Magos's visual acceptance, physical touchscreen, screen reader, 200% zoom, OS reduced-motion toggle, other browsers/OS, fresh clone and all functional POS scenarios. Static card names/prices and zero total are fixtures; no trusted-money/cart acceptance pass is claimed. Reusing existing palette checks does not establish full accessibility compliance.
+
+## Reusable E - catalog branch checks
+
+2026-10-07, approximately 13:36-13:42 Asia/Singapore; verifier Codex tools, requester Magos. Branch preparation only; no application checks rerun because no application code changed.
+
+- Initial git status --porcelain=v1 was empty. UI HEAD and local origin/UI were both 3cad483d1e930c23c0ae7d8f0e34ae451cdadd57. Existing commit inspection showed the complete 14-file workspace revision, including the product/art includes and screenshot.
+- Local branch inventory contained main, setup and UI only; no existing catalog branch to reuse. Configured author name remained Yray0-9; no identity mutation.
+- main and local origin/main both 141af0103e8e73630acf76f867bfb5caeed07efe; ancestry comparison main...UI was 1/6 unique commits. Filename-only tree inspection showed tracked .env/generated artifacts and absent prepared sources on main. Secret values were not displayed. Current UI .env/db.sqlite3 remained ignored/untracked.
+- Authorized git switch -c codex/catalog-data from UI SHA succeeded. Resulting branch/HEAD checked; immediately clean; git diff against the UI base returned no paths. Local files preserved, no unrelated edits transferred. Branch has no upstream.
+- Final branch/status/scope/whitespace checks performed after documentation edits; only evidence/current-status documentation should differ from the UI base. No catalog/model/seed/migration/runtime changes, commits, pushes, PR updates or merges.
+
+No fresh remote server, CI, reviewer or instructor verification asserted. Existing UI tests remain tests of the UI milestone. Prompt 05 verification is pending.

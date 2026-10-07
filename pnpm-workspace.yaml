@@ -1,0 +1,3 @@
+allowBuilds:
+  # The CLI uses the platform-specific prebuilt watcher package; no source build.
+  '@parcel/watcher': false

@@ -1,0 +1,9 @@
+{% if messages %}
+  <div class="mb-6 space-y-3">
+    {% for message in messages %}
+      {% if message.level >= 40 %}{% include 'kiosk/components/feedback.html' with kind='error' text=message %}
+      {% elif message.level == 25 %}{% include 'kiosk/components/feedback.html' with kind='success' text=message %}
+      {% else %}{% include 'kiosk/components/feedback.html' with kind='info' text=message %}{% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
