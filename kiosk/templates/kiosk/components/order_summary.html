@@ -1,0 +1,19 @@
+<section class="surface-card overflow-hidden" aria-labelledby="order-summary-title">
+  <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line/70 px-5 py-5 sm:px-7">
+    <h2 id="order-summary-title" class="text-xl font-semibold tracking-tight">Your picks</h2>
+    <span class="rounded-full bg-canvas px-3 py-1 text-base text-muted">{{ order.item_count }} item{{ order.item_count|pluralize }}</span>
+  </div>
+  {% if order.lines %}
+    <ul aria-label="Order summary" class="divide-y divide-line/70 px-5 sm:px-7">
+      {% for line in order.lines %}
+        <li data-summary-product="{{ line.product.pk }}" class="py-5">
+          <div class="flex flex-wrap items-start justify-between gap-3"><h3 class="min-w-0 text-lg font-semibold break-words">{{ line.product.name }}</h3><strong class="text-lg tabular-nums">₱{{ line.subtotal|floatformat:2 }}</strong></div>
+          <div class="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-base text-muted"><span>Unit price <span class="tabular-nums">₱{{ line.unit_price|floatformat:2 }}</span></span><span>Quantity <strong class="text-ink">{{ line.quantity }}</strong></span><span class="sr-only">Subtotal ₱{{ line.subtotal|floatformat:2 }}</span></div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="px-6 py-12 text-center"><h3 class="text-xl font-semibold">Your order is empty.</h3><p class="mt-3 text-base text-muted">Go back and choose something from the menu.</p></div>
+  {% endif %}
+  <div class="flex flex-wrap items-center justify-between gap-4 border-t border-line/70 bg-leaf-soft/60 px-5 py-6 sm:px-7"><span class="text-base font-medium text-leaf">Order total</span><strong id="summary-total" class="text-[32px] tracking-tight text-leaf tabular-nums">₱{{ order.total|floatformat:2 }}</strong></div>
+</section>

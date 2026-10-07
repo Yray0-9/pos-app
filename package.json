@@ -1,0 +1,16 @@
+{
+  "name": "common-table-kiosk",
+  "private": true,
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./kiosk/assets/input.css -o ./kiosk/static/kiosk/css/app.css --minify",
+    "watch:css": "tailwindcss -i ./kiosk/assets/input.css -o ./kiosk/static/kiosk/css/app.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}

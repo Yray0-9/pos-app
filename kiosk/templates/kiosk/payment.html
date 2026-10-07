@@ -1,0 +1,44 @@
+{% extends 'kiosk/base.html' %}
+{% load static %}
+{% block title %}Payment · Common Table{% endblock %}
+{% block content %}
+  <div class="mb-7"><p class="eyebrow mb-2 text-leaf">One last step</p><h1 class="text-[28px] font-semibold tracking-tight sm:text-[32px]">{% if method %}{{ method_label }}{% else %}How would you like to pay<span class="text-leaf">?</span>{% endif %}</h1><p class="mt-3 text-base text-muted">Exam simulation only. No real money or card information is collected.</p></div>
+  <div class="grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_360px]">
+    <section class="min-w-0" aria-label="Payment controls">
+      {% if not method %}
+        <div class="grid gap-4 sm:grid-cols-3">
+          <a id="choose-cash" href="{% url 'kiosk:payment_method' 'cash' %}" class="payment-choice"><span class="payment-symbol" aria-hidden="true">₱</span><span class="text-xl font-semibold">Cash</span><span class="text-base font-normal text-muted">Enter cash received.<br>We calculate your change.</span></a>
+          <a id="choose-qr" href="{% url 'kiosk:payment_method' 'qr' %}" class="payment-choice"><span class="payment-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-8" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h8v8H4zM20 4h8v8h-8zM4 20h8v8H4zM20 20h4v4h4v4h-8z"/></svg></span><span class="text-xl font-semibold">QR Payment</span><span class="text-base font-normal text-muted">A clearly labeled demo.<br>Confirm to complete.</span></a>
+          <a id="choose-card" href="{% url 'kiosk:payment_method' 'card' %}" class="payment-choice"><span class="payment-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-8" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="26" height="20" rx="4"/><path d="M3 13h26M8 21h6"/></svg></span><span class="text-xl font-semibold">Credit/Debit Card</span><span class="text-base font-normal text-muted">Simulated tap or insert.<br>No card details needed.</span></a>
+        </div>
+      {% else %}
+        <div class="surface-card p-5 sm:p-7">
+          {% if payment_error %}<div id="payment-error" class="mb-5">{% include 'kiosk/components/feedback.html' with kind='error' text=payment_error %}</div>{% endif %}
+          <form id="payment-form" method="post" action="{% url 'kiosk:pay' method %}" data-method="{{ method }}">
+            {% csrf_token %}<input type="hidden" name="payment_token" value="{{ payment_token }}">
+            {% if method == 'cash' %}
+              <label for="amount-paid" class="block text-lg font-semibold">Cash amount received</label><p id="cash-help" class="mt-2 text-base text-muted">Enter pesos with up to two decimal places. Use the keypad or your keyboard.</p>
+              <div class="mt-4 flex items-center gap-3 rounded-2xl border border-line px-4"><span aria-hidden="true" class="text-2xl text-leaf">₱</span><input id="amount-paid" name="amount_paid" type="text" inputmode="decimal" maxlength="12" autocomplete="off" value="{{ cash_input|default:'' }}" aria-describedby="cash-help{% if payment_error %} payment-error{% endif %}" {% if payment_error %}aria-invalid="true"{% endif %} class="min-h-16 min-w-0 w-full rounded-xl bg-transparent px-2 text-[28px] tabular-nums" placeholder="0.00"></div>
+              <div class="mt-4 grid grid-cols-3 gap-3" aria-label="Cash keypad">{% for key in keypad_keys %}<button type="button" data-key="{{ key }}" class="keypad-key" {% if key == 'backspace' %}aria-label="Delete last digit"{% elif key == '.' %}aria-label="Decimal point"{% endif %}>{% if key == 'backspace' %}⌫{% else %}{{ key }}{% endif %}</button>{% endfor %}</div>
+              <div class="mt-3 grid grid-cols-2 gap-3"><button type="button" id="clear-cash" class="touch-control button-secondary">Clear</button><button type="button" id="exact-cash" data-exact="{{ order.total|floatformat:2 }}" class="touch-control button-secondary">Exact amount</button></div>
+              <p class="mt-4 text-sm text-muted">Your change is calculated after the server validates payment.</p>
+            {% elif method == 'qr' %}
+              <div class="text-center"><span class="inline-block rounded-full bg-leaf-soft px-4 py-2 text-sm font-semibold text-leaf">Simulated QR payment</span>
+                <div class="mx-auto mt-6 flex size-48 items-center justify-center rounded-3xl border-2 border-dashed border-line bg-canvas" role="img" aria-label="Demo QR placeholder, not a scannable payment code"><div><svg viewBox="0 0 32 32" class="mx-auto size-24 text-leaf" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h8v8H4zM20 4h8v8h-8zM4 20h8v8H4zM20 20h4v4h4v4h-8z"/></svg><span class="mt-2 block text-sm font-semibold text-muted">DEMO PLACEHOLDER</span></div></div>
+                <h2 class="mt-6 text-xl font-semibold">Scan, then confirm</h2><p class="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">A live kiosk would let you scan its payment QR using your wallet app. This exam uses a placeholder: tap Confirm Payment to simulate a successful payment. Do not send money.</p>
+              </div>
+            {% else %}
+              <div class="py-6 text-center"><span class="payment-symbol mx-auto" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-8" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="26" height="20" rx="4"/><path d="M3 13h26M8 21h6"/></svg></span><h2 class="mt-6 text-xl font-semibold">Tap, insert or swipe your card</h2><p class="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">This is a simulated reader. Tap Process Payment to see processing, then your confirmation. No physical card, number or PIN is needed.</p></div>
+            {% endif %}
+            <div id="processing-feedback" hidden class="feedback feedback-info mt-5" role="status" aria-live="polite">{% if method == 'card' %}Processing card payment…{% else %}Confirming your payment…{% endif %}</div>
+            <button id="submit-payment" type="submit" class="touch-control button-primary mt-6 min-h-14 w-full">{% if method == 'cash' %}Pay Now{% elif method == 'qr' %}Confirm Payment{% else %}Process Payment{% endif %} · ₱{{ order.total|floatformat:2 }}</button>
+          </form>
+          <a href="{% url 'kiosk:payment' %}" class="touch-control mt-4 w-full text-leaf">← Choose another method</a>
+        </div>
+      {% endif %}
+      <a id="back-to-review" href="{% url 'kiosk:review' %}" class="touch-control button-secondary mt-6 min-h-14">← Back to review</a>
+    </section>
+    <aside class="min-w-0">{% include 'kiosk/components/order_summary.html' %}</aside>
+  </div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'kiosk/js/payment.js' %}" defer></script>{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'kiosk/base.html' %}
+{% block title %}Payment successful · Common Table{% endblock %}
+{% block content %}
+  <section class="surface-card mx-auto max-w-[700px] px-6 py-10 text-center sm:p-12" aria-labelledby="success-title">
+    <span class="mx-auto flex size-20 items-center justify-center rounded-full bg-leaf-soft text-leaf" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-10" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m7 16 6 6 12-13"/></svg></span>
+    <p class="eyebrow mt-6 text-leaf">All set</p><h1 id="success-title" class="mt-3 text-[32px] font-semibold tracking-tight">Payment successful<span class="text-leaf">.</span></h1><p class="mt-3 text-base text-muted">Thanks for stopping by Common Table. Your simulated payment is complete.</p>
+    <dl class="mt-7 space-y-4 rounded-2xl bg-canvas p-5 text-base">
+      <div class="flex flex-wrap justify-between gap-2"><dt class="text-muted">Order total</dt><dd class="font-semibold tabular-nums">₱{{ sale.total|floatformat:2 }}</dd></div>
+      <div class="flex flex-wrap justify-between gap-2"><dt class="text-muted">Amount paid</dt><dd class="font-semibold tabular-nums">₱{{ sale.amount_paid|floatformat:2 }}</dd></div>
+      <div class="flex flex-wrap justify-between gap-2"><dt class="text-muted">Change</dt><dd class="font-semibold tabular-nums">₱{{ sale.change|floatformat:2 }}</dd></div>
+      <div class="flex flex-wrap justify-between gap-2"><dt class="text-muted">Payment method</dt><dd class="font-semibold">{{ sale.get_payment_method_display }}</dd></div>
+    </dl>
+    <p class="mt-6 text-sm text-muted">Transaction reference</p><p id="sale-reference" class="mt-2 break-all font-mono text-sm font-semibold">{{ sale.reference }}</p>
+    <a id="view-receipt" href="{% url 'kiosk:receipt_reference' sale.reference %}" class="touch-control button-primary mt-7 min-h-14 w-full">View Receipt →</a>
+  </section>
+{% endblock %}

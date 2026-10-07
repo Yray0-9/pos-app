@@ -1,0 +1,15 @@
+{% extends 'kiosk/base.html' %}
+{% load tz %}
+{% block title %}Your receipt · Common Table{% endblock %}
+{% block content %}
+  <section class="mx-auto max-w-[760px]" aria-labelledby="receipt-title">
+    <div class="mb-6"><p class="eyebrow text-leaf">A little record of your visit</p><h1 id="receipt-title" class="mt-2 text-[32px] font-semibold tracking-tight">Your receipt<span class="text-leaf">.</span></h1></div>
+    <article class="surface-card p-5 sm:p-8" aria-label="Digital receipt">
+      <div class="border-b border-dashed border-line pb-6"><h2 class="text-2xl font-bold tracking-tight">common table.</h2><p class="mt-1 text-base text-muted">Campus edition · Simulated payment</p><dl class="mt-5 space-y-2 text-sm"><div><dt class="text-muted">Reference</dt><dd id="receipt-reference" class="mt-1 break-all font-mono font-semibold">{{ sale.reference }}</dd></div><div><dt class="text-muted">Date and time · Asia/Singapore</dt><dd class="mt-1">{{ sale.completed_at|localtime|date:'M j, Y · g:i A' }}</dd></div></dl></div>
+      <ul class="divide-y divide-line/70" aria-label="Purchased items">{% for item in sale.items %}<li class="py-5"><div class="flex flex-wrap justify-between gap-3"><h3 class="min-w-0 text-lg font-semibold break-words">{{ item.product_name }}</h3><strong class="tabular-nums">₱{{ item.subtotal|floatformat:2 }}</strong></div><p class="mt-2 text-base text-muted">Quantity {{ item.quantity }} · Unit price ₱{{ item.unit_price|floatformat:2 }}<span class="sr-only"> · Subtotal ₱{{ item.subtotal|floatformat:2 }}</span></p></li>{% endfor %}</ul>
+      <dl class="space-y-4 border-t border-dashed border-line pt-6 text-base"><div class="flex flex-wrap justify-between gap-3 text-leaf"><dt class="text-lg font-semibold">Total</dt><dd id="receipt-total" class="text-[28px] font-semibold tabular-nums">₱{{ sale.total|floatformat:2 }}</dd></div><div class="flex flex-wrap justify-between gap-3"><dt class="text-muted">Method</dt><dd class="font-semibold">{{ sale.get_payment_method_display }}</dd></div><div class="flex flex-wrap justify-between gap-3"><dt class="text-muted">Amount paid</dt><dd class="tabular-nums">₱{{ sale.amount_paid|floatformat:2 }}</dd></div><div class="flex flex-wrap justify-between gap-3"><dt class="text-muted">Change</dt><dd class="tabular-nums">₱{{ sale.change|floatformat:2 }}</dd></div></dl>
+      <p class="mt-7 border-t border-line/70 pt-6 text-center text-base text-muted">Good food. A little pause. Thank you!</p>
+    </article>
+    <form method="post" action="{% url 'kiosk:new_transaction' %}" class="mt-6">{% csrf_token %}<input type="hidden" name="reset_token" value="{{ reset_token }}"><button id="new-transaction" type="submit" class="touch-control button-primary min-h-14 w-full">New Transaction →</button></form><p class="mt-4 text-center text-sm leading-relaxed text-muted">This demo keeps only the active receipt. New Transaction clears it and starts a fresh order.</p>
+  </section>
+{% endblock %}

@@ -1,0 +1,126 @@
+# Common Table data, cart and review foundations
+
+Implemented locally on `catalog-data`, based on UI evidence commit `3ce83e25975870cc8fbadb42c3267086729117d7`. SQLite is the accepted exam storage choice. Prompt 05 created tables and seed data. Prompt 06 added the session cart; Prompt 07 adds review confirmation. Payment completion remains future work. Requester: M3 Magos, assisted by Codex; member explanation/independent review remain pending.
+
+```mermaid
+erDiagram
+    PRODUCT o|--o{ TRANSACTION_ITEM : "optional current product link"
+    TRANSACTION ||--o{ TRANSACTION_ITEM : "stored sale lines"
+```
+
+The diagram describes database links. Future completion must require a nonempty order and create a header plus all its lines together; the schema alone does not require at least one line or verify its total equals their sum.
+
+## Product fields
+
+| Field | Why it exists |
+| --- | --- |
+| `id` | Database-generated internal identifier; future cart stores this ID rather than browser prices |
+| `seed_key` | Unique stable seed identity, such as rice-bowl; prevents duplicate seeding |
+| `name` | Current display name, up to 100 characters |
+| `description` | Optional short card description, up to 160 characters |
+| `price` | Current positive unit price; DecimalField, two decimal places, up to PHP 999,999.99 |
+| `is_available` | Selectable flag, without stock/inventory management |
+
+## Completed Transaction fields
+
+| Field | Why it exists |
+| --- | --- |
+| `id` | Internal database sale ID; future session records the authorized active sale |
+| `reference` | Unique public receipt reference, `CT-` plus 32 generated UUID hex characters; not an access credential |
+| `payment_attempt` | Unique UUID supplied by the future reviewed-order flow; database duplicate-payment guard. No fresh default on retry |
+| `customer_context` | UUID supplied by the current customer session; future receipt/reset guards must compare it |
+| `completed_at` | Timezone-aware completion timestamp; future display uses Asia/Singapore |
+| `payment_method` | One of cash, qr or card, with customer-friendly labels |
+| `total` | Positive stored order total; two decimals, maximum PHP 99,999,999.99 |
+| `amount_paid` | Stored paid amount covering the total, within the same limit |
+| `change` | Nonnegative stored change, within the same limit; Python validation requires paid minus total |
+
+Only completed-sale records are planned here. No pending bank authorization, credentials, customer account or real payment data is stored. QR/card require amount paid equal to total and zero change. Unique attempt/reference constraints prevent duplicates at the storage level; returning the existing authorized sale on a repeated request is future service work.
+
+## TransactionItem fields
+
+| Field | Why it exists |
+| --- | --- |
+| `id` | Internal line ID; preserves deterministic line order |
+| `transaction` | Required sale link, with related name items; PROTECT prevents deleting a sale while lines remain |
+| `product` | Optional current catalog link; SET_NULL on product deletion preserves sale history |
+| `product_name` | Name copied when the sale completes; later catalog renaming does not change it |
+| `unit_price` | Two-decimal price copied at completion, independent of later catalog prices |
+| `quantity` | Positive integer, 1-99 per line |
+| `subtotal` | Two-decimal stored line amount; Python validation requires unit price times quantity |
+
+The limits are implementation choices for this local kiosk, not professor-specified amounts. Prompt 06 now provides quantity controls and strict cart parsing that rejects fractional/boolean session quantities. Payment UI remains future work; model field coercion alone is not the cart validation boundary.
+
+## Decimal and validation boundaries
+
+Use Python Decimal created from strings/database values for arithmetic. DecimalField validation rejects invalid/non-finite money, excess fractional digits and out-of-range values. Database constraints also enforce positive amounts, bounded quantities, supported methods, payment coverage and exact QR/card payment. Tests exercise values retrieved from SQLite, including 0.10 + 0.20 = 0.30.
+
+Exact cash-change and line-subtotal arithmetic is checked in model clean(), using Python Decimal, rather than floating-point SQL expressions. Call full_clean() before saving each model in the future shared completion service: Django save()/objects.create() do not automatically run full_clean(), and direct SQL/update can bypass Python checks. Cross-row order-total consistency and immutable application behavior are not yet implemented. Snapshots persist independently of catalog edits, but this schema does not prohibit a programmer from editing history.
+
+Relevant official sources reviewed for installed Django 6.1: [fields](https://docs.djangoproject.com/en/6.1/ref/models/fields/), [constraints](https://docs.djangoproject.com/en/6.1/ref/models/constraints/), [SQLite limitations](https://docs.djangoproject.com/en/6.1/ref/databases/#sqlite-notes), and [atomic transactions](https://docs.djangoproject.com/en/6.1/topics/db/transactions/). SQLite has decimal/locking limitations; the planned small local kiosk does not claim multi-terminal concurrency guarantees.
+
+## Shared calculation and completion plan
+
+Prompt 06 introduced calculate_order in kiosk/cart.py: validate product IDs and integer quantities, fetch available products, calculate Decimal line subtotals and total, and return lines plus total/recovery flags. Empty selection totals zero; review/checkout must reject empty orders when introduced. Future review and all payment methods must reuse this helper. Client-submitted prices/totals are never used. See the implemented cart section below for recovery and session details.
+
+Prompt 07 will tie a reviewed-order fingerprint/revision and attempt UUID to the session. Prompt 08 will introduce one shared atomic completion service used by cash and later QR/card:
+
+1. Validate active customer context, attempt, reviewed facts, method, current products and nonempty order. Reject stale or completed/reset contexts.
+2. Calculate fresh trusted values; validate cash or assign QR/card paid=total and change=0. Check model limits and exact arithmetic.
+3. Inside transaction.atomic(), validate/save the sale header and every snapshotted item; require total to equal the lines. Roll back all writes on failure.
+4. Handle uniqueness conflicts after rollback. An existing attempt may return its original sale only for the authorized active context. A new reference collision may retry reference generation. A database-busy error is a failure to retry, never a success response.
+5. Set the session's active completed-sale ID only after successful storage. Receipt reads stored snapshots. No completed sale or success reference is shown for invalid payment.
+
+These are planned responsibilities, not verified endpoint behavior. Current tests establish uniqueness and atomic database rollback; they do not implement idempotent HTTP payment handling, session authorization or race handling.
+
+## Cart versus sale lifetime
+
+The session cart is temporary: product-ID/quantity pairs, customer UUID, revision and reviewed/attempt state. Store JSON-safe values, not Decimal objects. The catalog and completed sale/item snapshots persist in SQLite.
+
+New Transaction will clear the active cart, review/payment/receipt pointers, create a new customer context and rotate the session ID. It will retain completed database rows. Historical receipt access will still require the active session/context; neither reset nor history protection is implemented in this stage.
+
+## Reproduce this milestone
+
+```powershell
+.\venv\Scripts\python.exe scripts/init_env.py
+.\venv\Scripts\python.exe manage.py migrate
+.\venv\Scripts\python.exe manage.py seed_catalog
+.\venv\Scripts\python.exe manage.py seed_catalog
+.\venv\Scripts\python.exe manage.py test kiosk
+.\venv\Scripts\python.exe manage.py check
+.\venv\Scripts\python.exe manage.py makemigrations --check --dry-run
+```
+
+The seed creates missing agreed products only. Repetition preserves IDs, price/name edits, unavailable flags, unrelated products and completed sales. It does not reset the catalog. The first local run created six, the second created zero and preserved six. No existing database was deleted. Django tests used a separate in-memory SQLite database; local sales/items remain zero. Initial migration is newly generated, not a rewrite of an applied migration.
+
+Prompt 05 is recorded as a02288bca6d1fda50cfea7191066b25cf47e46e2 on catalog-data and pushed in the later authorized checkpoint. [PR #3](https://github.com/Yray0-9/pos-app/pull/3) is open into codex/ui-foundation; UI evidence parent 3ce83e2 is now pushed. Genuine non-author review remains pending; no merge or cart work. The later documentation-only evidence commit 796b5da is also pushed. Combined E then created local cart-review from that complete checkpoint; no cart implementation.
+
+## Prompt 06 trusted calculation and active cart implemented
+
+kiosk/cart.py now provides calculate_order(raw_cart) for selection and future review/payment reuse. Product identifiers must be canonical positive ASCII integers within SQLite's signed 64-bit range; stored quantities must be actual integers (not booleans, floats or strings), 1-99. The helper loads available Product rows and computes Decimal unit_price x quantity for each line, then sums from Decimal 0.00. Browser money/quantity fields do not control arithmetic. Total cap is PHP 99,999,999.99, consistent with sale fields; growth beyond it is rejected, while reductions/removals allow an oversized legacy order to recover.
+
+Session namespace kiosk contains cart (string product IDs -> integer quantities), customer_context (UUID string) and revision (integer). A valid POST creates/reuses context and increments revision; GET reads without changing cart. Nested state is reassigned to ensure session persistence; unrelated session keys are preserved. Cart edits invalidate reserved reviewed_order/payment_attempt/payment_method/cash_amount fields. Review/fingerprint/attempt construction is still Prompt 07; payment completion/receipt/reset guards remain later work.
+
+calculate_order reports invalid/unavailable/missing entries and excludes them from displayed trusted amounts without silently saving a repaired cart. The UI offers an explicit Update order POST; valid selection edits also repair with feedback. Current DB price edits change active order amounts; completed sale snapshots remain independent. Maximum-quantity controls are disabled, and the server also rejects forged requests beyond 99. Invalid actions/products leave state unchanged.
+
+Native POST/redirect forms and JSON server-rendered fragments share the same action handler. POST/CSRF protects edits; order responses are marked no-store. Small JavaScript serializes actions in one tab and never retries an uncertain request automatically. This does not establish cross-tab/concurrent terminal guarantees or duplicate-payment handling. No transaction rows are created by selection.
+
+Implementation follows [Django sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/), [CSRF guidance](https://docs.djangoproject.com/en/6.1/howto/csrf/) and [Fetch behavior](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch). Tests used a separate in-memory database. No dependency or schema changes in this stage. Current selection/cart is uncommitted on cart-review; the earlier Prompt 05 storage/code/PR records remain historical evidence.
+
+Prompt 06 calculation/session implementation is now recorded as [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) on cart-review and [PR #4](https://github.com/Yray0-9/pos-app/pull/4) into catalog-data. No storage/schema changes at the Git checkpoint; review/payment completion/reset work remains pending.
+
+## Prompt 07 review confirmation and editable-cart lifetime
+
+`kiosk.cart.calculate_order()` remains the single calculation source for selection, review, Continue validation and guarded payment entry. Review uses live available Product records and Decimal amounts; no separate arithmetic is implemented in the review module or template.
+
+- GET /review/ calculates and renders the order without mutating the saved cart. Back is an ordinary GET to selection; it does not clear any namespace field.
+- The hidden signed token binds exactly displayed JSON-safe facts: customer_context UUID, cart revision, product IDs/names/unit prices/quantities/subtotals and total. Monetary strings retain two decimal places. Signing prevents tampering; it does not make old prices authoritative.
+- POST /review/continue/ requires CSRF and recomputes the cart. Empty, needs-refresh or over-limit orders, malformed context/revision, forged/other-session tokens and changed displayed facts are rejected with helpful feedback. The customer reviews the new order before proceeding.
+- An accepted POST saves `reviewed_order` comparison facts and a `payment_attempt` UUID under session['kiosk'], with explicit namespace reassignment. Repeated serial confirmation of the same facts reuses the attempt; different facts create a new attempt and clear old method/cash fields. Existing cart edits invalidate these reserved fields.
+- GET /payment/ revalidates current facts and the stored attempt before rendering a placeholder. No choice, charge, processing, sale completion or success/receipt is implemented. This stage does not establish atomic completion or duplicate-payment guarantees; those remain mandatory later work.
+
+Missing/deleted/unavailable records and corrupt quantities are omitted from valid totals with needs_refresh set. Review blocks progression and preserves raw state until explicit cart repair. Check needs_refresh before empty so an all-invalid saved order explains the correction. A repaired empty order still cannot advance. Price/name changes require a fresh confirmation; they do not change historical transaction snapshots.
+
+The editable cart and confirmation are temporary per-session customer state. Completed Transaction/TransactionItem snapshots are durable history; ordinary Back does not delete either, and future New Transaction must clear active customer state while retaining historical sale records. Full consecutive-customer reset/isolation is still Prompt 10 work. Simultaneous-tab writes are not guaranteed by the current session design.
+
+Reference: [Django signing documentation](https://docs.djangoproject.com/en/6.1/topics/signing/). The implementation uses the installed Django Signer sign_object/unsign_object API.
