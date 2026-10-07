@@ -456,3 +456,18 @@ overflow. Tab focuses keypad1; Shift+Tab restores amount field and its outer out
 Screenshot: docs/evidence/cash-focus-polish.png. Reduced-motion handling checked in
 source; emulation/physical touch/full-browser acceptance are not claimed. Public
 deployment outcome will be recorded after publishing and checking the production URL.
+
+## Published visual fix — actual evidence
+
+Fix [e9bf0b6](https://github.com/Yray0-9/pos-app/commit/e9bf0b6) committed/pushed on main
+under confirmed Romulo Magos identity. Vercel production deployment
+dpl_9YLc6HoB3gSRv9GWMh9GjjJbiAox READY; alias https://common-table-kiosk.vercel.app.
+Inspect: https://vercel.com/yray0-9s-projects/common-table-kiosk/9YLc6HoB3gSRv9GWMh9GjjJbiAox.
+Actual public browser: selection/add -> review -> payment -> cash -> focused field;
+complete wrapper outline green, inner outline none, no horizontal overflow at the
+current narrow viewport; page-enter animation and versioned CSS are loaded. Local
+Tab/Shift+Tab focus verified. Screenshots: cash-focus-polish.png and
+cash-focus-polish-public.png under docs/evidence.21 regressions pass in1.113s.
+Source reduced-motion support is verified; emulated preferences/physical-touch/full
+acceptance are not inferred. No transaction logic changed. This follow-up records
+publication and screenshot only; no additional runtime redeploy is necessary.
