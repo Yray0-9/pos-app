@@ -49,7 +49,7 @@ Only completed-sale records are planned here. No pending bank authorization, cre
 | `quantity` | Positive integer, 1-99 per line |
 | `subtotal` | Two-decimal stored line amount; Python validation requires unit price times quantity |
 
-The limits are implementation choices for this local kiosk, not professor-specified amounts. No quantity or payment UI exists yet. Future request parsing must strictly reject fractional/boolean quantities rather than relying on model field coercion alone.
+The limits are implementation choices for this local kiosk, not professor-specified amounts. Prompt 06 now provides quantity controls and strict cart parsing that rejects fractional/boolean session quantities. Payment UI remains future work; model field coercion alone is not the cart validation boundary.
 
 ## Decimal and validation boundaries
 
@@ -61,7 +61,7 @@ Relevant official sources reviewed for installed Django 6.1: [fields](https://do
 
 ## Shared calculation and completion plan
 
-Prompt 06 will introduce one trusted order-calculation function: validate product IDs and integer quantities, fetch available products, calculate Decimal line subtotals and total from those records, and return the lines plus total. It will handle an empty cart as zero for selection; checkout must reject empty orders. Selection, review and all payment methods will use the same function. Client-submitted prices/totals will never be used.
+Prompt 06 introduced calculate_order in kiosk/cart.py: validate product IDs and integer quantities, fetch available products, calculate Decimal line subtotals and total, and return lines plus total/recovery flags. Empty selection totals zero; review/checkout must reject empty orders when introduced. Future review and all payment methods must reuse this helper. Client-submitted prices/totals are never used. See the implemented cart section below for recovery and session details.
 
 Prompt 07 will tie a reviewed-order fingerprint/revision and attempt UUID to the session. Prompt 08 will introduce one shared atomic completion service used by cash and later QR/card:
 
@@ -93,4 +93,18 @@ New Transaction will clear the active cart, review/payment/receipt pointers, cre
 
 The seed creates missing agreed products only. Repetition preserves IDs, price/name edits, unavailable flags, unrelated products and completed sales. It does not reset the catalog. The first local run created six, the second created zero and preserved six. No existing database was deleted. Django tests used a separate in-memory SQLite database; local sales/items remain zero. Initial migration is newly generated, not a rewrite of an applied migration.
 
-Prompt 05 is recorded as a02288bca6d1fda50cfea7191066b25cf47e46e2 on catalog-data and pushed in the later authorized checkpoint. [PR #3](https://github.com/Yray0-9/pos-app/pull/3) is open into codex/ui-foundation; UI evidence parent 3ce83e2 is now pushed. Genuine non-author review remains pending; no merge or cart work. Combined E is next within this checkpoint.
+Prompt 05 is recorded as a02288bca6d1fda50cfea7191066b25cf47e46e2 on catalog-data and pushed in the later authorized checkpoint. [PR #3](https://github.com/Yray0-9/pos-app/pull/3) is open into codex/ui-foundation; UI evidence parent 3ce83e2 is now pushed. Genuine non-author review remains pending; no merge or cart work. The later documentation-only evidence commit 796b5da is also pushed. Combined E then created local cart-review from that complete checkpoint; no cart implementation.
+
+## Prompt 06 trusted calculation and active cart implemented
+
+kiosk/cart.py now provides calculate_order(raw_cart) for selection and future review/payment reuse. Product identifiers must be canonical positive ASCII integers within SQLite's signed 64-bit range; stored quantities must be actual integers (not booleans, floats or strings), 1-99. The helper loads available Product rows and computes Decimal unit_price x quantity for each line, then sums from Decimal 0.00. Browser money/quantity fields do not control arithmetic. Total cap is PHP 99,999,999.99, consistent with sale fields; growth beyond it is rejected, while reductions/removals allow an oversized legacy order to recover.
+
+Session namespace kiosk contains cart (string product IDs -> integer quantities), customer_context (UUID string) and revision (integer). A valid POST creates/reuses context and increments revision; GET reads without changing cart. Nested state is reassigned to ensure session persistence; unrelated session keys are preserved. Cart edits invalidate reserved reviewed_order/payment_attempt/payment_method/cash_amount fields. Review/fingerprint/attempt construction is still Prompt 07; payment completion/receipt/reset guards remain later work.
+
+calculate_order reports invalid/unavailable/missing entries and excludes them from displayed trusted amounts without silently saving a repaired cart. The UI offers an explicit Update order POST; valid selection edits also repair with feedback. Current DB price edits change active order amounts; completed sale snapshots remain independent. Maximum-quantity controls are disabled, and the server also rejects forged requests beyond 99. Invalid actions/products leave state unchanged.
+
+Native POST/redirect forms and JSON server-rendered fragments share the same action handler. POST/CSRF protects edits; order responses are marked no-store. Small JavaScript serializes actions in one tab and never retries an uncertain request automatically. This does not establish cross-tab/concurrent terminal guarantees or duplicate-payment handling. No transaction rows are created by selection.
+
+Implementation follows [Django sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/), [CSRF guidance](https://docs.djangoproject.com/en/6.1/howto/csrf/) and [Fetch behavior](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch). Tests used a separate in-memory database. No dependency or schema changes in this stage. Current selection/cart is uncommitted on cart-review; the earlier Prompt 05 storage/code/PR records remain historical evidence.
+
+Prompt 06 calculation/session implementation is now recorded as [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28) on cart-review and [PR #4](https://github.com/Yray0-9/pos-app/pull/4) into catalog-data. No storage/schema changes at the Git checkpoint; review/payment completion/reset work remains pending.

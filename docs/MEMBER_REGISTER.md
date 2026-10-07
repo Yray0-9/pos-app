@@ -15,7 +15,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | catalog-data tracking origin/catalog-data; Prompt 05 implementation a02288bca6d1fda50cfea7191066b25cf47e46e2 pushed; PR #3 open |
+| Current local branch | cart-review, tracking origin/cart-review; implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28); [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open into catalog-data; genuine review pending |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
 | Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3; prior local codex/catalog-data name removed) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3); cart-review (local intended 06-07, no implementation yet) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -176,3 +176,31 @@ Configured author/account Yray0-9 retained; requester M3 Magos, AI-assisted impl
 Actual review: [Copilot quota entry](https://github.com/Yray0-9/pos-app/pull/3#pullrequestreview-5438370873), COMMENTED, no inline findings/requested code changes. No substantive independent review or CI checks/statuses; no fabricated resolution. Need genuine non-author review by Agbas/Daro after confirming accounts or an instructor-accepted reviewer; none contacted. Parent PRs #1/#2 also remain unmerged. Main public .env issue confirmed; current local development key differs, no values displayed. Main cleanup/history remediation not performed.
 
 A scoped documentation-only follow-up records returned links/status on catalog-data before E, not a manufactured extra development stage. E's intended task remains cart-review for Magos's Prompt 06-07; actual branch record follows its creation. Other member features, explanations, peer approval and merges remain pending.
+
+## E completed after catalog B - actual cart/review branch
+
+2026-10-07, approximately 14:18-14:20 Asia/Singapore. B completed first: catalog implementation [a02288bca6d1fda50cfea7191066b25cf47e46e2](https://github.com/Yray0-9/pos-app/commit/a02288bca6d1fda50cfea7191066b25cf47e46e2) and documentation-only [796b5da355b90d55bdddf74429e1998588095738](https://github.com/Yray0-9/pos-app/commit/796b5da355b90d55bdddf74429e1998588095738) pushed, PR #3 head verified as the evidence commit. Fresh review/check state unchanged: quota-only COMMENTED, no inline findings or CI; real reviewer needed. That follow-up is genuine evidence maintenance, not a new artificial application stage.
+
+Actual E branch: cart-review, created from clean catalog-data at 796b5da355b90d55bdddf74429e1998588095738 after confirming no local or remote cart-review existed. HEAD matches the recorded catalog base; initial working tree clean, no diff against catalog-data, no upstream. Local-only branch; no cart code, commit, push, PR or merge during E.
+
+Requester/intended contributor: M3 Magos with Codex assistance. Intended task: Prompt 06 catalog-bound product selection, session cart, quantity/remove/zero rules, exact server totals/feedback; later Prompt 07 review/navigation on the same branch. Intended assignment is not completed contribution. Existing code/credentials/database preserved; only branch-preparation docs now uncommitted on this branch. Next numbered prompt: 06. Agbas/Daro accounts/implementation, independent review/member explanation and final integration remain pending.
+
+## Prompt 06 local implementation record
+
+Requester M3 Magos; implementation generated/edited by Codex assistance on cart-review, base 796b5da. No change to configured Git author, branch, remote, commit, push, PR or merge during this feature request. Existing E documentation preserved. Local application work: trusted session cart/calculation, real catalog rendering, quantity/removal controls, progressive JavaScript, relevant tests, built CSS and evidence. All 24 tests and scoped browser checks passed; meaningful browser bug/fix recorded in AI_LOG.md.
+
+This is a completed local AI-assisted milestone, not a published member commit or proof of Magos's individual understanding. Human verification/explanation pending; Agbas/Daro implementation/accounts/reviews remain pending. Prompt 06 commit/PR links: pending proper Git checkpoint. Existing PR #3 covers catalog only, not these uncommitted changes. Do not count this as an independent member feature or review. Reuse cart-review for Prompt 07 after recording the actual milestone. No reviewer was contacted.
+
+## Cart B - authorization and real responsibility
+
+Requester M3 Magos invoked the scoped Git checkpoint after Prompt 06. Actual branch cart-review (agreed simple name) at base 796b5da; actual configured Git author Romulo Magos, authenticated account Yray0-9. Preserve configured authorship; AI-assisted code/checks do not establish independent Magos explanation or any Agbas/Daro implementation. Current request authorizes cart commit/push/scoped PR into catalog-data, not merge or reviewer contact. Actual outcome links follow after creation. Real non-author reviewer/accounts and peer/member explanation/contribution gaps remain pending.
+
+## Cart B - actual publication and review outcome
+
+2026-10-07, approximately 17:47-17:56 Asia/Singapore. Implementation commit [f901b32620a3a53c298664f945813bf34f34cf28](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28), message Add touch-friendly selection and trusted session cart, configured author Romulo Magos, requester M3 Magos with Codex assistance. Exactly 21 scoped files; clean checkout observed after commit. Ordinary push created origin/cart-review/upstream; local/remote-tracking implementation SHAs matched. No force, merge, main change, branch creation, deployment or reviewer contact.
+
+[PR #4](https://github.com/Yray0-9/pos-app/pull/4) created and verified open/unmerged, publisher Yray0-9, source cart-review, target catalog-data at 796b5da. Diff against parent covers selection/cart and its relevant evidence, not repeated catalog implementation. Parent PR #3 remains open/unmerged; earlier setup/UI parents also unmerged. Main private-file/history/application issue remains separate and unresolved.
+
+Actual feedback source: [Copilot quota notice](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047), COMMENTED; bot explicitly could not review. No inline findings, discussion comments, requested code changes, CI checks/statuses or approval. No invented feedback/resolution. Genuine non-author review needed from Agbas/Daro after confirming accounts or an instructor-accepted reviewer. Magos's independent understanding and Agbas/Daro implementation/contribution evidence remain pending. The configured name change is preserved as observed; no identity/configuration was changed by the assistant.
+
+This documentation-only follow-up records the real returned commit/PR/review evidence under the current checkpoint authorization; it is evidence maintenance, not an artificial new application development stage. Next numbered stage Prompt 07 reuses cart-review after inspection. No automatic feature implementation.
