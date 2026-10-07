@@ -315,3 +315,27 @@ Historical migrations/models/seed/tests were archived intact, not rewritten.
 Integration verification: review-history merge retains identical tested runtime and adds exact inactive historical records; 21 tests passed in1.384s. Main merged in isolated worktree; current private/generated artifacts excluded from index. Main-specific checks follow before commit/push.
 
 Main-specific verification:21 tests passed in1.367s from isolated main checkout; Django check and staged diff clean; no remaining conflicts. Initial test invocation from parent cwd was corrected to the worktree cwd (discovery path mismatch, not an app failure). Main merge0764e08 and cart-reviewc7cd068 pushed without force; ls-remote confirms both. Runtime diff main versus checked feature is empty. Generated/private files are absent from final index; source and incoming history retained. Human browser/process checks remain pending.
+
+## Cash focus border fix and restrained motion — 2026-10-07
+
+Magos supplied a screenshot of the cash input focus outline extending beyond the
+currency wrapper and explicitly requested a fix, subtle animations, push and publication.
+Actual cause: global :focus-visible outlined the inner input while the outer wrapper
+already had its own border. Fix: cash-field :focus-within outlines the entire rounded
+currency field, including peso prefix; suppress only its inner input outline. Keyboard
+focus remains visible. Invalid cash gets the same fitted danger-color outline.
+
+Added220ms page fade/6px entry,180ms feedback fade,160ms color/hover/button transitions,
+2px hover lift and gentle press feedback. Movement only applies when reduced motion
+is not requested; existing reduced-motion override disables transitions/animation.
+CSS version query prevents older browser styling being reused after publication.
+No cart/payment/calculation/storage behavior changed; current main used for maintenance
+under the explicit fix/push/publication request. No new member authorship was invented.
+
+Actual checks: existing21 tests pass in1.113s, Django check clean, Tailwind build183ms,
+diff check clean. Browser is now available: local8002 cash page at the current narrow
+viewport shows a fitted green outer outline, no inner outline and no horizontal
+overflow. Tab focuses keypad1; Shift+Tab restores amount field and its outer outline.
+Screenshot: docs/evidence/cash-focus-polish.png. Reduced-motion handling checked in
+source; emulation/physical touch/full-browser acceptance are not claimed. Public
+deployment outcome will be recorded after publishing and checking the production URL.

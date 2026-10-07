@@ -42,4 +42,26 @@
   .payment-symbol { @apply flex size-16 items-center justify-center rounded-2xl bg-leaf-soft text-3xl font-semibold text-leaf; }
   .keypad-key { @apply flex min-h-14 items-center justify-center rounded-xl border border-line bg-canvas text-xl font-semibold hover:border-leaf hover:bg-leaf-soft disabled:opacity-50; }
   .hero-art { filter: drop-shadow(0 20px 24px rgb(0 0 0 / 0.18)); }
+
+  /* Focus belongs to the complete currency field, including its peso prefix. */
+  .cash-field { @apply flex items-center gap-3 rounded-2xl border border-line px-4; transition: border-color 160ms ease; }
+  .cash-field:focus-within { border-color: var(--color-leaf); outline: 3px solid var(--color-leaf); outline-offset: 3px; }
+  .cash-field input:focus, .cash-field input:focus-visible { outline: none; }
+  .cash-field-error { border-color: var(--color-danger); }
+  .cash-field-error:focus-within { border-color: var(--color-danger); outline-color: var(--color-danger); }
+
+  .touch-control, .quantity-control, .keypad-key, .payment-choice, .catalog-card {
+    transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .page-enter { animation: page-enter 220ms ease-out; }
+    .feedback { animation: feedback-enter 180ms ease-out; }
+    .touch-control:active:not(:disabled), .quantity-control:active:not(:disabled), .keypad-key:active:not(:disabled) { transform: scale(0.98); }
+    @media (hover: hover) {
+      .catalog-card:hover:not(:disabled), .payment-choice:hover { transform: translateY(-2px); box-shadow: 0 8px 24px -14px rgb(36 52 46 / 0.3); }
+    }
+  }
 }
+
+@keyframes page-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes feedback-enter { from { opacity: 0; } to { opacity: 1; } }

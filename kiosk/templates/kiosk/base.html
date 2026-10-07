@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#24584b">
   <link rel="icon" type="image/svg+xml" href="{% static 'kiosk/favicon.svg' %}">
   <title>{% block title %}Common Table · Campus kiosk{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'kiosk/css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'kiosk/css/app.css' %}?v=20261007-polish1">
 </head>
 <body class="min-h-screen">
   <a href="#main-content" class="touch-control fixed top-4 left-4 z-50 -translate-y-32 bg-ink text-white focus:translate-y-0">Skip to content</a>
@@ -24,7 +24,7 @@
   </header>
   <div class="mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-10">
     {% block progress %}{% include 'kiosk/components/progress.html' with current_step=current_step %}{% endblock %}
-    <main id="main-content" tabindex="-1" class="pb-12">
+    <main id="main-content" tabindex="-1" class="page-enter pb-12">
       {% include 'kiosk/components/messages.html' %}
       {% block content %}{% endblock %}
     </main>
