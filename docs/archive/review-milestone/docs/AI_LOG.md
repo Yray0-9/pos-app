@@ -380,53 +380,36 @@ All 24 tests reran and passed (0.872s), plus Django check, pip check and no migr
 
 Fresh GitHub state: catalog/UI/setup parents open/unmerged, catalog head 796b5da. Existing reviews are quota-only COMMENTED entries with no inline findings or checks/statuses. Main public tracked-private-file/integration issue remains unresolved and is not a base for this PR. Intended source cart-review, target catalog-data. Need genuine non-author review from Agbas/Daro after account confirmation or instructor-accepted reviewer; none contacted. Actual commit/push/PR outcomes follow only after successful operations. Stop before Prompt 07.
 
-## AI — explicit combined local completion
+## Cart B - actual publication and review outcome
 
-2026-10-07. Actual latest user request (verbatim): “PLease do run it now or do the work now properly and professionally done becuase i want to test it out myself if is really meet's the requirements and also if is really good too.” Earlier steering deferred public hosting, requested local completion/testing and kept Git/account changes outside scope. Magos is the requester; Codex is the assistance tool. The prepared combined five-field prompt was discussed, not falsely recorded as a verbatim user submission.
+2026-10-07, approximately 17:47-17:56 Asia/Singapore. Implementation commit [f901b32620a3a53c298664f945813bf34f34cf28](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28), message Add touch-friendly selection and trusted session cart, configured author Romulo Magos, requester M3 Magos with Codex assistance. Exactly 21 scoped files; clean checkout observed after commit. Ordinary push created origin/cart-review/upstream; local/remote-tracking implementation SHAs matched. No force, merge, main change, branch creation, deployment or reviewer contact.
 
-Five-field scope summary:
+[PR #4](https://github.com/Yray0-9/pos-app/pull/4) created and verified open/unmerged, publisher Yray0-9, source cart-review, target catalog-data at 796b5da. Diff against parent covers selection/cart and its relevant evidence, not repeated catalog implementation. Parent PR #3 remains open/unmerged; earlier setup/UI parents also unmerged. Main private-file/history/application issue remains separate and unresolved.
 
-- Context: catalog/cart exist; prior local review absent from current clean f901b32 checkout; existing shared scope/design/models govern.
-- Objectives: finish required kiosk flow locally in one continuous build so Magos can test it.
-- Requirements: current summary/Back; cash/QR/card simulations/shared trusted completion; success/snapshot receipt; safe reset; meaningful tests/setup/evidence/demo guide.
-- Constraints: no fabricated member authorship/history/review, account switches, Git mutations/commits/pushes/merges/deployment; preserve user files/data; no optional framework/gateway expansion.
-- Expected output: working local app, actual results, personal rehearsal and remaining acceptance gaps.
+Actual feedback source: [Copilot quota notice](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047), COMMENTED; bot explicitly could not review. No inline findings, discussion comments, requested code changes, CI checks/statuses or approval. No invented feedback/resolution. Genuine non-author review needed from Agbas/Daro after confirming accounts or an instructor-accepted reviewer. Magos's independent understanding and Agbas/Daro implementation/contribution evidence remain pending. The configured name change is preserved as observed; no identity/configuration was changed by the assistant.
 
-Generated/adapted response summary: reused clean prepared cart-review, restored review with signed displayed facts and reused Decimal calculator; added one checkout module for validation/ownership/atomic completion/reset; connected routes/templates and own restrained UI; touch cash keypad, clearly non-scannable QR placeholder, card processing text; durable snapshot success/receipt; session key/context rotation and old-receipt guards. JavaScript enhances touch/loading/history only; server validates and unique attempt/atomic writes prevent duplicate/partial sales. No new schema/dependency and no payment credentials.
+This documentation-only follow-up records the real returned commit/PR/review evidence under the current checkpoint authorization; it is evidence maintenance, not an artificial new application development stage. Next numbered stage Prompt 07 reuses cart-review after inspection. No automatic feature implementation.
 
-Assistant evaluation: current catalog facts cannot be replaced by browser prices; signed tokens bind context/revision/order/method/attempt; partial writes rollback. Existing attempt returns original sale/paid amount even after later catalog edits; conflicting method/session is rejected. Reset requires current signed sale and preserves unrelated session fields/history. SQLite contention may return a busy error with a safe explicit retry. General simultaneous cart editing across tabs is not guaranteed. New browser focus/layout/keypad/card-delay/history-cache behavior remains unverified despite source inspection and HTTP checks.
+## AI - Prompt 07 order review (2026-10-07)
 
-Actual verification: initial44 tests passed; final46 after meaningful metadata/concurrency additions passed in3.312s. LiveHTTP/CSRF with isolated cookies passed all methods, invalid cash, review/Back/edit, receipts/retry/reset/session guards and local assets; retained three test sales. Fresh temporary-database migration/seed/reseed/check passed. Tailwind build, JS syntax, pip/configuration/drift and direct diff check passed. Browser inventory empty and opening iab failed; no new screenshot/visual/touch pass claimed. Existing port8000 process preserved; separate checked preview on8001.
+Responsible requester: M3 Magos. AI tool: Codex in this chat. The following five-field record summarizes the actual submitted prompt; it is not a verbatim transcript export.
 
-Actual adaptations: bound existing disabled Review button to real guarded navigation; updated earlier test expectations; freeze paid customer's editing until New Transaction; added receipt redirect handling for stale cart AJAX; use no-store/history-restoration reload. Grouped PowerShell check returned1 but direct diff validation returned0; this is a tooling observation, not a fabricated app bug. Injected line-write failure is deliberate regression coverage for atomicity, not actual runtime debugging evidence. No real app failure or separate refactoring stage was manufactured. Shared completion is newly generated architecture, not proof of retrospective refactoring.
+- Context: selection/cart verified; apply shared rules and F07-F08, F02, F20.
+- Objectives: review the exact order and return to editing without losing it.
+- Requirements: names, quantities, unit prices, subtotals/total; Back and Continue; current server validation; empty blocked; consistent design; repeated navigation/edit verification; policy for missing/unavailable records.
+- Constraints: no payment completion, duplicate total calculator, frozen editable amount or discarded items on Back.
+- Expected output: checked flow, evidence and session explanation; stop before Prompt 08.
 
-Human evaluation/adaptation (Magos): Pending. Use DEMO_GUIDE to assess design, cash entry, processing, receipt agreement and reset, then record your own findings and explanation. Assistant-written evaluation is not a member's independent understanding. Agbas/Daro personal implementation/accounts/reviews remain unverified; no changes attributed to them. Full transcript/export reference and final substantive review/committed-stage audit remain pending.
+Additional actual user concern: whether six feature branches plus main are necessary and whether the other members could contribute only small later changes. Assistant response: the count is proposed, not mandated; reuse cart-review for 06-07 and group meaningful tasks. Supporting/cosmetic edits alone cannot be assumed to satisfy individual implemented-feature requirements. QR/card and receipt/reset are suggested real remaining tasks, not accepted assignments or completed contributions.
 
-Git boundary: current completion local/uncommitted on f901b32 base. No branch/authorship/account/push/PR/merge/deployment action. Prior selection commit observed, remote review/publication state not refreshed. Next personal local rehearsal, then actual scoped Git checkpoint when requested. Local working notes remain ignored rather than included in a future PR.
+Generated/adapted output (assistant summary): review module binds signed displayed facts to fresh server-calculated order; GET summary is read-only; Back preserves cart; POST Continue requires CSRF/current facts and stores temporary confirmation/attempt; guarded payment placeholder clearly says unavailable; base progress/header and reusable summary keep styling consistent. Existing Decimal calculator and cart validation reused. No new model/migration/dependency, completion, success, receipt or reset code.
 
-## AI — explicit no-database completion, deployment and requested main integration
+Assistant evaluation: signed comparison prevents old or forged displayed amounts from being treated as current authority; current database prices/names are recomputed. Serial repeated navigation/confirmation is tested; concurrent session writes and atomic duplicate-payment prevention remain unestablished. Invalid saved items warn and require repair rather than being silently dropped by GET. New templates specify 56px controls and accessible labels; browser appearance/accessibility cannot be asserted without the pending checks.
 
-Latest user requested QR/receipt visibility, complete functionality, Vercel deployment,
-and deleting SQLite. This reverses prior accepted storage/deployment boundaries. Later
-user response requests final app in main. Magos is still the requester; no teammate work
-is inferred from local configured authorship. Generated changes: fixed Decimal catalog,
-signed-cookie sessions and validated active receipt dataclasses; archived old storage
-source; removed admin/auth/database apps; production/static/Vercel configuration; tests
-and documentation. Database deleted only at verified root path, not recursively.
+Actual adaptations/errors: missing private environment prevented initial test startup; existing initializer safely created ignored local configuration. Empty SQLite was initialized using existing migrations and repeatable seed. Restored Tailwind tooling first failed to find Node; setting bundled Node on the process PATH fixed the build. A live HTTP helper initially could not be written because the ignored tmp directory was absent; creating that directory resolved tooling only. Code inspection found the all-stale cart warning was hidden by an early empty guard; reordered guards and added unavailable/deleted regression coverage, raising 34 tests to 35. Desktop summary labels were retained using sr-only classes. These are actual events, not invented retrospective bugs/reviews or artificial commits.
 
-Assistant evaluation: no permanent sale history/shared global lock; copied signed-cookie
-replay cannot be revoked, and conflicting older requests are not globally idempotent.
-These limits are explicit tests, not falsely marked guarantees. All payments remain
-exam simulations and QR is an allowed demo placeholder. 21 database-free tests and
-local/public HTTP/CSRF pass; personal browser appearance/JS/touch evaluation pending.
+Verification: configuration/dependency/migration checks passed; 35 automated tests passed on final logic; local CSS build passed; restarted-server live HTTP/CSRF verified summary agreement, Back/edit, stale-confirmation rejection, repeated navigation, empty-session guard and local assets. Browser tool unavailable, no new visual/focus/overflow/touch/screen-reader result or screenshot claimed. Existing selection screenshots are historical.
 
-Actual debugging: old port8000 process served earlier placeholder; verified project
-process restarted. HTTP test corrections handle remasked CSRF and HTTPS Referer.
-Production build succeeded with native Django preset/Python3.14. Login approved through
-Vercel's normal device flow; private production secret transmitted through stdin, never
-printed or placed in repository. Deployment READY; no local plan uploaded. Automatic
-Git connection created by CLI was disconnected to avoid unverified-main deployment.
-Main integration outcomes and real SHA/evidence will be recorded after successful work;
-no review or member contribution is manufactured. Human evaluation remains pending.
+Branch/evidence: existing clean cart-review at 11f7335 reused under its earlier 06-07 preparation and current scoped implementation request. Changes are local/uncommitted and not in PR #4 yet; no Git mutation, contact, merge or deployment. Member work remains Magos-requested and AI-assisted; Agbas/Daro implementation/accounts, non-author review and all members' explanation remain pending. Suggested next: scoped B, then payment branch inspection/preparation and Prompt 08.
 
-Git reconciliation: remote cart-review had two earlier commits absent from the current local base. Normal merge produced real conflicts in docs, review/views/routes and CSS. Exact older source/evidence was archived; current runtime resolved to the tested completion. This is actual conflict resolution, not fabricated reviewer feedback. Main integration remains the next operation.
+Human evaluation/adaptation (Magos): Pending. Please personally exercise Review/Back/edit/Continue and explain why session cart IDs/quantities persist while server prices/totals are recalculated. This assistant-written record is not Magos's own review or instructor sign-off. Full transcript reference/export remains pending.

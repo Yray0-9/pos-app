@@ -15,9 +15,9 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | cart-review, HEAD f901b32 at combined-build entry; required completion code/evidence local and uncommitted; no branch/account/Git mutations in this build |
+| Current local branch | cart-review, tracking origin/cart-review; implementation [f901b32](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28); [PR #4](https://github.com/Yray0-9/pos-app/pull/4) open into catalog-data; genuine review pending |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
-| Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
+| Integration branch state | Local main and origin/main observed at `21bd344` at Prompt 07 entry, after additional user Initial commit history. Historical main tracks private/generated artifacts and omits prepared sources; resolution/final integration pending. It was not used as the review base |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
 | Final demonstrated integration commit | Pending; the initial commit is not the final app |
 | Instructor repository access | Pending instructor verification |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3); cart-review (selection committed at f901b32; combined completion implemented/checked locally, uncommitted) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3); cart-review (Prompt 06 committed/pushed; Prompt 07 implemented/checked locally, uncommitted) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -53,10 +53,10 @@ Use P/F/N/A in the instructor's form only when verified or assigned appropriatel
 | Acceptance Checklist verification item | M1 Agbas | M2 Daro | M3 Magos |
 | --- | --- | --- | --- |
 | GitHub identity matches recorded member | Pending | Pending | Pending |
-| Feature branch and assigned work identifiable | Pending | Pending | Setup and UI branches/tasks recorded; individual demonstration pending |
-| Meaningful authored commits visible | Pending | Pending | Setup/UI commits visible under configured author Yray0-9; member explanation pending |
-| Branch changes pushed to shared repository | Pending | Pending | Setup and UI pushes verified; individual demonstration pending |
-| PR ownership and feature changes demonstrated | Pending | Pending | PRs #1/#2 author/source/target recorded; individual demonstration pending |
+| Feature branch and assigned work identifiable | Pending | Pending | Setup/UI/catalog/cart branches/tasks recorded; review is local on cart-review; individual demonstration pending |
+| Meaningful authored commits visible | Pending | Pending | Published setup/UI/catalog/cart commits recorded below; latest cart commit author Romulo Magos; member explanation pending |
+| Branch changes pushed to shared repository | Pending | Pending | Setup/UI/catalog/cart pushes recorded; new Prompt 07 review changes not pushed; individual demonstration pending |
+| PR ownership and feature changes demonstrated | Pending | Pending | PRs #1-#4 author/source/target recorded below; individual demonstration pending |
 | PR review and merge evidence explained | Pending | Pending | Pending |
 | AI generation, debugging, and refactoring evidence identified | Pending | Pending | Generation records prepared; application debugging/refactoring and individual explanation pending |
 | AI output evaluated and adapted when necessary | Pending | Pending | Human evaluation/adaptation pending |
@@ -195,31 +195,28 @@ This is a completed local AI-assisted milestone, not a published member commit o
 
 Requester M3 Magos invoked the scoped Git checkpoint after Prompt 06. Actual branch cart-review (agreed simple name) at base 796b5da; actual configured Git author Romulo Magos, authenticated account Yray0-9. Preserve configured authorship; AI-assisted code/checks do not establish independent Magos explanation or any Agbas/Daro implementation. Current request authorizes cart commit/push/scoped PR into catalog-data, not merge or reviewer contact. Actual outcome links follow after creation. Real non-author reviewer/accounts and peer/member explanation/contribution gaps remain pending.
 
-## Combined completion — actual responsibility and publication boundary
+## Cart B - actual publication and review outcome
 
-Magos explicitly requested completion now so they can test the kiosk. The existing prepared cart-review branch was clean at entry f901b32 and reused. Codex generated/adapted the required review, shared payments, success, receipt/reset, tests and evidence under Magos's request. No branch creation, identity/account switch, commit/push/PR update/merge, deployment or reviewer contact. Current work is local and has no new commit/PR links; do not invent them or count it as published history. Existing entry commit f901b32 is the observed selection checkpoint; earlier documentation still contains historical uncommitted-stage descriptions, now superseded for that checkpoint.
+2026-10-07, approximately 17:47-17:56 Asia/Singapore. Implementation commit [f901b32620a3a53c298664f945813bf34f34cf28](https://github.com/Yray0-9/pos-app/commit/f901b32620a3a53c298664f945813bf34f34cf28), message Add touch-friendly selection and trusted session cart, configured author Romulo Magos, requester M3 Magos with Codex assistance. Exactly 21 scoped files; clean checkout observed after commit. Ordinary push created origin/cart-review/upstream; local/remote-tracking implementation SHAs matched. No force, merge, main change, branch creation, deployment or reviewer contact.
 
-The configured author is preserved. Authenticated account/remote PR state was not refreshed in this local build. Previously recorded parent PRs are historical; actual review/merge/publication must be inspected at a future authorized checkpoint. No initial/private-history/main remediation was performed here.
+[PR #4](https://github.com/Yray0-9/pos-app/pull/4) created and verified open/unmerged, publisher Yray0-9, source cart-review, target catalog-data at 796b5da. Diff against parent covers selection/cart and its relevant evidence, not repeated catalog implementation. Parent PR #3 remains open/unmerged; earlier setup/UI parents also unmerged. Main private-file/history/application issue remains separate and unresolved.
 
-| Member | Actual current responsibility/evidence | Individual requirement status |
-| --- | --- | --- |
-| M1 Agbas | Member listed by user; no personal implementation/accepted task/account verified in this build | Pending; no commits/feature/review/explanation claimed |
-| M2 Daro | Member listed by user; no personal implementation/accepted task/account verified in this build | Pending; involving another member does not satisfy Daro's requirement |
-| M3 Magos | Requester of combined AI-assisted local completion; 46 tests and HTTP/setup checks recorded; earlier selection commit observed | Human evaluation/explanation, current publication, substantive peer review and final integration pending |
+Actual feedback source: [Copilot quota notice](https://github.com/Yray0-9/pos-app/pull/4#pullrequestreview-5440581047), COMMENTED; bot explicitly could not review. No inline findings, discussion comments, requested code changes, CI checks/statuses or approval. No invented feedback/resolution. Genuine non-author review needed from Agbas/Daro after confirming accounts or an instructor-accepted reviewer. Magos's independent understanding and Agbas/Daro implementation/contribution evidence remain pending. The configured name change is preserved as observed; no identity/configuration was changed by the assistant.
 
-Neutral future branch names payment-states/receipt-reset are suggestions only. Different labels/accounts alone do not establish contribution. Real teammate implementation or adaptation on the shared laptop, with actual test results and understanding, can be recorded later. Supporting review/testing/docs should be credited accurately but cannot automatically stand in for each-member implemented-feature work. No work was relabeled under another identity.
+This documentation-only follow-up records the real returned commit/PR/review evidence under the current checkpoint authorization; it is evidence maintenance, not an artificial new application development stage. Next numbered stage Prompt 07 reuses cart-review after inspection. No automatic feature implementation.
 
-The seven-stage committed-history audit, genuine refactoring evidence where warranted, actual non-author review/feedback resolution, merges, clone/instructor access and all members' explanations remain unresolved. A fully functioning app does not manufacture these records. Next: personal rehearsal, then a separately authorized scoped Git checkpoint. Local working notes remain excluded from Git.
+## Prompt 07 local implementation and genuine remaining member tasks
 
-## Current completion and public deployment (2026-10-07)
+2026-10-07, approximately 18:15-18:45 Asia/Singapore. Requester M3 Magos; code/evidence generated and adapted with Codex assistance. Existing cart-review was clean at entry, HEAD 11f7335f0311bb66e2de5f35a250dc09726af8fb, tracking origin/cart-review. Reused the branch prepared for 06-07; no branch/identity/configuration/commit/push/PR/merge changes were made by this stage. The review implementation and evidence are local/uncommitted and are not in existing PR #4 yet.
 
-Magos requested/received AI-assisted full simulated kiosk and no-database conversion.
-21 no-database tests and local/public HTTP checks pass. Public Vercel site is
-https://common-table-kiosk.vercel.app; deployment dpl_CaAD2UzZwta8KY6YdfZCnAsYw1Z9.
-This is not proof of other members' personal implementation/review/explanation.
-Main integration is explicitly requested; local/remote SHA and merge outcomes are
-pending actual execution. Earlier integration state/publication records are historical.
+Actual task: server-validated review summary, Back preservation, guarded Continue and payment entry placeholder; shared calculations reused, 11 review tests added (35 suite total) and live HTTP/CSRF verified. Configured local author remains Romulo Magos, romulomagos16@gmail.com. This stage is not a new committed contribution or human explanation. Genuine review remains pending; previous quota-only bot notice is not approval and remote review state was not refreshed in this feature stage.
 
-## Actual completion and incoming review reconciliation
+The user's concern about six feature branches plus main does not make that count an exam rule. Related work can share a branch, as 06-07 already do. Each member still needs identifiable genuine implementation, meaningful history and their own explanation. Cosmetic edits, documentation, tests and reviews can be useful supporting contributions; they do not automatically substitute for an implemented feature-branch task.
 
-Completion commit e4fa2ba was recorded under Romulo Magos (romulomagos16@gmail.com), the confirmed requester. Repo identity was JoseAgbas at entry; it was restored to Magos instead of misattributing work. Incoming real remote commits ff76ff6/11f7335 are being preserved by a normal merge. Their earlier review implementation/evidence is archived under docs/archive/review-milestone. Full tested completion supersedes the payment placeholder and old database tests; unrelated remote file er is preserved. No genuine non-author review/approval is claimed. Main integration follows.
+| Member | Proposed real remaining implementation | Supporting work | Confirmed contribution |
+| --- | --- | --- | --- |
+| M1 Agbas | Simulated QR/card UI and processing states using the shared server completion interface | Validate method totals/states; explain and document own changes; review another member's actual work | Assignment/account/implementation not accepted or verified |
+| M2 Daro | Receipt display and New Transaction reset, retaining historical sales and isolating consecutive customers | Verify snapshot fields/reset/back safeguards; explain own code and review another actual change | Assignment/account/implementation not accepted or verified |
+| M3 Magos | Foundation/catalog/cart/review implemented with AI assistance; cash/shared completion still proposed future work | Personal verification, AI evaluation and independent code demonstration | Published earlier checkpoints exist; Prompt 07 local; human evaluation/explanation pending |
+
+These are proposals, not claimed assignments, authored commits, completed reviews or instructor passes. Do not rename AI/Magos work as Agbas/Daro work or create empty/artificial feature commits. GitHub account rename to Romulo-Magos remains unverified in this stage; existing repository/PR evidence URLs are retained until the actual account state is confirmed.
