@@ -155,6 +155,7 @@ A checked foundation, dependency and ignore files, initial evidence documents, a
 - Assistant adaptation: updated README/plan/register/guide and this log with actual links in a subsequent documentation commit on the same branch. This is evidence maintenance, not a claim of an extra application stage.
 - Human evaluation/explanation: Pending Magos. Other members' individual accounts/feature contributions/explanations remain pending.
 - Verification limits: local diff and configuration/dependency checks; no new kiosk functionality or fresh-clone demonstration claimed. The separate full instructor checklist remains pending.
+- Follow-up verification: the documentation evidence commit c7860f703cf3f0b5c121eb82151d5662171165d0 was pushed and matched the PR head, with a clean working tree. GitHub reported no check runs or commit statuses. Copilot posted a COMMENTED entry saying it could not review due to quota; no inline comments/findings were present. The assistant read and assessed that actual entry; no code fix or human approval is inferred. See the linked review in MEMBER_REGISTER.md. A subsequent small status-record update keeps this event accurate.
 
 ### AI-GIT-01 - verbatim five-field prompt used
 
