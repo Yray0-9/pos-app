@@ -120,3 +120,12 @@ Still untested: physical touchscreen, screen-reader operation, zoom/reduced-moti
 - Confirmed origin fetch/push match Yray0-9/pos-app without embedded credentials. Existing authenticated account Yray0-9 has push permission. Remote setup SHA matches local parent 717b165; main still initial 9e959ad. No remote UI branch or matching UI PR existed before this checkpoint.
 - Setup PR #1 verified open/unmerged. Its Copilot COMMENTED entry still reports quota exhaustion; inline findings empty, no substantive review feedback to resolve. No peer-review pass asserted.
 - Prior desktop/tablet/narrow/focus checks and screenshots retained; no new app changes justified repeating all browser checks. Physical touch/screen-reader/zoom and full POS scenarios remain pending.
+
+
+## UI checkpoint — actual Git/PR evidence
+
+- Staged whitespace/scope/private-secret checks passed for 28 UI/evidence files. Local .env, venv, database and caches excluded/preserved.
+- Created implementation commit `6ff4a07cbc410b3436c6f6e2c4ed152fac33977b` with configured author Yray0-9. Clean working tree observed immediately after commit; UI push with origin tracking succeeded.
+- [PR #2](https://github.com/Yray0-9/pos-app/pull/2) created/attached: open, merged=false, author Yray0-9, source codex/ui-foundation, target codex/setup-foundation, initial head exactly the implementation SHA. No check runs/statuses returned; no CI pass asserted.
+- Empty reviews at creation; later inspection found [Copilot COMMENTED quota entry](https://github.com/Yray0-9/pos-app/pull/2#pullrequestreview-5437802476), no inline findings. Genuine human review/feedback resolution pending.
+- Main/setup parent verified before push; no force push, merge or deployment. Evidence follow-up changes docs only. A documentation-recording helper first failed to parse an f-string before any file writes; corrected helper recorded actual returned links. This is not an application bug-fix stage. Final branch/remote verification follows the evidence push.

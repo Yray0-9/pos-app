@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 04 UI foundation, checked on `codex/ui-foundation` and being recorded for review through Magos's explicitly requested Git checkpoint. The Common Table page includes the requested modern visual revision. Reusable Django templates, local Tailwind build, keyboard access, and responsive spacing exist. Catalog, cart, payments, receipt, and reset remain future work; this is not a completed POS.
+**Current milestone:** Prompt 04 UI foundation, committed/pushed on `codex/ui-foundation` and available in [PR #2](https://github.com/Yray0-9/pos-app/pull/2) through Magos's explicitly requested Git checkpoint. The Common Table page includes the requested modern visual revision. Reusable Django templates, local Tailwind build, keyboard access, and responsive spacing exist. Catalog, cart, payments, receipt, and reset remain future work; this is not a completed POS.
 
 ## Course and group
 
@@ -132,7 +132,10 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 No working products, cart, checkout, payment, receipt, or reset exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
 
-Prompt 04 uses `codex/ui-foundation`, based on setup head `717b165`. Setup PR #1 remains open. Magos explicitly delegated this UI commit/push/PR checkpoint after the design revision; subsequent Git operations still need their authorization. The UI PR targets `codex/setup-foundation` while setup is unmerged, and genuine review/integration remains pending. **Next numbered stage: Prompt 05, catalog and transaction data foundations, after feature branch preparation.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next numbered stage: Prompt 05, catalog and transaction data foundations, after explicit feature branch preparation.**
 
 
 The current revision uses a darker hero, stronger wordmark/type, restrained lime accents and original SVG food artwork, with compact menu and order surfaces. The menu is still explicitly unavailable. [Current design preview](docs/evidence/ui-foundation-modern-desktop.jpg). Magos subsequently requested this completed milestone be recorded for review; this is not an instructor approval or a claim of independent teammate review.
+
+
+The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.
