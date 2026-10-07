@@ -1,47 +1,11 @@
 {% extends 'kiosk/base.html' %}
+{% load static %}
 {% block content %}
   {% include 'kiosk/components/menu_art.html' %}
-  <div class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
-    <section aria-labelledby="menu-title" class="min-w-0">
-      <div class="mb-5">
-        <p class="eyebrow mb-2 text-leaf">Bites, sips & little breaks</p>
-        <h1 id="menu-title" class="text-[28px] leading-tight font-semibold tracking-[-0.035em] sm:text-[32px]">Choose your favorites<span class="text-leaf">.</span></h1>
-        <p class="mt-2 text-base text-muted">A good bite for every part of your campus day.</p>
-      </div>
-      <div id="menu-preview-note" class="mb-5 flex items-start gap-3 rounded-2xl border border-leaf/20 bg-leaf-soft px-4 py-3 text-base text-leaf" role="status">
-        <svg aria-hidden="true" viewBox="0 0 20 20" class="mt-0.5 size-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5m0-8v.5"/></svg>
-        <p><span class="font-semibold">Menu preview.</span> Ordering isn't available yet.</p>
-      </div>
-      <div class="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 xl:grid-cols-3">
-        {% include 'kiosk/components/product_preview.html' with name='Chicken Rice Bowl' description='A warm campus lunch' price='85.00' art='bowl' tone='meal' %}
-        {% include 'kiosk/components/product_preview.html' with name='Chicken Wrap' description='A quick savory bite' price='70.00' art='wrap' tone='warm' %}
-        {% include 'kiosk/components/product_preview.html' with name='Cucumber Lemonade' description='A refreshing cool drink' price='39.50' art='drink' tone='fresh' %}
-        {% include 'kiosk/components/product_preview.html' with name='Banana Muffin' description='A soft baked snack' price='34.50' art='muffin' tone='soft' %}
-        {% include 'kiosk/components/product_preview.html' with name='Cheese Bun' description='A light savory snack' price='29.50' art='bun' tone='warm' %}
-        {% include 'kiosk/components/product_preview.html' with name='Granola Pack' description='An easy takeaway snack' price='24.00' art='granola' tone='meal' %}
-      </div>
-      <p class="mt-4 text-sm leading-relaxed text-muted">Prices shown in Philippine pesos. Preview items cannot be added yet.</p>
-    </section>
-
-    <aside aria-labelledby="order-title" class="surface-card flex flex-col overflow-hidden lg:sticky lg:top-6">
-      <div class="flex items-center justify-between gap-3 border-b border-line/70 px-6 py-5">
-        <h2 id="order-title" class="text-xl font-semibold tracking-tight">Your order</h2>
-        <span class="rounded-full bg-canvas px-3 py-1 text-sm text-muted">0 items</span>
-      </div>
-      <div class="flex min-h-64 flex-1 flex-col items-center justify-center px-6 py-8 text-center lg:min-h-[360px]">
-        <span class="mb-5 flex size-20 items-center justify-center rounded-full bg-leaf-soft text-leaf" aria-hidden="true"><svg viewBox="0 0 32 32" class="size-10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h14l2 15H7l2-15ZM12 12V9a4 4 0 0 1 8 0v3"/><path d="m13 20 2 2 4-4"/></svg></span>
-        <h3 class="text-lg font-semibold">Room for your favorites.</h3>
-        <p class="mt-2 max-w-64 text-base leading-relaxed text-muted">Your picks will appear here<br>once ordering is available.</p>
-      </div>
-      <div class="border-t border-line/70 bg-canvas/70 p-6">
-        <div class="mb-4 flex items-end justify-between gap-3"><span class="text-base font-medium text-muted">Order total</span><span class="text-[28px] leading-none font-semibold tracking-tight text-ink tabular-nums">₱0.00</span></div>
-        <button type="button" disabled aria-describedby="review-hint" class="touch-control button-primary min-h-14 w-full justify-between">Review order <svg aria-hidden="true" viewBox="0 0 20 20" class="size-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></button>
-        <p id="review-hint" class="mt-3 text-sm leading-relaxed text-muted">Available after ordering opens and you've added an item.</p>
-      </div>
-    </aside>
-  </div>
+  <div id="kiosk-workspace">{% include 'kiosk/components/workspace.html' %}</div>
   <details class="mt-6 rounded-2xl border border-line/70">
     <summary class="flex min-h-14 items-center justify-between gap-4 rounded-2xl px-5 py-4 text-base font-medium text-leaf"><span>How your order will work</span><svg aria-hidden="true" viewBox="0 0 20 20" class="size-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5 8 5 5 5-5"/></svg></summary>
-    <p class="px-5 pb-5 text-base leading-relaxed text-muted">Choose your favorites, review your order, pick a payment method, then view your digital receipt. For this campus demonstration, payments will be simulated.</p>
+    <p class="px-5 pb-5 text-base leading-relaxed text-muted">Choose your favorites and adjust your order here. Order review, simulated payment and a digital receipt are coming in the next stages.</p>
   </details>
 {% endblock %}
+{% block scripts %}<script src="{% static 'kiosk/js/cart.js' %}" defer></script>{% endblock %}

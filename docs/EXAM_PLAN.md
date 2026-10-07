@@ -8,7 +8,7 @@ This is the persistent checklist for our step-by-step work. Read and update it w
 
 The user wants guidance and understanding at each stage, an original interface, and complete coverage of the exam and photographed checklist. Magos's latest request permits adapting the sample's menu-and-order organization while retaining Common Table's own branding, colors, typography, products and artwork. DESIGN.md section 13 is the current layout direction; earlier behavioral-reference-only statements describe the previous plan.
 
-Current stage: Prompt 05 committed/pushed as a02288bca6d1fda50cfea7191066b25cf47e46e2 on catalog-data; [PR #3](https://github.com/Yray0-9/pos-app/pull/3) open/attached into codex/ui-foundation. UI parent evidence 3ce83e2 is also published. Combined B/E explicitly delegated by Magos; B evidence follow-up is documentation only, then E prepares local cart-review for Prompt 06-07. No cart implementation, merge or deployment. Fourteen data tests and configuration/dependency/migration checks passed; Copilot quota COMMENTED is not substantive review and no CI pass is asserted. Public main .env/history/application-state issue and genuine other-member/peer-review evidence remain unresolved.
+Current stage: Prompt 06 working selection/cart verified locally on cart-review at catalog evidence 796b5da plus uncommitted feature/evidence changes. F01, F03-F06 have local functional evidence; F02/F20 have selection-stage evidence only. All 24 tests and relevant checks pass. Next numbered prompt 07 after scoped Git checkpoint; reuse cart-review. No review/payment/receipt/reset or cart commit/push/PR/merge. Prior catalog PR #3 remains the recorded dependency. Magos requested AI-assisted implementation; actual personal explanation, Agbas/Daro work, real review and main integration remain unresolved.
 
 Sources reviewed:
 - `C:/Users/Romul/Downloads/IT415_Practical_Exam.pdf`: all 8 pages.
@@ -360,3 +360,23 @@ User-requested UI evidence commit: 3ce83e2 on codex/ui-foundation, configured au
 Current catalog-data checkout still contains uncommitted Prompt 05 Product/Transaction/TransactionItem models, initial applied migration, seed command, data tests and documentation. No appropriate cart-review branch exists. A new branch from current HEAD would bring the prior milestone's uncommitted work along, obscuring the catalog commit/feature responsibility; using main/UI instead would omit the required data foundation. Nothing was discarded, stashed, reset, committed or switched.
 
 This is a checkout dependency under the user's E constraints, not a reason to fabricate history or repeat tests. Record the catalog milestone first through explicitly invoked reusable B or actual user Git actions. Then run E again to prepare cart-review from the resulting complete catalog state, and paste Prompt 06. Pending cart implementation and genuine member/review evidence remain distinct from already passing data tests.
+
+## Prompt 06 outcome - selection and current order
+
+2026-10-07, approximately 14:22-14:37 Asia/Singapore. Existing authorized cart-review branch confirmed before feature editing. Seven branch-preparation documents already changed at entry and were preserved. No Git mutations, migration changes, payment flow, review screen, receipt or reset.
+
+| Requirement | Local evidence | Remaining boundary |
+| --- | --- | --- |
+| F01 selectable catalog | Six available SQLite products with real names/prices; click/tap adds, repeated selection combines quantities | Instructor/human demonstration pending |
+| F02 touch interaction | Cards and quantity/remove controls at least 48 CSS pixels, Review 56; keyboard Enter and visible focus; responsive checks | Physical touchscreen, assistive-technology assessment and future-screen navigation pending |
+| F03 quantity adjustment | Add/increase/decrease; strict session integer validation, range 1-99; decrease one removes; rejected requests preserve order | Direct arbitrary quantity editing is not offered |
+| F04 removal | Explicit Remove deletes line; recalculated order and feedback | Locally verified, not instructor sign-off |
+| F05 exact amounts | Shared Decimal calculator fetches current DB prices; PHP 279.50/364.50/240.00 scenario verified | Future review/payment must reuse calculator and validate reviewed facts |
+| F06 current order | Name, unit price, quantity, subtotal, total and unit count shown | Order-review requirements F07-F08 remain pending |
+| F20 feedback | Adds, decreases, removals, limits, stale entries and network recovery have feedback; loading and busy controls implemented | Payment errors/processing/success remain pending; live screen-reader behavior not verified |
+
+The cart survives reload. Empty order is PHP 0.00 and cannot advance. Review remains disabled even for a nonempty order because that feature is next; this is not claimed as completed review. Server trusts IDs/quantities in its session and current product data, never browser price/total fields. Separate browser sessions are isolated in tests; New Transaction isolation is not yet implemented. Damaged/stale session entries are disclosed and only repaired on an explicit POST, with clear feedback.
+
+All 24 data/cart tests passed. Root/CSS/JS loading, browser arithmetic/removal/reload, focus, sizes and overflow checked at 1280x900, 768x1024 and 360x800. Tablet/narrow order follows menu using normal page scroll. Live database remains six products, zero completed sales/items. See TEST_RESULTS.md and evidence/cart-desktop.jpg.
+
+A real browser bug (hidden action field shadowed form.action) was found and fixed using the form action attribute; full browser flow then passed. It is honest debugging evidence within this milestone, not an invented separate commit/stage. Git recording, genuine peer review, Magos's personal verification/explanation and other member contributions remain pending. Next: scoped B checkpoint, then Prompt 07 on cart-review.

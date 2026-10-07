@@ -1,0 +1,10 @@
+<form method="post" action="{% url 'kiosk:cart_action' %}" class="cart-form min-w-0">
+  {% csrf_token %}<input type="hidden" name="product_id" value="{{ card.product.pk }}"><input type="hidden" name="action" value="add">
+  <button id="add-product-{{ card.product.pk }}" type="submit" {% if card.at_limit %}disabled{% endif %} aria-label="Add {{ card.product.name }} to order" class="catalog-card relative h-full w-full min-w-0 rounded-[22px] border {% if card.quantity %}border-leaf{% else %}border-line/80{% endif %} bg-white p-3 text-left shadow-[0_4px_18px_-14px_rgba(36,52,46,0.18)] hover:border-leaf disabled:opacity-70 sm:p-4">
+    <span class="mb-4 flex h-32 items-center justify-center rounded-2xl {% if card.tone == 'warm' %}bg-[#f8efe0]{% elif card.tone == 'fresh' %}bg-[#e9f3ee]{% elif card.tone == 'soft' %}bg-[#f1edf5]{% else %}bg-[#eef1e4]{% endif %}" aria-hidden="true"><svg viewBox="0 0 180 130" class="h-28 w-40" fill="none"><use href="#menu-art-{{ card.art }}"/></svg></span>
+    {% if card.quantity %}<span class="absolute top-5 right-5 rounded-full bg-leaf px-3 py-1 text-sm font-semibold text-white">{{ card.quantity }} in order</span>{% endif %}
+    <span class="block min-h-14 text-lg leading-snug font-semibold tracking-tight">{{ card.product.name }}</span>
+    <span class="block text-base text-muted">{{ card.product.description }}</span>
+    <span class="mt-4 flex items-center justify-between gap-2"><span class="text-xl font-semibold text-leaf tabular-nums">₱{{ card.product.price|floatformat:2 }}</span><span class="flex size-12 items-center justify-center rounded-xl bg-leaf-soft text-leaf" aria-hidden="true">{% if card.at_limit %}<span class="text-sm">Max</span>{% else %}<svg viewBox="0 0 20 20" class="size-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>{% endif %}</span></span>
+  </button>
+</form>

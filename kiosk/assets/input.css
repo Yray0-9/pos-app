@@ -31,6 +31,7 @@
   .touch-control { @apply inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 text-base font-semibold; }
   .button-primary { @apply bg-leaf text-white hover:bg-ink disabled:bg-line disabled:text-muted; }
   .button-secondary { @apply border border-leaf bg-white text-leaf hover:bg-leaf-soft; }
+  .quantity-control { @apply flex size-12 items-center justify-center rounded-xl text-xl font-semibold text-leaf hover:bg-leaf-soft disabled:text-muted disabled:opacity-50; }
   .feedback { @apply rounded-xl border px-5 py-4 text-base leading-relaxed; }
   .feedback-error { @apply border-danger bg-danger-soft text-danger; }
   .feedback-success { @apply border-leaf bg-leaf-soft text-leaf; }

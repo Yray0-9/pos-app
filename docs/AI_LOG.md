@@ -343,3 +343,39 @@ Fresh GitHub readback: account Yray0-9, intended public repository Yray0-9/pos-a
 Created implementation a02288bca6d1fda50cfea7191066b25cf47e46e2 with unchanged configured author Yray0-9; 15 scoped files. Published UI evidence parent 3ce83e2, pushed catalog-data with tracking, created and attached PR #3 (https://github.com/Yray0-9/pos-app/pull/3) into codex/ui-foundation. Fresh status verified open/unmerged/expected SHA. Actual review source [Copilot quota entry](https://github.com/Yray0-9/pos-app/pull/3#pullrequestreview-5438370873) is COMMENTED quota exhaustion with no inline findings, not a successful review/approval. Check runs/statuses empty; no CI pass. No code feedback exists to resolve.
 
 Documentation-only follow-up records returned links and pending reviewer/member/integration gaps on the same catalog branch. E follows from the complete recorded state; no Prompt 06 implementation or merged PR. Confirmed public main includes prior .env history, while current local key differs; left unrelated main untouched and recorded the issue. No author impersonation, teammate attribution or reviewer message.
+
+## AI-E-04 - local cart/review branch after recorded catalog checkpoint
+
+B was completed first: implementation a02288b and documentation-only evidence 796b5da355b90d55bdddf74429e1998588095738 pushed, PR #3 attached and expected head/review/check state verified. Configured author Yray0-9 preserved. Current combined request then authorized E only: create the next task branch, record intended assignment, stop before implementation.
+
+Created local cart-review at the clean fully recorded catalog SHA 796b5da355b90d55bdddf74429e1998588095738; confirmed no prior local/remote branch, no initial diff or upstream. Branch belongs to the intended Magos Prompt 06-07 selection/cart/review work; no performed cart contribution or teammate work is inferred. Preserved all source/private/database files; E documentation alone remains uncommitted. No commits/pushes/PRs/merges or feature edits after E started. Next numbered prompt: 06.
+
+Actual catalog review is a bot quota-limit COMMENTED entry, not successful review. No real feedback to resolve, no CI pass, and no reviewer contacted. Genuine review/member explanation, other member tasks and public main cleanup/integration remain unresolved. Work interval about 14:18-14:20 Asia/Singapore, not an exported user timestamp.
+
+## AI-FEATURE-06 - working selection/current order
+
+Responsible requester: M3 Magos. Date 2026-10-07, approximately 14:22-14:37 Asia/Singapore. Full prompt available in this chat; faithful five-field record below. No claim that an assistant-written evaluation is Magos's personal explanation.
+
+Context: Catalog/data and original UI ready; apply shared rules, F01-F06 and applicable F02/F20.
+Objectives: Build touch-friendly selection and current order.
+Requirements: At least six real names/prices; tap adds; increase/decrease/explicit remove; define zero/no negative or invalid quantity; show names/unit prices/quantities/subtotals/total; trusted server product data and session cart; empty/helpful feedback; prevent empty checkout; verify repeated/multiple additions, quantities/removal/invalid inputs/arithmetic.
+Constraints: No payment or completed receipts, no trusting browser money, no fragile UI-only state, do not complete order-review requirements.
+Expected output: Working selection/cart, meaningful verification/evidence, simple calculation explanation; stop before Prompt 07.
+
+Response/work summary: confirmed preauthorized cart-review branch and preserved seven existing evidence documents. Implemented shared Decimal calculator, strict quantities/IDs, JSON-safe namespaced session state/revision/context, POST/CSRF actions and native form fallback. Bound approved menu/order layout to SQLite, added active quantity badges/steppers/removal, invalid/stale-state feedback and modest fetch enhancement; kept review disabled with honest next-stage hint. Added ten meaningful cart test scenarios, retained fourteen data tests, rebuilt local CSS, restarted server and exercised browser layouts/actions. No Git mutations or next-stage implementation.
+
+Actual debugging: first patch tool rejected delete/add operations targeting the same file before applying changes; used update operations without losing files. First CSS build lacked sandbox cache access and was canceled; authorized build reused installed packages successfully. More materially, browser add tried POST /[object HTMLInputElement] and returned 404 although server tests passed. Cause: input name action shadows the form.action DOM property. Applied getAttribute('action') lookup, reloaded, verified repeated adds, keyboard increase, decrease/removal/zero/re-add and persistence. These are actual observations/fix/verification, not invented retrospective evidence or fabricated commit stages.
+
+AI evaluation: server recomputes Decimal values from current available products; submitted money is ignored; session serializes only primitive values; read-only recovery warns before explicit POST repair. JS manages loading/focus and avoids automatic uncertain-request retries. All 24 tests/configuration/dependency/migration checks and local CSS build passed. Browser checks confirmed 279.50/364.50/240.00 scenario, reload, controls >=48px, focus and no horizontal overflow. Saved/inspected cart-desktop.jpg. No completed local sales created.
+
+Adaptations/limits: kept own approved menu/order look; chose 99-per-item, decrease one removes, no direct arbitrary quantity input, cap matching sale amount storage, disabled review pending07. Separate-session isolation tested; cross-tab races, customer reset, payment idempotency, receipt ownership, screen-reader/physical-touch and final exam acceptance remain unverified. Current feature/evidence uncommitted. Magos's actual evaluation, explanation and screenshot/AI evidence selection pending. Agbas/Daro work/reviews remain unresolved. Next: scoped Git checkpoint, then Prompt07 on cart-review.
+
+## AI-GIT-06 - authorized cart checkpoint
+
+Magos explicitly invoked reusable B: review the actual diff/checks, preserve unrelated files/secrets, commit/push the milestone and create a scoped review PR, record genuine links/responsibility/review; no merge, deployment or reviewer messages. This is the accessible prompt summary, not a fabricated human evaluation.
+
+Entry checkout cart-review at 796b5da; all 21 changed/new nonignored files match Prompt 06 and preserved E records. No unrelated files identified. Actual configured author is now Romulo Magos (changed since catalog checkpoint); preserve it without altering config. Authenticated GitHub account remains Yray0-9 with push access. Fetch/push origin exactly verified against intended repository without embedded credentials; current private key absent from shareable changed/new files.
+
+All 24 tests reran and passed (0.872s), plus Django check, pip check and no migration drift. Bare node was unavailable in this checkpoint's terminal PATH; existing Node executable located and its syntax check passed. Normal terminal startup failed due to workspace setup refresh; authorized execution recovered access. These are tool/environment issues, not fabricated application bugs. Prior Prompt 06 browser/CSS checks retained; no fresh visual/payment pass claimed. Live database still six products, zero completed sales/items.
+
+Fresh GitHub state: catalog/UI/setup parents open/unmerged, catalog head 796b5da. Existing reviews are quota-only COMMENTED entries with no inline findings or checks/statuses. Main public tracked-private-file/integration issue remains unresolved and is not a base for this PR. Intended source cart-review, target catalog-data. Need genuine non-author review from Agbas/Daro after account confirmation or instructor-accepted reviewer; none contacted. Actual commit/push/PR outcomes follow only after successful operations. Stop before Prompt 07.

@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 05 data foundation committed/pushed as a02288b on catalog-data, with [PR #3](https://github.com/Yray0-9/pos-app/pull/3) open into codex/ui-foundation. Six products, models, migrations, repeatable seed and 14 passing data tests exist. The screen remains a disabled preview; cart/payment/receipt/reset are future work. UI evidence parent 3ce83e2 is now published. Combined E will prepare the next local task branch after recording the catalog PR evidence.
+**Current milestone:** Prompt 06 selection/cart is implemented and locally verified on cart-review, based on catalog evidence 796b5da. Six database-backed cards, session quantities, server Decimal totals and working add/increase/decrease/remove controls exist. All 24 tests pass (14 data plus 10 cart tests). Current feature/evidence changes are uncommitted; no cart PR exists. Catalog [PR #3](https://github.com/Yray0-9/pos-app/pull/3) remains the recorded dependency. Next: the scoped Git checkpoint, then Prompt 07 on the same cart-review branch. Review, payment, receipt and reset are not implemented.
 
 ## Course and group
 
@@ -18,7 +18,7 @@ See [member register](docs/MEMBER_REGISTER.md) for actual evidence and unverifie
 
 Python 3.14.4 and Django 6.1.2 were observed in the existing Windows virtual environment. All currently installed application packages are pinned in `requirements.txt`; pip itself is tooling and is not a runtime requirement. `python-dotenv` loads the private environment file.
 
-The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records, and a Django session cart. Templates and CSS now exist; no JavaScript is needed for this foundation. SQLite suits this local exam demonstration because it needs no separate database service. The cart will hold active state; completed sale snapshots will preserve receipt values. Money calculations will use Python Decimal. The three persistent models are now implemented; session cart and customer transaction behavior remain future work.
+The agreed architecture is Django templates, locally built Tailwind CSS, modest JavaScript, SQLite product/completed-sale records and a Django session cart. The cart stores product IDs and integer quantities; Django calculates money using current database prices and Python Decimal. JavaScript replaces server-rendered workspace HTML after an action; native forms also work. Completed sale snapshots belong to later payment stages and outlive the active cart.
 
 ## Set up on Windows PowerShell
 
@@ -86,15 +86,15 @@ Prompt 05 applied the new kiosk migration and Django's standard dependency migra
 
 ## Template and static-file responsibilities
 
-`pos_app` is the Django **project**: global settings and top-level routes. `kiosk` is the Django **app**: the kiosk route/view and related templates/assets. The root view only renders HTML; it does not access a cart or database.
+`pos_app` is the Django **project**: global settings and top-level routes. `kiosk` is the Django **app**: models, catalog/cart calculation, views, templates and assets. The root GET loads available products and reads the session cart without changing its contents. The CSRF-protected /cart/ POST route applies order edits.
 
 - `kiosk/templates/kiosk/base.html`: shared document, branding, stylesheet link, progress slot, messages, main content, and footer. Future screens extend its content block.
-- `kiosk/templates/kiosk/home.html`: the menu-and-order preview workspace. Six static product fixtures show the agreed names/prices; no model/session state is read. Product selection and Review are truly disabled. The native disclosure explains the future flow without JavaScript.
-- `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback and messages, plus product_preview.html and original inline SVG symbols in menu_art.html. Template artwork is included in the HTML; built CSS/favicon are static assets. Feedback semantics were verified separately, not connected to invented transactions.
+- `kiosk/templates/kiosk/home.html`: includes the live workspace and original SVG symbols, with the cart JavaScript asset. The workspace/product-card includes render database-backed cards and the current order. Review stays disabled until Prompt 07.
+- `kiosk/templates/kiosk/components/`: reusable progress, escaped feedback/messages, product_card.html, workspace.html and original inline menu_art.html SVG symbols. The obsolete disabled fixture template was removed. All displayed order money comes from server context.
 - `kiosk/assets/input.css`: editable Tailwind source and shared controls. Edit this rather than the generated stylesheet.
 - `kiosk/static/kiosk/`: namespaced browser assets, including built CSS and our own SVG favicon and decorative campus-food illustration. Django's `{% static %}` resolves these files; `runserver` serves them during local DEBUG development. Production static serving is outside this stage.
 
-The progress list is informational, with no fake links. No transaction is active, so none of its steps is marked current on the foundation page. Future views can supply the verified current step. Decorative artwork is static, focus outlines are visible, and reduced-motion preferences are respected in the CSS.
+The progress list is informational with Choose marked current. It has no fake navigation links. Decorative artwork is static, focus outlines are visible, and reduced-motion preferences are respected. JavaScript restores focus after order updates and serializes actions within this page; cross-tab/session concurrency is not guaranteed.
 
 ## Checks and future build steps
 
@@ -103,7 +103,7 @@ The progress list is informational, with no fake links. No transaction is active
 .\venv\Scripts\python.exe manage.py check
 ```
 
-The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). Foundation checks include HTTP/CSS delivery, deterministic CSS builds, watcher updates, feedback escaping/semantics, keyboard focus, and desktop/tablet/narrow-screen overflow. No transaction acceptance test is claimed. Prompt 05 migrations, repeatable seeding and 14 data tests are verified; cart/payment/receipt endpoint tests remain for their authorized stages.
+The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md). All 24 data/cart tests passed, along with configuration/dependency/migration checks and the local CSS build. Browser selection, quantity/removal arithmetic, reload persistence, keyboard focus, touch sizes and desktop/tablet/narrow overflow were checked. Payment/receipt/reset and full exam acceptance remain pending.
 
 ## Development and evidence workflow
 
@@ -130,12 +130,12 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 ## Current limitations
 
-Catalog records now exist; working product selection, cart, checkout, payment, receipt and reset remain unimplemented. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
+Working catalog selection and a server-calculated session cart now exist. Order review/checkout, payment, receipt and reset remain unimplemented. Review is disabled for both empty and nonempty carts during this stage; Prompt 07 must also reject empty orders at its endpoint. All eventual payments are simulated. Inventory, login, reports, discounts, printing and deployment remain outside initial scope. Actual member contributions, explanations and genuine review remain pending.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next numbered stage: Prompt 06 after the catalog Git checkpoint and suitable branch preparation.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), on codex/ui-foundation. [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) targets codex/setup-foundation. Genuine review/integration remains pending; the earlier quota comment was not approval. **Next numbered stage: Prompt 07 after the Prompt 06 Git checkpoint; reuse cart-review.**
 
 
-The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is now in pre-existing commit 3cad483, matching the local origin/UI ref. Magos requested preparing the next branch; detailed visual evaluation remains unrecorded. Current remote PR/review state was not refreshed during branch preparation.
+The historical UI workspace revision removed the large hero and adapted the sample menu/order organization using our own theme/artwork. Prompt 06 connects that layout to real products/cart state. [Current cart screenshot](docs/evidence/cart-desktop.jpg); [historical UI preview](docs/evidence/ui-foundation-workspace-desktop.jpg). Magos requested the current milestone; personal visual acceptance and instructor approval are not inferred.
 
 
 The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.
@@ -158,3 +158,13 @@ Fresh GitHub inspection confirmed public main at `141af01` tracks `.env` and gen
 Read [DATA.md](docs/DATA.md) for every stored field, money/quantity limits, storage guarantees and the planned shared calculation/completion flow. Seed again safely: it creates only missing agreed products and preserves IDs, custom edits, unrelated records and sales. The local database is ignored; commit migrations and seed code instead. Test sales use a separate in-memory database.
 
 The UI evidence commit 3ce83e2 and catalog implementation a02288b are now pushed. Catalog PR #3 is open/attached and needs genuine non-author review; Copilot's quota comment is not approval. Future simple task names/grouping are recorded in BUILD_PROMPTS.md; six feature branches plus main are proposed, not a fixed rubric requirement or completed member record.
+
+## Try the selection milestone
+
+Open localhost and tap Chicken Rice Bowl twice, Chicken Wrap once and Cucumber Lemonade once. The line subtotals are PHP 170.00, 70.00 and 39.50; total PHP 279.50. Increase the rice bowl to three: total PHP 364.50. Decrease returns to PHP 279.50; remove lemonade gives PHP 240.00. Decreasing a one-item line removes it. Explicit Remove deletes the whole line. Reload keeps the active order.
+
+Each item permits quantities 1-99. Direct quantity/price/total submissions are ignored: actions change quantities by one and use database money. Invalid actions/products and attempts to exceed the limit show feedback without changing the order. Damaged or unavailable saved entries show a warning and are excluded from the displayed total; Update order explicitly repairs the cart. A valid cart edit also removes those entries with feedback. GET does not silently rewrite them.
+
+The saved screenshot captures two rice bowls, one wrap and one lemonade (PHP 279.50); the live cart can change through further interaction. No completed sale was created. To clear this demonstration order, use its Remove controls. Customer reset, receipt ownership and payment idempotency are future work.
+
+Run manage.py test kiosk for data/cart checks. Rebuild CSS after template/CSS changes. Restart the --noreload development server after Python changes. Current server was restarted and remains running on 127.0.0.1:8000.

@@ -1,9 +1,0 @@
-{# Presentational preview only. Catalog/session behavior belongs to later stages. #}
-<button type="button" disabled aria-describedby="menu-preview-note" aria-label="{{ name }}, {{ price }} pesos. Ordering unavailable." class="catalog-card min-w-0 rounded-[22px] border border-line/80 bg-white p-3 text-left shadow-[0_4px_18px_-14px_rgba(36,52,46,0.18)] sm:p-4">
-  <span class="mb-4 flex h-32 items-center justify-center rounded-2xl {% if tone == 'warm' %}bg-[#f8efe0]{% elif tone == 'fresh' %}bg-[#e9f3ee]{% elif tone == 'soft' %}bg-[#f1edf5]{% else %}bg-[#eef1e4]{% endif %}" aria-hidden="true">
-    <svg viewBox="0 0 180 130" class="h-28 w-40" fill="none"><use href="#menu-art-{{ art }}"/></svg>
-  </span>
-  <span class="block min-h-14 text-lg leading-snug font-semibold tracking-tight text-ink">{{ name }}</span>
-  <span class="block text-base text-muted">{{ description }}</span>
-  <span class="mt-4 flex items-center justify-between gap-2"><span class="text-xl font-semibold text-leaf tabular-nums">₱{{ price }}</span><span class="flex size-12 items-center justify-center rounded-xl bg-canvas text-muted" aria-hidden="true"><svg viewBox="0 0 20 20" class="size-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg></span></span>
-</button>
