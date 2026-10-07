@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 05 data foundation verified locally on `catalog-data`. Product, completed-sale and sale-item models, migrations, repeatable seed and 14 passing data tests exist. Six products are stored in SQLite; the screen still shows disabled static previews until Prompt 06. Data changes are uncommitted. UI evidence commit `3ce83e2` is on `codex/ui-foundation`, locally ahead of origin by one; not pushed by this stage.
+**Current milestone:** Prompt 05 data foundation committed/pushed as a02288b on catalog-data, with [PR #3](https://github.com/Yray0-9/pos-app/pull/3) open into codex/ui-foundation. Six products, models, migrations, repeatable seed and 14 passing data tests exist. The screen remains a disabled preview; cart/payment/receipt/reset are future work. UI evidence parent 3ce83e2 is now published. Combined E will prepare the next local task branch after recording the catalog PR evidence.
 
 ## Course and group
 
@@ -142,9 +142,9 @@ The UI branch is now remotely available for review. After cloning, use `git swit
 
 ## Catalog branch preparation and integration issue
 
-Reusable E initially created `codex/catalog-data`. Following Magos's naming/commit request, the evidence records were committed on UI as `3ce83e2`; an unused local task branch was replaced with `catalog-data` from that updated base. Prompt 05 now has uncommitted models/migration/seed/tests/evidence. No push, PR change or merge occurred.
+Reusable E initially created `codex/catalog-data`. Following Magos's naming/commit request, the evidence records were committed on UI as `3ce83e2`; an unused local task branch was replaced with `catalog-data` from that updated base. The later explicitly requested B checkpoint pushed that UI parent and catalog implementation `a02288b`, then opened [PR #3](https://github.com/Yray0-9/pos-app/pull/3). No merge occurred.
 
-The currently recorded main/origin/main commit `141af01` tracks `.env` and generated package/cache artifacts while omitting prepared application sources. It was left untouched and was not used as the catalog base. Resolve this before integration/publication; if the private key was published, replace it. No secret values are included in evidence. Main cleanup/review/merge and fresh remote/PR checks are separate work requiring appropriate authorization.
+Fresh GitHub inspection confirmed public main at `141af01` tracks `.env` and generated package/cache artifacts while omitting prepared application sources. It was left untouched and was not used as the catalog base. The current local development key differs from the tracked key; no values are included in evidence. Cleanup of the published private file/history and application integration remain separate unresolved work, with no history rewriting authorized by this checkpoint.
 
 ## Data setup and verification
 
@@ -157,4 +157,4 @@ The currently recorded main/origin/main commit `141af01` tracks `.env` and gener
 
 Read [DATA.md](docs/DATA.md) for every stored field, money/quantity limits, storage guarantees and the planned shared calculation/completion flow. Seed again safely: it creates only missing agreed products and preserves IDs, custom edits, unrelated records and sales. The local database is ignored; commit migrations and seed code instead. Test sales use a separate in-memory database.
 
-The UI evidence commit 3ce83e2 remains local. Magos can publish that specific commit with `git push origin codex/ui-foundation` from any branch after checking the current state. Catalog work needs its own scoped commit/review checkpoint. Future simple task names/grouping are recorded in BUILD_PROMPTS.md; six feature branches plus main are proposed, not a fixed rubric requirement or completed member record.
+The UI evidence commit 3ce83e2 and catalog implementation a02288b are now pushed. Catalog PR #3 is open/attached and needs genuine non-author review; Copilot's quota comment is not approval. Future simple task names/grouping are recorded in BUILD_PROMPTS.md; six feature branches plus main are proposed, not a fixed rubric requirement or completed member record.

@@ -197,3 +197,11 @@ Branch transition was not performed: uncommitted catalog prerequisite needs its 
 - Fresh authenticated API confirmed Yray0-9 push access, public repo, main at 141af01, UI remote 3cad483, no catalog/cart-review refs or existing catalog PR. Parent PRs #1/#2 open/unmerged; bot quota messages remain non-substantive review.
 - Published UI evidence parent 3ce83e2; ordinary push succeeded without force. Private main history unchanged. Privately compared key values: current development key differs from tracked main key; no values printed.
 - Catalog staged scope/whitespace/secret review and actual commit/PR results are recorded after their operations. Next stage remains conditional on completing B; no cart code or reviewer messages.
+
+## Catalog B - actual commit/push/PR checks
+
+- Staged 15 selected files; whitespace/scope/private-secret checks passed. Commit a02288bca6d1fda50cfea7191066b25cf47e46e2 created with configured author Yray0-9; clean checkout observed after commit. No application changes during checkpoint.
+- Ordinary UI parent push 3cad483..3ce83e2 succeeded. Catalog push created origin/catalog-data/upstream; local/remote-tracking heads matched implementation SHA.
+- PR #3 created/attached, open/unmerged, author Yray0-9, head catalog-data at implementation SHA, base codex/ui-foundation at 3ce83e2. Fresh API status found Copilot COMMENTED quota message/no inline findings; checks/statuses empty. No CI/reviewer approval claimed.
+- Reviewed diff against UI parent covers this milestone/evidence only. No main change, force push, merge, deployment or reviewer contact. Current private key differs from publicly tracked main key; no values printed. Original main history issue remains unresolved.
+- Follow-up docs record actual evidence before E. App checks are the already passing 14 tests/configuration/dependency/migration checks; no browser or payment acceptance added.

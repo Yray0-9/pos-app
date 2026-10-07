@@ -15,7 +15,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | catalog-data, local only; UI evidence base 3ce83e25975870cc8fbadb42c3267086729117d7; Prompt 05 implemented/tested but uncommitted |
+| Current local branch | catalog-data tracking origin/catalog-data; Prompt 05 implementation a02288bca6d1fda50cfea7191066b25cf47e46e2 pushed; PR #3 open |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
 | Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (local Prompt 05 implemented/tested, uncommitted; prior codex/catalog-data name removed) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3; prior local codex/catalog-data name removed) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -168,3 +168,11 @@ No independent catalog commit authorization applies: previous explicit commit re
 Magos explicitly requested catalog checkpoint B, then next-branch E. Actual account/configured author Yray0-9 retained. Seven prior docs plus DATA guide/model/seed/migration/tests are this catalog milestone, with no teammate contribution asserted. Existing UI evidence commit 3ce83e25975870cc8fbadb42c3267086729117d7 is now pushed as the parent dependency; no UI merge.
 
 Fresh repo/PR inspection confirmed public Yray0-9/pos-app and push access, no catalog/cart-review remote branches or catalog PR yet. Parent PRs remain open/unmerged and their bot quota entries are not genuine approval. Intended catalog PR source catalog-data, target codex/ui-foundation while parent is unintegrated. Real non-author review needed from Agbas/Daro with confirmed accounts or an instructor-accepted reviewer; none contacted. E intends cart-review for Magos's Prompt 06-07 work, not a completed contribution.
+
+## Catalog B checkpoint - actual Git/PR evidence
+
+Configured author/account Yray0-9 retained; requester M3 Magos, AI-assisted implementation and checks. Implementation commit [a02288bca6d1fda50cfea7191066b25cf47e46e2](https://github.com/Yray0-9/pos-app/commit/a02288bca6d1fda50cfea7191066b25cf47e46e2); message Add catalog and completed-sale data foundation. Exactly 15 scoped model/migration/seed/test/guide/evidence files; private env/database/caches/helper excluded. Branch catalog-data pushed with origin tracking; [PR #3](https://github.com/Yray0-9/pos-app/pull/3) created/attached, open/unmerged, source catalog-data, target codex/ui-foundation. Parent UI evidence 3ce83e2 also pushed.
+
+Actual review: [Copilot quota entry](https://github.com/Yray0-9/pos-app/pull/3#pullrequestreview-5438370873), COMMENTED, no inline findings/requested code changes. No substantive independent review or CI checks/statuses; no fabricated resolution. Need genuine non-author review by Agbas/Daro after confirming accounts or an instructor-accepted reviewer; none contacted. Parent PRs #1/#2 also remain unmerged. Main public .env issue confirmed; current local development key differs, no values displayed. Main cleanup/history remediation not performed.
+
+A scoped documentation-only follow-up records returned links/status on catalog-data before E, not a manufactured extra development stage. E's intended task remains cart-review for Magos's Prompt 06-07; actual branch record follows its creation. Other member features, explanations, peer approval and merges remain pending.

@@ -93,4 +93,4 @@ New Transaction will clear the active cart, review/payment/receipt pointers, cre
 
 The seed creates missing agreed products only. Repetition preserves IDs, price/name edits, unavailable flags, unrelated products and completed sales. It does not reset the catalog. The first local run created six, the second created zero and preserved six. No existing database was deleted. Django tests used a separate in-memory SQLite database; local sales/items remain zero. Initial migration is newly generated, not a rewrite of an applied migration.
 
-Prompt 05 code is uncommitted pending its own scoped Git checkpoint. The UI evidence commit is local and has not been pushed by this stage. Stop before Prompt 06.
+Prompt 05 is recorded as a02288bca6d1fda50cfea7191066b25cf47e46e2 on catalog-data and pushed in the later authorized checkpoint. [PR #3](https://github.com/Yray0-9/pos-app/pull/3) is open into codex/ui-foundation; UI evidence parent 3ce83e2 is now pushed. Genuine non-author review remains pending; no merge or cart work. Combined E is next within this checkpoint.
