@@ -140,3 +140,37 @@ No cart, payment, models, or UI features yet. Do not recreate the project, overw
 Expected output:
 A checked foundation, dependency and ignore files, initial evidence documents, and README instructions. Explain the Django project versus app distinction and report actual checks. Identify Prompt 04 and the separate Git checkpoint prompt where appropriate.
 ```
+
+## AI-GIT-01 - Authorized setup checkpoint
+
+- Date: 2026-10-07, approximately 12:00-12:06 Asia/Singapore.
+- Responsible requester: M3 - Magos. Authenticated account and configured Git author: Yray0-9; configured authorship was preserved.
+- User actually invoked the five-field reusable B prompt reproduced below.
+- Assistant actions/results: reviewed 17 scoped foundation/scaffold/evidence files; confirmed local-secret and original hard-coded-secret exclusion; Django/pip checks passed; remote main matched the initial commit; authenticated account had push permission; no existing setup PR was found.
+- Actual branch: codex/setup-foundation, created for this checkpoint after the earlier non-Git setup stage.
+- Actual setup commit: [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f).
+- Push: succeeded to origin/codex/setup-foundation, tracking configured.
+- Actual PR: [#1](https://github.com/Yray0-9/pos-app/pull/1), source codex/setup-foundation -> target main; author Yray0-9; open and unmerged.
+- Review evidence: API review list was empty at verification. No reviewer message/assignment, feedback, merge, or deployment occurred. Genuine teammate reviewer account still needed.
+- Assistant adaptation: updated README/plan/register/guide and this log with actual links in a subsequent documentation commit on the same branch. This is evidence maintenance, not a claim of an extra application stage.
+- Human evaluation/explanation: Pending Magos. Other members' individual accounts/feature contributions/explanations remain pending.
+- Verification limits: local diff and configuration/dependency checks; no new kiosk functionality or fresh-clone demonstration claimed. The separate full instructor checklist remains pending.
+
+### AI-GIT-01 - verbatim five-field prompt used
+
+```text
+Context:
+We have completed and checked the current kiosk milestone. Apply the shared rules in docs/BUILD_PROMPTS.md and inspect the actual repository, current branch/PR, and MEMBER_REGISTER.md. I want this milestone recorded in Git and prepared for review now.
+
+Objectives:
+Preserve real incremental history and provide a concrete review PR for this milestone.
+
+Requirements:
+Review the diff and checks. Preserve unrelated user changes and credentials. Use a suitable feature branch with the codex/ prefix unless an agreed member branch already applies; use configured authorship without impersonation. Commit only the milestone and relevant evidence with a meaningful message, push to the confirmed intended repository, and create/update a scoped PR identifying source/target branches, behavior, and actual validation. Attach the PR to this chat. Record actual commit/branch/PR links and member responsibility. Identify the real reviewer needed, source of feedback, and unresolved member-contribution gaps. If a review has occurred, address the actual feedback and record its resolution; never invent review.
+
+Constraints:
+No force pushes, fabricated history, merging, or deployment. Do not send messages to a reviewer without my explicit instruction. If remote access or required information is missing, complete the local reviewable work and explain what remains.
+
+Expected output:
+A genuine scoped commit and review PR when access permits, evidence links, checks, and remaining review requirements. Return to the next numbered build stage; do not merge automatically.
+```

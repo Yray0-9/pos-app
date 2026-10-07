@@ -29,7 +29,7 @@ git clone https://github.com/Yray0-9/pos-app.git
 Set-Location pos-app
 ```
 
-Cloning is an instruction, not a claim that the group has demonstrated cloning or that these uncommitted setup changes are already on GitHub.
+Cloning is an instruction, not a claim that the group has demonstrated cloning. Setup is available on the `codex/setup-foundation` branch in [PR #1](https://github.com/Yray0-9/pos-app/pull/1), which is not merged into main yet. For reviewing this milestone after cloning, use `git switch --track origin/codex/setup-foundation` if no local branch exists; use `git switch codex/setup-foundation` if it already exists. Do not assume main contains the setup before review/merge.
 
 For a new local environment with Python 3.14 installed:
 
@@ -79,7 +79,7 @@ The actual results and limitations are in [TEST_RESULTS.md](docs/TEST_RESULTS.md
 6. Keep at least seven real development stages visible across setup, interface, core functionality, validation, bug fix, refactoring, and documentation. Do not manufacture bugs, refactoring, commits, or member authorship to meet the checklist.
 7. Record and demonstrate the actual final integration commit.
 
-The existing initial commit does not establish all stages. Prompt 03 did not stage, commit, push, create a branch, open a PR, or merge. The scaffold and setup changes need a future authorized checkpoint. Instructor access, member identities, cloning demonstration, and individual contribution explanations remain pending.
+The existing initial commit does not establish all stages. Prompt 03 itself made no Git mutations; the subsequent explicitly authorized checkpoint committed/pushed the scaffold and setup as [a20201a](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) on `codex/setup-foundation` and opened [PR #1](https://github.com/Yray0-9/pos-app/pull/1) into main. A documentation update records the checkpoint evidence on the same branch. PR review/merge, instructor access, other member identities, cloning demonstration, and individual contribution explanations remain pending. No merge or deployment was performed.
 
 ## Documentation
 

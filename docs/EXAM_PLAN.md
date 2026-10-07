@@ -8,7 +8,7 @@ This is the persistent checklist for our step-by-step work. Read and update it w
 
 The user wants guidance and understanding at each stage, an original interface, and complete coverage of the exam and photographed checklist. The sample UI is a reference for behavior only. Do not reproduce its branding, colors, or layout as our design.
 
-Current stage: Prompt 03 foundation and initial evidence records completed on 2026-10-07. Next: authorized setup Git checkpoint, then feature branch preparation and Prompt 04 UI foundation. Current user: M3 - Magos; deadline: 2026-10-07 at 21:00 Asia/Singapore. Individual accounts and separately issued rubric/submission rules remain pending. No kiosk features exist. Checkboxes indicate verified completion, not intention; setup HTTP success is not a complete application pass.
+Current stage: Prompt 03 foundation and its authorized setup Git checkpoint recorded on codex/setup-foundation. Setup commit a20201a is pushed; PR #1 is open into main, with no review or merge. Next: genuine setup review, reusable E for safe UI branch preparation, and Prompt 04 UI foundation. Current user: M3 - Magos; deadline: 2026-10-07 at 21:00 Asia/Singapore. Other members' accounts and separately issued rubric/submission rules remain pending. No kiosk features exist. Checkboxes indicate verified completion, not intention; setup HTTP success is not a complete application pass.
 
 Sources reviewed:
 - `C:/Users/Romul/Downloads/IT415_Practical_Exam.pdf`: all 8 pages.
@@ -289,10 +289,14 @@ The PDF provides 15 instructor tests across pages 7-8. Verification must cover a
 
 1. Requirements and scope: planning documented; current user/deadline recorded; individual accounts and separate rules still pending.
 2. Design and data decisions: original layout/catalog/SQLite-session direction accepted; responsibility assignments and implementation verification pending. Planning stage completed.
-3. Setup and workflow: foundation/configuration checks and initial evidence records complete. No Git mutations performed; setup checkpoint, instructor/member access, and clone demonstration pending.
+3. Setup and workflow: foundation/configuration checks and initial evidence records complete. Authorized setup commit pushed on codex/setup-foundation; [PR #1](https://github.com/Yray0-9/pos-app/pull/1) open into main. Reviewer/merge, instructor/member verification, and clone demonstration pending.
 4. Selection and review: implement and verify cart operations, calculations, summary, and preserved Back navigation.
 5. Payments: implement and verify cash validation, QR confirmation, and card processing.
 6. Completion: implement and verify success, references, receipt, and New Transaction reset.
 7. Final preparation: run the full instructor test flow, complete evidence and README, and rehearse individual explanations.
 
 At each implementation milestone: explain the change, implement the agreed scope, verify its pass conditions, record actual evidence, and update this document before proceeding. Do not build every milestone in one turn merely because this plan exists.
+
+## Authorized setup Git checkpoint
+
+User invoked reusable B on 2026-10-07. The existing Git author Yray0-9 was preserved, and authenticated GitHub account Yray0-9 was verified with push access. Setup commit: [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f). Source branch: codex/setup-foundation; target: main. [PR #1](https://github.com/Yray0-9/pos-app/pull/1) exists and is attached to this chat. It is unmerged and has no reviews at this checkpoint. No reviewer was messaged or assigned; genuine teammate review still needs a confirmed account. MEMBER_REGISTER.md records the actual evidence and remaining individual gaps. Documentation updates recording the resulting links remain part of this same scoped milestone.

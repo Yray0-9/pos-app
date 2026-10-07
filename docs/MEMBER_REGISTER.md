@@ -15,14 +15,15 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | codex/setup-foundation (created for the authorized setup checkpoint) |
-| Current existing commit | `9e959add21248068edc3230e7774f0cb65d365d3` - Initial commit |
-| Files currently tracked | README.md only at the inspected initial commit/state |
+| Current local branch | codex/setup-foundation, tracking origin/codex/setup-foundation |
+| Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
+| Integration branch base | main; `9e959add21248068edc3230e7774f0cb65d365d3` remains the initial integration state until an authorized merge |
+| Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
 | Final demonstrated integration commit | Pending; the initial commit is not the final app |
 | Instructor repository access | Pending instructor verification |
 | Local clone demonstrated | Pending; local .git/origin presence does not establish the demonstration |
-| Branch list / network evidence | Pending URL or screenshot; current local branch inspected |
-| Setup changes committed/pushed | No; intentionally left uncommitted during Prompt 03 |
+| Branch list / network evidence | [Branches](https://github.com/Yray0-9/pos-app/branches); [setup branch](https://github.com/Yray0-9/pos-app/tree/codex/setup-foundation); API/remote verification recorded at this checkpoint |
+| Setup changes committed/pushed | Yes, setup commit above; [PR #1](https://github.com/Yray0-9/pos-app/pull/1) open from codex/setup-foundation -> main |
 
 ## Member identities and branches
 
@@ -30,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation | Current requester; Git name Yray0-9 preserved; instructor identity/contribution verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation | Current requester; Git author and PR author Yray0-9; instructor identity/contribution verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -40,7 +41,7 @@ Do not infer profile ownership from repository ownership. Preserve merged-branch
 | --- | --- | --- | --- | --- |
 | M1 | Pending actual task/contribution | Pending | Pending | Pending |
 | M2 | Pending actual task/contribution | Pending | Pending | Pending |
-| M3 | Planning requests and accepted design in current chat; AI-assisted setup changes from Prompt 03 are uncommitted. See AI_LOG.md and TEST_RESULTS.md. | No new commit made by this stage; configured authorship not verified | No PR created by this stage | No review/merge performed |
+| M3 | AI-assisted setup/scaffold and planning/evidence records requested by Magos; see AI_LOG.md and TEST_RESULTS.md | Setup: [a20201a](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f); subsequent checkpoint documentation history is visible on the branch | [#1](https://github.com/Yray0-9/pos-app/pull/1), codex/setup-foundation -> main; author Yray0-9 | Open and unmerged; GitHub reviews empty at verification. Genuine reviewer (Agbas or Daro with verified account) still needed; no review request/message sent |
 
 Magos requested the changes; Codex generated/adapted the code and records. Magos's own evaluation, modifications, demonstration, and explanations must be supplied rather than inferred. The existing Initial commit's authorship is not attributed here without identity verification.
 
@@ -51,10 +52,10 @@ Use P/F/N/A in the instructor's form only when verified or assigned appropriatel
 | Acceptance Checklist verification item | M1 Agbas | M2 Daro | M3 Magos |
 | --- | --- | --- | --- |
 | GitHub identity matches recorded member | Pending | Pending | Pending |
-| Feature branch and assigned work identifiable | Pending | Pending | Pending |
-| Meaningful authored commits visible | Pending | Pending | Pending |
-| Branch changes pushed to shared repository | Pending | Pending | Pending |
-| PR ownership and feature changes demonstrated | Pending | Pending | Pending |
+| Feature branch and assigned work identifiable | Pending | Pending | Setup branch/task recorded; individual demonstration pending |
+| Meaningful authored commits visible | Pending | Pending | Setup commit visible under configured author Yray0-9; member explanation pending |
+| Branch changes pushed to shared repository | Pending | Pending | Setup push verified; individual demonstration pending |
+| PR ownership and feature changes demonstrated | Pending | Pending | PR #1 author/source/target recorded; individual demonstration pending |
 | PR review and merge evidence explained | Pending | Pending | Pending |
 | AI generation, debugging, and refactoring evidence identified | Pending | Pending | Generation records prepared; application debugging/refactoring and individual explanation pending |
 | AI output evaluated and adapted when necessary | Pending | Pending | Human evaluation/adaptation pending |
@@ -63,7 +64,7 @@ Use P/F/N/A in the instructor's form only when verified or assigned appropriatel
 ## Real development history checklist
 
 - [ ] At least seven real stages represented in committed history.
-- [ ] Setup.
+- [x] Setup represented by a real committed/pushed milestone. Review and integration still pending.
 - [ ] Interface.
 - [ ] Core functionality.
 - [ ] Validation.
@@ -78,3 +79,9 @@ Seven stages are not seven arbitrary/artificial commits. A dependency/network or
 ## Next evidence to collect
 
 Individual profile URLs, actual Git identity, accepted feature assignments, group number/section, instructor access, clone demonstration, branch/network reference, real feature commits/PRs/reviews, and member explanations are still needed. Work may continue on independent setup/design tasks while these are pending.
+
+## Setup checkpoint (2026-10-07, about 12:06 Asia/Singapore)
+
+Authenticated GitHub login Yray0-9 has push permission for Yray0-9/pos-app. The existing configured Git name/email were preserved; no alternate author or impersonated member identity was supplied. Remote main matched the initial commit before push. The setup branch was created after Prompt 03's explicitly non-Git stage and before its checkpoint commit; no assertion that it existed during the earlier edits is made. Future feature branches must be established before feature editing.
+
+PR #1 was created and attached to this chat. It is open, not merged, with no actual review/feedback to resolve yet. Choose a genuine non-author reviewer; the other members' accounts remain pending. An AI inspection or PR creation does not replace that review. A follow-up documentation commit records the actual checkpoint links on this same branch; it is genuine evidence maintenance, not an artificial extra application stage. Final integration SHA remains pending.

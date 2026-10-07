@@ -6,7 +6,7 @@ Prepared: 2026-10-07 (Asia/Singapore).
 
 Copy **one numbered prompt's entire text block** into this chat at a time. Let that stage finish, read the explanation, and resolve its failures before moving to the next. The guide prepares future work; creating this file does not start implementation.
 
-Current checkpoint: Prompt 03 setup is complete and uncommitted. Use reusable B to record the genuine setup milestone when ready. Before editing the next feature, invoke reusable E to establish its actual contributor's branch, then use Prompt 04. Use B after each real milestone and C only after actual review/checks. Do not wait until the entire app is finished to record history.
+Current checkpoint: Prompt 03 setup is committed/pushed on codex/setup-foundation; [PR #1](https://github.com/Yray0-9/pos-app/pull/1) is open into main with genuine review and merge pending. Before editing the next feature, invoke reusable E to establish its actual contributor's branch, then use Prompt 04. E must account for the unmerged setup dependency safely; do not discard or silently merge it. Use B after each real milestone and C only after actual review/checks. Do not wait until the entire app is finished to record history.
 
 New source reviewed: `IT415 Acceptance Checklist.pdf` (4 pages). It requires at least seven real development stages in committed history, one shared repository, actual member/PR evidence, and individual verification. Deleted merged branches may be evidenced through their PRs/commits. See MEMBER_REGISTER.md for the working matrix; do not treat pending as P or N/A.
 

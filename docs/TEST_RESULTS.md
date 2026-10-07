@@ -50,3 +50,14 @@ A first one-line verification helper failed due to shell quoting (`SyntaxError: 
 All 26 functional rows from page 1 of the Acceptance Checklist and all 15 scenario tests from pages 7-8 of the Practical Exam remain pending for the actual kiosk. Map them to F01-F20 in EXAM_PLAN.md and record expected/observed results when implemented. Include blank/invalid/negative/insufficient/exact cash, QR/card zero change, distinct references, preserved Back navigation, and previous-customer reset/isolation.
 
 For each future check: record date/time, responsible member/verifier, requirement ID, exact tested revision or uncommitted state, action, expected result, actual result, evidence link, and failure/fix where applicable. Do not mark pending checks passed.
+
+## Authorized Git checkpoint (2026-10-07, about 12:06 Asia/Singapore)
+
+- Django system check and pip dependency check rerun before committing: both passed.
+- Reviewed staged diff: 17 scoped foundation/scaffold/planning/evidence files; `git diff --cached --check` passed.
+- Secret exclusion scan: local .env secret absent from all selected contents; no original `django-insecure-` setting committed. Private files remained ignored.
+- Remote main verified as the initial SHA before setup push; no existing setup PR matched the branch.
+- Setup code commit: `a20201aeb262959b4d38f5f80bed78a3b5e8d56f`; configured author Yray0-9. The setup code matches the verified Prompt 03 state; later checkpoint changes are documentation-only.
+- Branch push succeeded and upstream was configured. [PR #1](https://github.com/Yray0-9/pos-app/pull/1) opened from codex/setup-foundation to main and was attached to this chat.
+- API state: open, merged=false, author Yray0-9, no reviews at this checkpoint. No review feedback was fabricated/resolved and no merge/deployment performed.
+- Instructor access, other members' accounts/work, peer review, fresh clone demonstration, and the functional acceptance matrix remain pending.
