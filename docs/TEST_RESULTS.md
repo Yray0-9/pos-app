@@ -145,3 +145,15 @@ Still untested: physical touchscreen, screen-reader operation, zoom/reduced-moti
 Browser recovery observation: the previous turn's tab was no longer available. Its empty tab inventory was verified and a new localhost preview was opened. No application defect or bug-fix stage is claimed. Local development server was restarted to refresh cached templates under --noreload. These are preview operations, not exam transaction tests.
 
 Pending: Magos's visual acceptance, physical touchscreen, screen reader, 200% zoom, OS reduced-motion toggle, other browsers/OS, fresh clone and all functional POS scenarios. Static card names/prices and zero total are fixtures; no trusted-money/cart acceptance pass is claimed. Reusing existing palette checks does not establish full accessibility compliance.
+
+## Reusable E - catalog branch checks
+
+2026-10-07, approximately 13:36-13:42 Asia/Singapore; verifier Codex tools, requester Magos. Branch preparation only; no application checks rerun because no application code changed.
+
+- Initial git status --porcelain=v1 was empty. UI HEAD and local origin/UI were both 3cad483d1e930c23c0ae7d8f0e34ae451cdadd57. Existing commit inspection showed the complete 14-file workspace revision, including the product/art includes and screenshot.
+- Local branch inventory contained main, setup and UI only; no existing catalog branch to reuse. Configured author name remained Yray0-9; no identity mutation.
+- main and local origin/main both 141af0103e8e73630acf76f867bfb5caeed07efe; ancestry comparison main...UI was 1/6 unique commits. Filename-only tree inspection showed tracked .env/generated artifacts and absent prepared sources on main. Secret values were not displayed. Current UI .env/db.sqlite3 remained ignored/untracked.
+- Authorized git switch -c codex/catalog-data from UI SHA succeeded. Resulting branch/HEAD checked; immediately clean; git diff against the UI base returned no paths. Local files preserved, no unrelated edits transferred. Branch has no upstream.
+- Final branch/status/scope/whitespace checks performed after documentation edits; only evidence/current-status documentation should differ from the UI base. No catalog/model/seed/migration/runtime changes, commits, pushes, PR updates or merges.
+
+No fresh remote server, CI, reviewer or instructor verification asserted. Existing UI tests remain tests of the UI milestone. Prompt 05 verification is pending.

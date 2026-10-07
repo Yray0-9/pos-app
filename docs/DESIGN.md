@@ -4,7 +4,7 @@ Prepared: 2026-10-07 (Asia/Singapore). Prompt 02 planning output.
 
 ## Status and assignment context
 
-**Current visual revision:** Section 13 is the current user-requested menu-and-order workspace. It replaces the large hero and earlier full-width order layout. This revision is locally implemented and checked; Magos's visual acceptance is pending. Sections 1-12 preserve earlier decisions/checkpoints and do not override section 13's current layout.
+**Current visual direction:** Section 13 is the user-requested menu-and-order workspace. It replaces the large hero and earlier full-width order layout. Magos has requested the next feature branch; the workspace is in existing UI commit 3cad483. Detailed human evaluation remains unrecorded. Earlier sections preserve history and do not override section 13's layout.
 
 The user accepted the proposed design direction on 2026-10-07: Common Table, cream/green/plum colors, the six-product catalog, products above a full-width order list, and SQLite with a session cart. This is the accepted planning baseline, not an implemented interface. Detailed interaction/data policies below remain design specifications to verify during implementation. No screens, models, migrations, dependencies, or Git operations were created by this stage. The customer workflow follows `docs/EXAM_PLAN.md`; the professor's sample UI is a behavioral reference only.
 
@@ -283,3 +283,7 @@ Magos explicitly requested adapting the sample UI's organization while keeping o
 Local Tailwind build, Django check, root rendering, valid inline artwork references, desktop/tablet/narrow overflow and keyboard skip/disclosure checks passed. Full accessibility and application acceptance remain pending. See TEST_RESULTS.md for observed sizes and limits.
 
 [Current workspace screenshot](evidence/ui-foundation-workspace-desktop.jpg). User satisfaction/acceptance is pending. Local branch codex/ui-foundation at fa76162 plus uncommitted changes; PR #2 still contains the earlier hero design. No Git mutations were performed. Review this result before the scoped Git checkpoint and reusable E/Prompt 05.
+
+### Later checkout observation
+
+The next reusable E request found the workspace revision already committed as 3cad483 and clean; this supersedes section 13's earlier uncommitted-state snapshot. Magos requested proceeding to the next feature branch, which is prepared as codex/catalog-data from that commit. This supports advancing with the current layout; detailed personal visual evaluation, instructor approval and peer review are not inferred. No design or application code changed during branch preparation.

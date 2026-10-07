@@ -293,3 +293,17 @@ Configured author/authenticated account Yray0-9 retained. Actual implementation 
 - Assistant evaluation: the workspace gives menu choices and the order total/action a clearer relationship, using a familiar ordering pattern. This is the assistant's assessment, not Magos's satisfaction or peer approval. Cards/prices are static fixtures pending later data implementation.
 - Human evaluation: latest request indicates dissatisfaction with the earlier rendering. Feedback on this new result, own explanation and any personal edits remain pending.
 - Git/member evidence: same UI branch at fa76162 plus uncommitted revision; no new commit/PR/review, no impersonation or teammate contribution. PR #2 contains the earlier committed layout. No Git mutations or progression to Prompt 05.
+
+## AI-E-02 - prepare catalog/data feature branch
+
+Requester: M3 Magos. Actual user pasted reusable E (Context/Objectives/Requirements/Constraints/Expected output) and explicitly authorized preparing a local feature branch. Verbatim authorization excerpt: "I authorize preparing the local feature branch before we edit that feature." Work interval: 2026-10-07, approximately 13:36-13:42 Asia/Singapore, not an exported user-message timestamp.
+
+Assistant inspection found prior UI changes already committed in 3cad483 with a clean working tree, superseding stale documentation. Created codex/catalog-data from that UI commit and recorded intended Prompt 05 assignment under Magos. Detected a divergent main tree tracking .env/generated artifacts and missing application sources; left it untouched and reported the separate integration issue. No secret content exposed, impersonation, commits, pushes, PRs, merges or automatic implementation. TEST_RESULTS.md records branch/ancestry/clean-tree checks.
+
+Assistant evaluation: the UI base preserves required foundation files and excludes unrelated main artifacts from feature work. Intended assignment is not a completed member contribution. Human understanding/evaluation and other member work remain pending. Next numbered prompt: 05 only.
+
+## AI-GIT-04 - UI evidence checkpoint requested before Prompt 05
+
+Magos explicitly requested committing the prior branch-preparation changes on the UI branch and simpler future branch names. The latest UI was already recorded at 3cad483; seven pending files contain evidence/status records only. Assistant switched from the unused catalog branch to codex/ui-foundation, preserving all pending files. Scoped local commit requested; push/PR/merge and future feature commits are not automatically authorized. Proposed branch grouping is six feature branches plus main, subject to genuine task/member needs. Historical names and authorship remain unchanged. Actual returned commit/base are recorded after the operation, not invented in advance.
+
+Setup observation for Prompt 05: local .env/database absent; initial showmigrations failed with missing DJANGO_SECRET_KEY. Existing scripts/init_env.py created a new ignored private development .env without displaying values. Subsequent showmigrations succeeded with all standard migrations unapplied. No existing database was deleted and no production credential changed. This is an observed local setup issue, not a fabricated application bug-fix stage.

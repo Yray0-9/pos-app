@@ -2,7 +2,7 @@
 
 A campus self-service kiosk project in progress. Accepted flow: choose products, review the order, select a payment method, complete simulated payment, view a digital receipt, and start a new transaction.
 
-**Current milestone:** Prompt 04 design review. A new local, uncommitted workspace revision shows six illustrated preview cards beside an empty desktop order panel, retaining Common Table's original styling. [PR #2](https://github.com/Yray0-9/pos-app/pull/2) contains the earlier committed foundation, not this revision. Reusable Django templates, local Tailwind, keyboard access and responsive spacing exist. Preview cards and Review order are disabled; catalog data, cart, payments, receipt and reset remain future work.
+**Current milestone:** local `codex/catalog-data` branch prepared for Prompt 05 from clean UI commit `3cad483`. The menu-and-order workspace is recorded in that pre-existing commit; six cards and Review remain disabled previews. Catalog models, cart, payments, receipt and reset remain future work. Branch/evidence preparation only was performed in this stage.
 
 ## Course and group
 
@@ -132,10 +132,16 @@ The new Acceptance Checklist PDF requires functional checks, shared-repository e
 
 No working products, cart, checkout, payment, receipt, or reset exists yet. All eventual payments will be simulated; no real money or card credentials are required. Inventory, login, reports, discounts, receipt printing, and deployment are outside the initial scope. Group contributions and reviews must be backed by actual activity and each member's understanding.
 
-Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Current next action: visual review of the local workspace revision, then a scoped Git checkpoint; reusable E and Prompt 05 follow afterward.**
+Prompt 04 implementation: [6ff4a07](https://github.com/Yray0-9/pos-app/commit/6ff4a07cbc410b3436c6f6e2c4ed152fac33977b), pushed on [codex/ui-foundation](https://github.com/Yray0-9/pos-app/tree/codex/ui-foundation). [UI PR #2](https://github.com/Yray0-9/pos-app/pull/2) is open into codex/setup-foundation because setup PR #1 remains unmerged. Genuine review/integration pending; Copilot could not review due to quota. Magos delegated this checkpoint; later Git actions still need authorization. **Next: Prompt 05; reusable E is now completed for codex/catalog-data.**
 
 
-The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is uncommitted and awaits Magos's feedback; it is not included in PR #2 yet.
+The current local revision removes the large hero and adapts the sample's menu-and-order organization, using our own green styling and original food artwork. Static product cards remain unavailable. [Current workspace preview](docs/evidence/ui-foundation-workspace-desktop.jpg). [Earlier committed preview](docs/evidence/ui-foundation-modern-desktop.jpg) remains historical evidence. The workspace revision is now in pre-existing commit 3cad483, matching the local origin/UI ref. Magos requested preparing the next branch; detailed visual evaluation remains unrecorded. Current remote PR/review state was not refreshed during branch preparation.
 
 
 The UI branch is now remotely available for review. After cloning, use `git switch --track origin/codex/ui-foundation` if no local UI branch exists, or `git switch codex/ui-foundation` if it does. These are instructions, not a claimed fresh-clone demonstration. A non-author reviewer should inspect PR #2 and verify the stated foundation checks, then leave actual feedback before an authorized merge. Both setup and UI PRs remain unmerged.
+
+## Catalog branch preparation and integration issue
+
+Reusable E created local `codex/catalog-data` from UI commit `3cad483`; no feature implementation or Git publication performed. Paste Prompt 05 next. Branch records are the only new working changes.
+
+The currently recorded main/origin/main commit `141af01` tracks `.env` and generated package/cache artifacts while omitting prepared application sources. It was left untouched and was not used as the catalog base. Resolve this before integration/publication; if the private key was published, replace it. No secret values are included in evidence. Main cleanup/review/merge and fresh remote/PR checks are separate work requiring appropriate authorization.

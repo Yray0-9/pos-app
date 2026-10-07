@@ -15,9 +15,9 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | codex/ui-foundation tracking origin/codex/ui-foundation; UI PR #2 open |
+| Current local branch | codex/catalog-data, local only; based on UI commit 3cad483d1e930c23c0ae7d8f0e34ae451cdadd57; no upstream yet |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
-| Integration branch base | main; `9e959add21248068edc3230e7774f0cb65d365d3` remains the initial integration state until an authorized merge |
+| Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
 | Final demonstrated integration commit | Pending; the initial commit is not the final app |
 | Instructor repository access | Pending instructor verification |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); codex/catalog-data (local, intended Prompt 05 only) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -133,3 +133,17 @@ Magos now intends to perform Git operations personally. Notify/guide when the ac
 Requester: M3 Magos. Assistant implemented/checked the user-requested layout adaptation on existing codex/ui-foundation at HEAD fa76162e758e72da445f729ce0d5e99d0faa8d71. Branch preparation was already performed for this UI milestone. Product illustrations/cards are static preview work; no catalog/cart/payment contribution is claimed.
 
 This revision is uncommitted, has no new commit/PR link and is not yet part of PR #2. User visual acceptance and own evaluation/explanation are pending. Agbas/Daro contributions, confirmed accounts, independent reviewer/feedback and merges remain pending. No authorship changed, reviewer contacted or Git mutation performed. Evidence: DESIGN.md section 13, TEST_RESULTS.md workspace section and workspace screenshot.
+
+## Reusable E - catalog/data branch preparation
+
+2026-10-07, approximately 13:36-13:42 Asia/Singapore. Actual requester/intended contributor: M3 Magos, with AI assistance. Intended task: Prompt 05 product/completed-transaction/item models, Decimal fields, unique references, repeatable six-product seed and relevant verification. This is an intended assignment, not completed feature work. No work is attributed to Agbas or Daro.
+
+Before editing, codex/ui-foundation was clean at 3cad483d1e930c23c0ae7d8f0e34ae451cdadd57, matching the locally recorded origin/UI ref. That existing commit records the latest 14-file UI workspace revision; author Yray0-9, actual message Initial project setup. It was not created or amended by this checkpoint, and no actor/approval is inferred from its message. No catalog branch existed. Created and switched to local codex/catalog-data at exactly the same SHA; no upstream, push, PR or implementation yet. Clean working tree verified immediately after switching; only branch/evidence documentation then changed.
+
+Dependency: catalog branch builds on the prepared UI/setup history. A future scoped PR should target codex/ui-foundation while that dependency remains unintegrated, after checking actual remote/PR state at the authorized Git checkpoint. Main and local origin/main at 141af0103e8e73630acf76f867bfb5caeed07efe contain .env/generated artifacts and omit prepared application sources. They were not merged, reset or used as this base. Separate cleanup, exposed-secret assessment, genuine reviews/integration and member evidence remain pending. No secret values were printed.
+
+## Requested UI evidence commit and branch naming plan
+
+Magos requested recording the previous seven branch/evidence files on codex/ui-foundation. They are documentation for real setup/UI/next-branch state; no catalog code is included. Local configured author is preserved. Commit result will be recorded after creation on the next task branch. GitHub visibility requires a later push; no publication is asserted yet.
+
+Proposed simplified grouping: existing codex/setup-foundation and codex/ui-foundation; catalog-data for Prompt 05; cart-review for 06-07; payments for 08-09; receipt-reset for 10. Six feature branches plus main are planned, not a completed branch inventory. Later review, genuine fixes/refactors, docs and member implementation tasks may require more. No teammate contribution is established by this proposal. The unused local codex/catalog-data has no feature commits; replace it from the updated UI base without retaining a duplicate task branch.
