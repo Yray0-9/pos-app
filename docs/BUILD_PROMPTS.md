@@ -6,7 +6,7 @@ Prepared: 2026-10-07 (Asia/Singapore).
 
 Copy **one numbered prompt's entire text block** into this chat at a time. Let that stage finish, read the explanation, and resolve its failures before moving to the next. The guide prepares future work; creating this file does not start implementation.
 
-Current checkpoint: Prompt 06 selection/cart implemented and locally checked on already authorized cart-review, based on 796b5da. All 24 tests/configuration/dependency/migration checks and CSS build passed; browser add/quantity/removal/reload/focus/size/overflow checks passed. Changes remain uncommitted with no cart PR. Next checkpoint: reusable B (or Magos records the milestone), then Prompt 07 on this same branch. Inspect/reuse cart-review rather than creating another branch; no automatic Git mutation or feature advancement. Existing catalog PR #3 remains the recorded dependency; main integration and genuine member/review gaps remain.
+Current build: database-free completion requested by Magos on 2026-10-07. Fixed six-product Decimal catalog, signed-cookie cart/active receipt, full review, Cash/QR/Card simulations, success and reset are implemented. 21 database-free tests pass in 1.400s; real HTTP/CSRF/cookie acceptance passes locally on port 8000 and publicly at https://common-table-kiosk.vercel.app. SQLite was explicitly deleted. Public production deployment dpl_CaAD2UzZwta8KY6YdfZCnAsYw1Z9 is READY. Browser touch/focus/processing/Back-cache verification and member/process evidence remain pending. Main integration is now requested; actual commit/merge outcomes must be recorded after execution. Earlier SQLite/46-test/8001/deployment-deferred entries below are historical and do not describe this build.
 
 New source reviewed: `IT415 Acceptance Checklist.pdf` (4 pages). It requires at least seven real development stages in committed history, one shared repository, actual member/PR evidence, and individual verification. Deleted merged branches may be evidenced through their PRs/commits. See MEMBER_REGISTER.md for the working matrix; do not treat pending as P or N/A.
 
@@ -16,7 +16,17 @@ Every prompt uses the professor's five fields: **Context, Objectives, Requiremen
 
 ### Shared rules for every prompt
 
-**Current explicit delegation:** Magos invoked reusable B after Prompt 06, authorizing the scoped cart commit/push/review PR and evidence records now. Reuse agreed cart-review; configured author Romulo Magos is preserved. Target catalog-data while the catalog parent remains unmerged. No merge, deployment, reviewer messages, new branch or automatic Prompt 07. This overrides guidance-only Git preference for this checkpoint, not future Git work.
+**Latest explicit request supersedes earlier storage/publication boundaries:** Magos now
+requires no database, deletion of local SQLite, complete simulations/receipts and Vercel
+public deployment. These actions have been performed and verified. The subsequent request
+requires final integration into main; preserve source/history and real authorship, exclude
+private/generated artifacts, never force-push or fabricate review. Fixed catalog and
+authenticated signed-cookie state supersede SQLite instructions in older prompts. Do not
+run archived migrations/seeding/tests. See DATA.md's current section and DEPLOYMENT.md.
+One continuous build does not manufacture seven development stages or member contribution.
+
+
+**Current explicit delegation:** Magos explicitly requested the combined local completion after the planning discussion. This authorizes required review/payment/success/receipt/reset implementation, verification, evidence and demo documentation in one continuous request. Reuse the clean already prepared cart-review branch; do not change Git/authorship/accounts, commit, push, update PRs, merge or deploy. Hosting is deferred. This supersedes sequential prompt stops for this build, not contribution/history requirements.
 
 **Latest Git request:** Magos authorized committing the pending branch/evidence records on codex/ui-foundation before Prompt 05 and requested simpler future branch names. The unused local codex/catalog-data will be replaced by catalog-data based on the updated UI checkpoint. Existing published setup/UI names stay intact. Future branch preparation may reuse a suitable task branch; it does not need a new branch for each numbered prompt. Proposed six feature branches plus main: setup, UI, catalog-data (05), cart-review (06-07), payments (08-09), receipt-reset (10). Later validation, real fixes/refactoring and documentation use the appropriate branch when practical. Extra branches are conditional on genuine work/member assignments. A branch is distinct from a commit/development stage; the checklist still needs at least seven actual stages and genuine individual work. This request authorizes the UI evidence commit, not automatic future commits, pushes, merges or reviewer messages.
 
@@ -459,3 +469,9 @@ A safely prepared and documented local feature branch, or a specific unresolved 
 | All 15 instructor test scenarios | 13 |
 
 This guide covers the reviewed requirements; it does not prove completion or promise a grade. Only implemented behavior, observed checks, genuine records, and members' actual understanding can establish readiness.
+
+## Combined local completion checkpoint
+
+The user requested the work now so they can personally test requirements and design. Prompts 07-15 were consolidated internally: required screens and backend tests implemented, records/setup/demo guide prepared, browser checks clearly pending. Existing cart-review was clean at entry f901b32 and reused without Git mutation; no member-named or extra branch created. The earlier local review work was absent in this checkout, so review was restored as part of the authorized build rather than assumed from prior chat.
+
+Next action is local rehearsal in DEMO_GUIDE.md and any real corrections. After feedback, a separately authorized scoped Git checkpoint can preserve actual work and update the actual intended PR. No future account switching/author rewriting or fabricated stage/review/member evidence. New completion work is currently uncommitted; publication/integration status cannot be inferred from this guide. A public hosting request is outside the current local milestone.

@@ -379,3 +379,52 @@ Entry checkout cart-review at 796b5da; all 21 changed/new nonignored files match
 All 24 tests reran and passed (0.872s), plus Django check, pip check and no migration drift. Bare node was unavailable in this checkpoint's terminal PATH; existing Node executable located and its syntax check passed. Normal terminal startup failed due to workspace setup refresh; authorized execution recovered access. These are tool/environment issues, not fabricated application bugs. Prior Prompt 06 browser/CSS checks retained; no fresh visual/payment pass claimed. Live database still six products, zero completed sales/items.
 
 Fresh GitHub state: catalog/UI/setup parents open/unmerged, catalog head 796b5da. Existing reviews are quota-only COMMENTED entries with no inline findings or checks/statuses. Main public tracked-private-file/integration issue remains unresolved and is not a base for this PR. Intended source cart-review, target catalog-data. Need genuine non-author review from Agbas/Daro after account confirmation or instructor-accepted reviewer; none contacted. Actual commit/push/PR outcomes follow only after successful operations. Stop before Prompt 07.
+
+## AI — explicit combined local completion
+
+2026-10-07. Actual latest user request (verbatim): “PLease do run it now or do the work now properly and professionally done becuase i want to test it out myself if is really meet's the requirements and also if is really good too.” Earlier steering deferred public hosting, requested local completion/testing and kept Git/account changes outside scope. Magos is the requester; Codex is the assistance tool. The prepared combined five-field prompt was discussed, not falsely recorded as a verbatim user submission.
+
+Five-field scope summary:
+
+- Context: catalog/cart exist; prior local review absent from current clean f901b32 checkout; existing shared scope/design/models govern.
+- Objectives: finish required kiosk flow locally in one continuous build so Magos can test it.
+- Requirements: current summary/Back; cash/QR/card simulations/shared trusted completion; success/snapshot receipt; safe reset; meaningful tests/setup/evidence/demo guide.
+- Constraints: no fabricated member authorship/history/review, account switches, Git mutations/commits/pushes/merges/deployment; preserve user files/data; no optional framework/gateway expansion.
+- Expected output: working local app, actual results, personal rehearsal and remaining acceptance gaps.
+
+Generated/adapted response summary: reused clean prepared cart-review, restored review with signed displayed facts and reused Decimal calculator; added one checkout module for validation/ownership/atomic completion/reset; connected routes/templates and own restrained UI; touch cash keypad, clearly non-scannable QR placeholder, card processing text; durable snapshot success/receipt; session key/context rotation and old-receipt guards. JavaScript enhances touch/loading/history only; server validates and unique attempt/atomic writes prevent duplicate/partial sales. No new schema/dependency and no payment credentials.
+
+Assistant evaluation: current catalog facts cannot be replaced by browser prices; signed tokens bind context/revision/order/method/attempt; partial writes rollback. Existing attempt returns original sale/paid amount even after later catalog edits; conflicting method/session is rejected. Reset requires current signed sale and preserves unrelated session fields/history. SQLite contention may return a busy error with a safe explicit retry. General simultaneous cart editing across tabs is not guaranteed. New browser focus/layout/keypad/card-delay/history-cache behavior remains unverified despite source inspection and HTTP checks.
+
+Actual verification: initial44 tests passed; final46 after meaningful metadata/concurrency additions passed in3.312s. LiveHTTP/CSRF with isolated cookies passed all methods, invalid cash, review/Back/edit, receipts/retry/reset/session guards and local assets; retained three test sales. Fresh temporary-database migration/seed/reseed/check passed. Tailwind build, JS syntax, pip/configuration/drift and direct diff check passed. Browser inventory empty and opening iab failed; no new screenshot/visual/touch pass claimed. Existing port8000 process preserved; separate checked preview on8001.
+
+Actual adaptations: bound existing disabled Review button to real guarded navigation; updated earlier test expectations; freeze paid customer's editing until New Transaction; added receipt redirect handling for stale cart AJAX; use no-store/history-restoration reload. Grouped PowerShell check returned1 but direct diff validation returned0; this is a tooling observation, not a fabricated app bug. Injected line-write failure is deliberate regression coverage for atomicity, not actual runtime debugging evidence. No real app failure or separate refactoring stage was manufactured. Shared completion is newly generated architecture, not proof of retrospective refactoring.
+
+Human evaluation/adaptation (Magos): Pending. Use DEMO_GUIDE to assess design, cash entry, processing, receipt agreement and reset, then record your own findings and explanation. Assistant-written evaluation is not a member's independent understanding. Agbas/Daro personal implementation/accounts/reviews remain unverified; no changes attributed to them. Full transcript/export reference and final substantive review/committed-stage audit remain pending.
+
+Git boundary: current completion local/uncommitted on f901b32 base. No branch/authorship/account/push/PR/merge/deployment action. Prior selection commit observed, remote review/publication state not refreshed. Next personal local rehearsal, then actual scoped Git checkpoint when requested. Local working notes remain ignored rather than included in a future PR.
+
+## AI — explicit no-database completion, deployment and requested main integration
+
+Latest user requested QR/receipt visibility, complete functionality, Vercel deployment,
+and deleting SQLite. This reverses prior accepted storage/deployment boundaries. Later
+user response requests final app in main. Magos is still the requester; no teammate work
+is inferred from local configured authorship. Generated changes: fixed Decimal catalog,
+signed-cookie sessions and validated active receipt dataclasses; archived old storage
+source; removed admin/auth/database apps; production/static/Vercel configuration; tests
+and documentation. Database deleted only at verified root path, not recursively.
+
+Assistant evaluation: no permanent sale history/shared global lock; copied signed-cookie
+replay cannot be revoked, and conflicting older requests are not globally idempotent.
+These limits are explicit tests, not falsely marked guarantees. All payments remain
+exam simulations and QR is an allowed demo placeholder. 21 database-free tests and
+local/public HTTP/CSRF pass; personal browser appearance/JS/touch evaluation pending.
+
+Actual debugging: old port8000 process served earlier placeholder; verified project
+process restarted. HTTP test corrections handle remasked CSRF and HTTPS Referer.
+Production build succeeded with native Django preset/Python3.14. Login approved through
+Vercel's normal device flow; private production secret transmitted through stdin, never
+printed or placed in repository. Deployment READY; no local plan uploaded. Automatic
+Git connection created by CLI was disconnected to avoid unverified-main deployment.
+Main integration outcomes and real SHA/evidence will be recorded after successful work;
+no review or member contribution is manufactured. Human evaluation remains pending.

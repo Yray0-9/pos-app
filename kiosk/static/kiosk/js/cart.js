@@ -28,6 +28,10 @@
         method: 'POST', body: data, credentials: 'same-origin',
         headers: { Accept: 'application/json' },
       });
+      if (response.status === 409) {
+        window.location.replace('/receipt/');
+        return;
+      }
       if (response.status !== 200 && response.status !== 400) throw new Error('Unexpected response');
       const result = await response.json();
       if (typeof result.html !== 'string') throw new Error('Missing order');

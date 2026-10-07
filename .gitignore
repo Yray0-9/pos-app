@@ -25,6 +25,8 @@ node_modules/
 /dist/
 /build/
 /tmp/
+/staticfiles/
+/.vercel/
 .coverage
 .coverage.*
 htmlcov/
@@ -37,3 +39,5 @@ Thumbs.db
 .DS_Store
 
 # Keep source, migrations, evidence, and eventual built kiosk CSS tracked.
+.vercel
+.env*

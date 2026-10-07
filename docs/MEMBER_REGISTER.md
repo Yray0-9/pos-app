@@ -15,7 +15,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | Intended shared repository | https://github.com/Yray0-9/pos-app |
 | Configured local origin | https://github.com/Yray0-9/pos-app.git (read locally; no credentials displayed) |
 | Repository namespace | Yray0-9; authenticated account for this checkpoint; instructor/member identity verification remains separate |
-| Current local branch | cart-review, local only, base 796b5da; Prompt 06 selection/cart implemented with Codex assistance at Magos request, uncommitted; Prompt 07 pending |
+| Current local branch | cart-review, HEAD f901b32 at combined-build entry; required completion code/evidence local and uncommitted; no branch/account/Git mutations in this build |
 | Setup implementation commit | [a20201aeb262959b4d38f5f80bed78a3b5e8d56f](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f) - Establish Django foundation and exam evidence records |
 | Integration branch state | main and local origin/main at `141af0103e8e73630acf76f867bfb5caeed07efe`; generated artifacts/.env tracked and prepared sources absent. Not used as the catalog base; resolution pending |
 | Files tracked by setup commit | 17 foundation/scaffold/planning/evidence files; private environment, venv, database, and caches excluded |
@@ -31,7 +31,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
 | M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
-| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3); cart-review (local intended 06-07, no implementation yet) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
+| M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation; codex/ui-foundation (Prompt 04 implemented/pushed); catalog-data (Prompt 05 committed/pushed; PR #3); cart-review (selection committed at f901b32; combined completion implemented/checked locally, uncommitted) | Current requester; setup/UI Git and PR author Yray0-9; human explanation and instructor verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
 
@@ -194,3 +194,28 @@ This is a completed local AI-assisted milestone, not a published member commit o
 ## Cart B - authorization and real responsibility
 
 Requester M3 Magos invoked the scoped Git checkpoint after Prompt 06. Actual branch cart-review (agreed simple name) at base 796b5da; actual configured Git author Romulo Magos, authenticated account Yray0-9. Preserve configured authorship; AI-assisted code/checks do not establish independent Magos explanation or any Agbas/Daro implementation. Current request authorizes cart commit/push/scoped PR into catalog-data, not merge or reviewer contact. Actual outcome links follow after creation. Real non-author reviewer/accounts and peer/member explanation/contribution gaps remain pending.
+
+## Combined completion — actual responsibility and publication boundary
+
+Magos explicitly requested completion now so they can test the kiosk. The existing prepared cart-review branch was clean at entry f901b32 and reused. Codex generated/adapted the required review, shared payments, success, receipt/reset, tests and evidence under Magos's request. No branch creation, identity/account switch, commit/push/PR update/merge, deployment or reviewer contact. Current work is local and has no new commit/PR links; do not invent them or count it as published history. Existing entry commit f901b32 is the observed selection checkpoint; earlier documentation still contains historical uncommitted-stage descriptions, now superseded for that checkpoint.
+
+The configured author is preserved. Authenticated account/remote PR state was not refreshed in this local build. Previously recorded parent PRs are historical; actual review/merge/publication must be inspected at a future authorized checkpoint. No initial/private-history/main remediation was performed here.
+
+| Member | Actual current responsibility/evidence | Individual requirement status |
+| --- | --- | --- |
+| M1 Agbas | Member listed by user; no personal implementation/accepted task/account verified in this build | Pending; no commits/feature/review/explanation claimed |
+| M2 Daro | Member listed by user; no personal implementation/accepted task/account verified in this build | Pending; involving another member does not satisfy Daro's requirement |
+| M3 Magos | Requester of combined AI-assisted local completion; 46 tests and HTTP/setup checks recorded; earlier selection commit observed | Human evaluation/explanation, current publication, substantive peer review and final integration pending |
+
+Neutral future branch names payment-states/receipt-reset are suggestions only. Different labels/accounts alone do not establish contribution. Real teammate implementation or adaptation on the shared laptop, with actual test results and understanding, can be recorded later. Supporting review/testing/docs should be credited accurately but cannot automatically stand in for each-member implemented-feature work. No work was relabeled under another identity.
+
+The seven-stage committed-history audit, genuine refactoring evidence where warranted, actual non-author review/feedback resolution, merges, clone/instructor access and all members' explanations remain unresolved. A fully functioning app does not manufacture these records. Next: personal rehearsal, then a separately authorized scoped Git checkpoint. Local working notes remain excluded from Git.
+
+## Current completion and public deployment (2026-10-07)
+
+Magos requested/received AI-assisted full simulated kiosk and no-database conversion.
+21 no-database tests and local/public HTTP checks pass. Public Vercel site is
+https://common-table-kiosk.vercel.app; deployment dpl_CaAD2UzZwta8KY6YdfZCnAsYw1Z9.
+This is not proof of other members' personal implementation/review/explanation.
+Main integration is explicitly requested; local/remote SHA and merge outcomes are
+pending actual execution. Earlier integration state/publication records are historical.

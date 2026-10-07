@@ -1,5 +1,10 @@
 # Common Table: proposed kiosk design and transaction behavior
 
+## Latest accepted storage/publication change
+
+Magos explicitly replaced the previous SQLite decision with no database and authorized deletion/public Vercel deployment. Current architecture is the fixed server catalog plus signed-cookie cart and active receipt, described in DATA.md. No permanent history/global payment lock/copy-cookie revocation is claimed. All payment screens remain simulations; QR intentionally uses a demo placeholder as the requirement permits. Earlier SQLite design and verification statements below are retained as historical stages, not current promises.
+
+
 Prepared: 2026-10-07 (Asia/Singapore). Prompt 02 planning output.
 
 ## Status and assignment context
@@ -303,3 +308,13 @@ The current menu/order layout retains Common Table's own colors, product artwork
 Choose is the active progress step. Success/error feedback is escaped; loading disables workspace actions briefly. JavaScript updates server-rendered HTML and restores focus to the action or corresponding product after removal, with native POST forms as fallback. Empty order has a clear tap-to-begin hint. Review is disabled until Prompt 07, with a specific stage hint for both empty and nonempty orders. No working payment controls are presented.
 
 Verified browser layouts: desktop 1280x900 side-by-side menu/order; tablet 768x1024 two product columns and order below; narrow 360x800 one product column and order below. No horizontal overflow observed. A single page scroll reaches the whole order; a tall order is not squeezed into a nested scroll. Physical touch and full screen-reader testing remain pending. Current preview: [cart desktop](evidence/cart-desktop.jpg). Magos's new visual evaluation remains pending; implementation is not assumed approval of all future screens.
+
+## 16. Combined completion — implemented screens
+
+The current catalog grid/order-panel design remains. Review centers an original white summary card on the cream canvas, with green total/footer and explicit unit-price/quantity labels. Back/Continue use the existing 56px control style. Payment uses large Cash/QR/Card choice cards and a matching order summary; detailed forms sit beside the summary on desktop and stack below the lg breakpoint. Focus, feedback roles, own artwork/system font/palette and reduced-motion rule are reused.
+
+Cash offers a native text input with decimal keyboard hint and a 3x4 keypad plus Clear/Exact amount; the server still validates. QR has an explicitly non-scannable demo placeholder, instructions and Confirm Payment. Card has a simple original reader icon, instructions and a text processing state lasting 1200ms before its POST. Animations are not necessary to communicate status. All paths disclose simulation without asking for real credentials.
+
+Success uses a calm green check, stored totals/method/paid/change/reference and View Receipt. Receipt gives purchased snapshots, local date/time, reference and payment details; New Transaction starts a fresh customer. References and names wrap, currency uses tabular digits, touch targets are at least 48px (new action/keypad controls 56px). Invalid/stale orders and cash use escaped alert feedback; disabled controls are also backed by endpoint guards.
+
+Template/CSS and JavaScript syntax plus backend/HTTP behavior are verified. New desktop/tablet/narrow overflow, contrast/zoom, focus/keypad/processing, physical touch, screen-reader and history-cache checks are pending because browser control is unavailable. No new screenshot or Magos visual approval is inferred. Earlier selection screenshots are historical. No sample UI assets/theme were copied; no inventory/login/report/printing features added.

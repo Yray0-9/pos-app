@@ -1,5 +1,10 @@
 # IT415 kiosk exam: requirements and working plan
 
+## Latest accepted storage/publication change
+
+Magos explicitly replaced the previous SQLite decision with no database and authorized deletion/public Vercel deployment. Current architecture is the fixed server catalog plus signed-cookie cart and active receipt, described in DATA.md. No permanent history/global payment lock/copy-cookie revocation is claimed. All payment screens remain simulations; QR intentionally uses a demo placeholder as the requirement permits. Earlier SQLite design and verification statements below are retained as historical stages, not current promises.
+
+
 Prepared: 2026-10-07 (Asia/Singapore).
 
 ## Purpose and boundaries
@@ -8,7 +13,7 @@ This is the persistent checklist for our step-by-step work. Read and update it w
 
 The user wants guidance and understanding at each stage, an original interface, and complete coverage of the exam and photographed checklist. Magos's latest request permits adapting the sample's menu-and-order organization while retaining Common Table's own branding, colors, typography, products and artwork. DESIGN.md section 13 is the current layout direction; earlier behavioral-reference-only statements describe the previous plan.
 
-Current stage: Prompt 06 working selection/cart verified locally on cart-review at catalog evidence 796b5da plus uncommitted feature/evidence changes. F01, F03-F06 have local functional evidence; F02/F20 have selection-stage evidence only. All 24 tests and relevant checks pass. Next numbered prompt 07 after scoped Git checkpoint; reuse cart-review. No review/payment/receipt/reset or cart commit/push/PR/merge. Prior catalog PR #3 remains the recorded dependency. Magos requested AI-assisted implementation; actual personal explanation, Agbas/Daro work, real review and main integration remain unresolved.
+Current build: database-free completion requested by Magos on 2026-10-07. Fixed six-product Decimal catalog, signed-cookie cart/active receipt, full review, Cash/QR/Card simulations, success and reset are implemented. 21 database-free tests pass in 1.400s; real HTTP/CSRF/cookie acceptance passes locally on port 8000 and publicly at https://common-table-kiosk.vercel.app. SQLite was explicitly deleted. Public production deployment dpl_CaAD2UzZwta8KY6YdfZCnAsYw1Z9 is READY. Browser touch/focus/processing/Back-cache verification and member/process evidence remain pending. Main integration is now requested; actual commit/merge outcomes must be recorded after execution. Earlier SQLite/46-test/8001/deployment-deferred entries below are historical and do not describe this build.
 
 Sources reviewed:
 - `C:/Users/Romul/Downloads/IT415_Practical_Exam.pdf`: all 8 pages.
@@ -162,7 +167,7 @@ Prompt 02 verification: documented mappings reviewed; proposed solid-color text 
 
 ## Functional acceptance checklist
 
-All entries below are pending implementation and verification.
+The table states pass conditions. Current implementation/evidence status is in the combined-completion section below; new browser/human/process checks remain pending.
 
 | ID | Requirement | Pass condition |
 | --- | --- | --- |
@@ -380,3 +385,34 @@ The cart survives reload. Empty order is PHP 0.00 and cannot advance. Review rem
 All 24 data/cart tests passed. Root/CSS/JS loading, browser arithmetic/removal/reload, focus, sizes and overflow checked at 1280x900, 768x1024 and 360x800. Tablet/narrow order follows menu using normal page scroll. Live database remains six products, zero completed sales/items. See TEST_RESULTS.md and evidence/cart-desktop.jpg.
 
 A real browser bug (hidden action field shadowed form.action) was found and fixed using the form action attribute; full browser flow then passed. It is honest debugging evidence within this milestone, not an invented separate commit/stage. Git recording, genuine peer review, Magos's personal verification/explanation and other member contributions remain pending. Next: scoped B checkpoint, then Prompt 07 on cart-review.
+
+## Combined local completion — current functional evidence
+
+2026-10-07. User explicitly requested execution so they can test the app. Existing prepared cart-review at f901b32 was clean and reused without Git mutation. Prior local review files were absent; review was rebuilt from the shared calculator. Required completion code and evidence remain uncommitted. Preview runs on 8001, leaving the pre-existing 8000 server intact.
+
+| Requirement | Implemented / checked evidence | Remaining check |
+| --- | --- | --- |
+| F01 | Six available products, visible names/prices; selection tests and live HTTP adds | Personal touch selection |
+| F02 | Existing >=48px controls; new >=56px buttons/keypad, labels, focus styles, responsive panels | New visual/touch/keyboard/screen-reader/contrast/zoom checks |
+| F03-F06 | Trusted Decimal quantities/subtotals/total; increase/decrease/remove/zero and invalid inputs | Personal interaction rehearsal |
+| F07-F08 | Exact current summary and read-only Back; 279.50/364.50/240.00 arithmetic and repeated navigation | Browser layout and Back interaction |
+| F09 | Three real method links to working forms | Personal choice interaction |
+| F10-F12 | Cash amount due, keypad, Pay Now; invalid cash rejected with no sale; exact/overpay/change verified | Browser keypad interaction |
+| F13 | Labeled QR placeholder/instructions/Confirm Payment; snapshot total, paid=total and zero change verified | Personal QR flow |
+| F14 | Card instructions, Process Payment, 1200ms visible JS processing; correct backend completion checked | Visible delay requires actual browser test |
+| F15-F18 | Shared atomic completion, unique attempt/reference, stable snapshots, success and full receipt, timezone/method/paid/change agree | Personal screen comparison |
+| F19 | Signed POST reset clears active state and rotates context/session; history retained; old/other-session receipt access blocked | Browser Back/reload/cache interaction |
+| F20 | Escaped add/error/processing/success feedback with roles; stale/empty/invalid order guards tested | New loading/error/focus screen behavior |
+
+46 tests pass, including atomic partial-write rollback and actual simultaneous same-attempt completion. Live HTTP/CSRF covers all three methods, invalid cash, duplicate submit, owned receipt, reset and distinct references; three acceptance sales retained in local history. Existing migrations are applied; no new schema/dependency changes. Fresh temporary-database migration/seed/reseed/check passes. Built local CSS and all JS syntax checks pass. Browser control unavailable: no new screenshot, card-delay interaction or visual/touch/accessibility pass claimed. See TEST_RESULTS.md and DEMO_GUIDE.md.
+
+| Checklist section | Present evidence | Remaining gap |
+| --- | --- | --- |
+| A requirements | Original problem/users/inputs/outputs and F01-F20 plan retained | Instructor verification |
+| B AI assistance | Actual combined request, generated architecture, adaptations, tests and limits in AI_LOG | Human critical evaluation/adaptation/explanation; full transcript reference; no separate refactor fabricated |
+| C Git/member workflow | Existing feature history retained; current branch/base observed | Current completion commit/push/PR/review/merge, seven real stage audit, member contributions and final integration |
+| D code quality | Shared calculator/completion, isolated snapshots and guarded transitions; 46 regressions | Human code review and real issues found in rehearsal |
+| E docs | Setup, state/storage/simulation limits, tests and demo guide updated | User/instructor document review and final integration SHA |
+| F demonstration | Backend/HTTP flow verified, personal rehearsal guide supplied | Physical browser/touch demo and all three members' independent explanations |
+
+No work is attributed to unavailable members. Functional implementation does not establish individual feature credit, genuine peer review or seven committed development stages. Public deployment is deferred. Next: Magos's local rehearsal, real fixes if needed, then separately authorized Git checkpoint/review; no next numbered prompt is required merely to run the app.

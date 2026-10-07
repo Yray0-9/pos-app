@@ -4,7 +4,7 @@ from decimal import Decimal
 import re
 from uuid import UUID, uuid4
 
-from .models import MAX_AMOUNT, MAX_QUANTITY, Product
+from .catalog import MAX_AMOUNT, MAX_QUANTITY, available_products, find_product
 
 
 class CartError(ValueError):
@@ -39,7 +39,7 @@ def calculate_order(raw_cart):
             needs_refresh = True
             continue
         quantities[identifier] = quantity
-    products = Product.objects.filter(pk__in=quantities, is_available=True)
+    products = [product for product in available_products() if product.pk in quantities]
     lines, clean_cart = [], {}
     total = Decimal('0.00')
     for product in products:
@@ -68,7 +68,7 @@ def change_cart(session, action, identifier=None):
         feedback = 'Order updated. Unavailable or invalid items were removed.'
     else:
         key = str(product_id(identifier))
-        product = Product.objects.filter(pk=int(key), is_available=True).first()
+        product = find_product(int(key))
         if product is None:
             raise CartError('This item is no longer available. Update your order.')
         quantity = cart.get(key, 0)

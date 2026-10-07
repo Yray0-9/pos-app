@@ -236,3 +236,78 @@ Final recheck: all 24 tests passed again in 0.924s; Django configuration, depend
 2026-10-07 Asia/Singapore. cart-review base 796b5da plus reviewed Prompt 06/E evidence. All 24 tests pass in 0.872s; Django configuration/pip checks pass; migration drift absent. Existing Node executable --check cart.js passes; bare node PATH lookup initially failed. Live database six products, completed sales/items zero. Prior browser/CSS evidence remains from Prompt 06; no new visual or payment acceptance claimed.
 
 Reviewed 21 changed/new files, including code, built local CSS, ten cart tests, screenshot and eight docs; removed obsolete disabled fixture template. Whitespace check passes. Origin fetch/push exactly verified; private current secret absent from shareable changed/new files; env/database/cache/tmp remain excluded. Actual author Romulo Magos preserved; authenticated Yray0-9 has push access. GitHub parent heads/review/check state inspected; source cart-review -> target catalog-data pending publication. No commits/pushes/reviews asserted before returned success.
+
+## Combined local completion — final verification
+
+2026-10-07, Asia/Singapore. Requester Magos; checks run by Codex. Tested new uncommitted working files on clean-entry cart-review at f901b32 (the base contains selection, not the new completion). No Git/account/publication changes. Preview started on 127.0.0.1:8001 at 19:43:34, leaving the existing 8000 process intact.
+
+| Verification | Actual result | Status |
+| --- | --- | --- |
+| Entry/config/data | Existing private environment preserved without output; Django check no issues; all 19 existing migrations applied; seed zero created/six preserved | Pass |
+| Automated regression suite | 46 tests in 3.312s: 14 data + 10 cart + 21 checkout + 1 concurrent completion | Pass |
+| Summary/Back/edit | Current prices/quantities/subtotals match; 279.50 order -> rice increase 364.50 -> decrease/remove 240.00; repeated GET keeps cart | Pass |
+| Cash validation | Empty/text/whitespace/NaN/Infinity/negative/zero/insufficient/too many decimals/exponent/grouped/over-limit values rejected with no sale/receipt; exact 279.50 change 0; cash300 change20.50 | Pass |
+| QR/card consistency | Method choices/forms, clear simulation/instructions; total=paid and change0; valid completion/success/receipt | Backend/HTTP pass; browser processing delay unrun |
+| Stale/invalid guards | Missing/forged/cross-session/wrong-method tokens, edits, live price/name/availability/deletion changes, malformed metadata, oversized and empty cart cannot complete | Pass |
+| Duplicate/atomic completion | Repeated original token creates one sale and preserves original paid amount; two loaded sessions agree; actual parallel same-attempt workers followed by safe explicit retries yield one complete sale; injected second-line write failure rolls back header/lines | Pass; injected failure is a test, not a claimed real application bug |
+| Snapshot/receipt | Names/prices/subtotals survive product edits/deletion; correct method/paid/change/timezone/reference; two customers get distinct references/context and own items | Pass |
+| Reset/ownership | Active receipt/success blocked for other/reset sessions, old cookie/reference/payment/reset tokens; reset rotates key/context and preserves unrelated session data/history; paid cart cannot be edited until reset | Pass |
+| CSRF/methods | Continue/completion/reset reject GET; enforced-CSRF client rejects missing tokens with403 | Pass |
+| Live HTTP on8001 | Isolated cookie jar with real CSRF: review/Back/edit/stale confirmation, cash errors/correct change, QR/card, duplicate retry, stored receipts, cross-session denial, reset/old-token denial/distinct refs; CSS/JS HTTP200 | Pass; 3 test sales retained, initial0 -> final3; no user browser cart touched |
+| Fresh database setup | Separate new temporary SQLite file: migrate, seed/reseed, six products, zero sales, configuration check | Pass; working data/environment preserved; not a fresh clone/package-install demonstration |
+| Build/dependency/schema | Tailwind4.3.3 minified build201ms; Node syntax check of cart/payment/navigation; pip check clean; makemigrations --check --dry-run no changes | Pass |
+| Diff | git diff --check checked directly via subprocess: exit0; unchanged branch/base | Pass |
+| Final scope/privacy | 28 modified/new milestone files; private development key absent from those files; environment/database/node_modules/temp tools/local plan ignored; local plan untracked; branch cart-review and HEAD f901b32 unchanged | Pass; no Git/account/publication mutation |
+| Browser availability | CUA inventory empty; opening iab returned Browser not available: iab | Unrun: new layout/focus/touch/keypad/card-delay/screen-reader/Back-cache checks and screenshot |
+
+The first suite had44 tests and passed; added malformed-metadata/oversize and actual concurrency regressions, final46 pass. No real runtime application failure was observed in this combined build. A PowerShell check group returned1 while configuration/dependency outputs were clean; direct git diff --check confirmed0, so that grouped command exit was not logged as an app failure. Existing environment, packages and database were retained; no dependency upgrade/migration rewrite or cleanup of history.
+
+### Required scenario coverage and manual boundary
+
+The following is our catalog-equivalent rehearsal mapping from EXAM_PLAN's instructor baseline, not invented instructor sign-off or exact professor test numbering:
+
+| Scenario | Equivalent example / observed backend result | Personal browser check |
+| --- | --- | --- |
+| Startup and selection | Root200; six named/priced products; configuration clean | Pending: actual touch selection |
+| Multiple products | Rice85 x2 + Wrap70 + Lemonade39.50 =279.50 | Pending |
+| Increase | Rice x3 =>364.50 | Pending |
+| Decrease | Return279.50; zero removes line | Pending |
+| Remove | Remove lemonade =>240.00 | Pending |
+| Summary | Exact current names/unit prices/quantities/subtotals/total | Pending |
+| Back | Preserves editable selections; fresh totals after edits | Pending |
+| Three methods | Cash/QR/Card routes work | Pending |
+| Insufficient cash | 100 for279.50:400 and no sale | Pending |
+| Overpayment | 300 for279.50:change20.50 | Pending |
+| Exact payment | 279.50:change0 | Pending |
+| Success/receipt | Stored amounts/method/date/reference/items match | Pending |
+| QR | Confirm records total paid, zero change | Pending |
+| Card | Backend records total paid, zero change; JS specifies1200ms processing | Pending: visible processing |
+| Reset and next reference | Empty active state/0total; history preserved; references/context differ | Pending: browser Back/cache behavior |
+
+Full exam/process acceptance remains pending personal demonstration, real review/member contributions/explanations, committed development history/refactoring audit and final integration. See DEMO_GUIDE.md. No browser pass is inferred from Node syntax or HTTP checks. Existing selection screenshots remain historical.
+
+## Current database-free and public deployment verification (2026-10-07)
+
+Supersedes earlier SQLite/46-test/8001 results for the current build; those results are
+historical. User explicitly requested removing the database and publishing on Vercel.
+
+| Check | Actual result |
+| --- | --- |
+| Database deletion | Verified root db.sqlite3 removed (three previous test sales); file absent after live flows |
+| Current automated suite | 21 SimpleTestCase tests in 1.400s; no database queries permitted; all pass |
+| Flow/cash/arithmetic | 279.50 baseline; edits364.50/240.00; invalid cash rejected; exact/excess cash and QR/Card consistent |
+| Receipt/reset | Correct snapshots, aware timestamp, method/paid/change/reference; current-cookie serial retry immutable; reset/cross-customer/stale-token guards pass |
+| Explicit storage limitations | Copied-cookie replay and conflicting amounts from separate old cookies remain possible; stable attempt reference verified; no global ledger claim |
+| Cookie size | Six lines with quantity99 each fit4096-byte header limit |
+| Real local HTTP/CSRF | Port8000 full flow passes with isolated cookies; CSS and all JS HTTP200 |
+| Real public HTTPS/CSRF | common-table-kiosk.vercel.app full flow passes without Vercel authentication; all methods/receipts/reset/assets checked |
+| Config/dependencies/static | Django check clean; pip check clean; six static files collected; Tailwind build153ms; JS syntax clean |
+| Deployment | Native Django/Python3.14 build READY; private production secret supplied through stdin; no database/env/local plan uploaded; Git auto-deploy disconnected |
+| New browser checks | Unrun: physical touch, focus/layout, keypad JS/card delay, screen reader and Back-cache behavior require human browser rehearsal |
+
+Two HTTP harness issues were corrected: comparing whole receipt HTML failed because
+Django remasks CSRF inputs on each render; HTTPS POST initially omitted Referer and
+Django correctly returned403. Harness now compares receipt facts and sends Referer.
+These were test-harness fixes, not invented application bugs or disabled CSRF protection.
+The local server on8000 was verified by workspace/manage.py command before restart.
+Historical migrations/models/seed/tests were archived intact, not rewritten.

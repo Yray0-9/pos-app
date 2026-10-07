@@ -1,0 +1,16 @@
+venv/
+.venv/
+env/
+node_modules/
+tmp/
+.git/
+.codex/
+.agents/
+.env
+.env.*
+*.sqlite3*
+docs/
+staticfiles/
+__pycache__/
+kiosk/test*.py
+*.log

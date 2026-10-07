@@ -1,6 +1,48 @@
-# Common Table data foundation - Prompt 05
+# Common Table data, cart and completed transactions
 
-Implemented locally on `catalog-data`, based on UI evidence commit `3ce83e25975870cc8fbadb42c3267086729117d7`. SQLite is the accepted exam storage choice. This stage creates tables and seed data, not a working cart or payment flow. Requester: M3 Magos, assisted by Codex; member explanation/independent review remain pending.
+## Current architecture — no database (supersedes earlier SQLite plan)
+
+Latest user request explicitly rejected SQLite and requested deleting it. The root
+db.sqlite3 (including three earlier HTTP test sales) was deleted after checking its
+absolute workspace path. It is not deployed. DATABASES={} uses Django's dummy backend;
+no admin/auth/session-model apps remain. No migrate or seed command is necessary.
+
+- kiosk/catalog.py defines six frozen products: stable integer ID, key, name,
+  description, Decimal price and availability. It is trusted server code.
+- kiosk/cart.py computes subtotal=price×quantity and total=sum(subtotals), with integer
+  quantities 1–99, explicit removal/repair, and no posted price/total authority.
+- Django signed-cookie sessions contain cart/context/revision, confirmed facts,
+  payment UUID and the active completed receipt. Values are JSON-safe strings/integers.
+- The receipt snapshots product name/unit price/quantity/subtotal, total, amount paid,
+  change, method, timezone-aware completed_at and CT-<payment UUID hex> reference.
+  Frozen Sale/SaleItem objects are reconstructed only after consistency validation.
+- Review and payment use the same current calculator. Signed tokens bind context,
+  revision, items, prices, method and attempt. Invalid/stale/empty payment cannot succeed.
+- Serial retries using the current cookie return the same snapshot and original paid
+  amount; another method cannot replace it. Cash is strict two-decimal positive money
+  covering total; QR/Card paid=total and change=0. All payments are simulations.
+- New Transaction clears this browser's cart/review/payment/receipt and gives a fresh
+  context. Ordinary old URLs/tokens with the new cookie are denied. There is no sales
+  history to delete or preserve, and closing/expiring/losing cookies loses active state.
+
+**Limits:** signed cookies are authenticated, not encrypted. No customer identity,
+card data or banking credentials are collected. A copied old signed cookie can be
+replayed until expiry; reset cannot revoke that copy without shared server storage.
+Separate precompletion cookies produce the same attempt reference but cannot globally
+lock conflicting simultaneous amounts/methods. No durable exactly-once payment or
+historical ledger guarantee is claimed. Tests explicitly expose these limitations.
+Cookie lifetime is two hours/browser session; six-line quantity-99 receipt fits 4096 bytes.
+
+Archived original models, applied migration, seed and old tests are retained under
+docs/archive/sqlite-foundation as inactive historical source. They are not imported,
+installed as migrations, executed or deployed. Existing Git history is not rewritten.
+The earlier sections below describe the superseded SQLite implementation only.
+
+Reference: [Django signed-cookie sessions and replay/size limitations](https://docs.djangoproject.com/en/6.1/topics/http/sessions/).
+
+## Historical SQLite decisions and implementation
+
+Implemented locally on `catalog-data`, based on UI evidence commit `3ce83e25975870cc8fbadb42c3267086729117d7`. SQLite is the accepted exam storage choice. Prompt 05 created tables and seed data; later local completion now implements cart, review and all simulated payments. Earlier stage-specific observations below preserve history; the final section describes current behavior. Requester: M3 Magos, assisted by Codex; member explanation/independent review remain pending.
 
 ```mermaid
 erDiagram
@@ -106,3 +148,17 @@ calculate_order reports invalid/unavailable/missing entries and excludes them fr
 Native POST/redirect forms and JSON server-rendered fragments share the same action handler. POST/CSRF protects edits; order responses are marked no-store. Small JavaScript serializes actions in one tab and never retries an uncertain request automatically. This does not establish cross-tab/concurrent terminal guarantees or duplicate-payment handling. No transaction rows are created by selection.
 
 Implementation follows [Django sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/), [CSRF guidance](https://docs.djangoproject.com/en/6.1/howto/csrf/) and [Fetch behavior](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch). Tests used a separate in-memory database. No dependency or schema changes in this stage. Current selection/cart is uncommitted on cart-review; the earlier Prompt 05 storage/code/PR records remain historical evidence.
+
+## Combined completion: confirmed state and durable sales
+
+All screens and methods reuse calculate_order for trusted Decimal totals. The review signer binds context UUID, cart revision, IDs/names/prices/quantities/subtotals/total to the displayed order; CSRF-protected Continue recomputes current facts and saves JSON-safe reviewed_order plus payment_attempt UUID. Repeated unchanged confirmation reuses the attempt. Cart edits invalidate confirmation; unavailable/deleted/invalid entries warn and require explicit repair, and all-invalid carts explain repair before an empty state. Catalog price/name changes require re-review.
+
+The payment token binds reviewed facts, attempt and chosen method. complete_payment validates token, session context/attempt/method and fresh facts. Cash is parsed using strict ordinary two-decimal currency syntax/range and must cover total. QR/card paid=total and change=0. A database atomic block calls model validation and writes the sale header and all item snapshots together. Unique attempt prevents duplicate completion. A retry returns the original authorized sale, not a second charge or a changed paid amount. Another method/customer cannot reuse it. SQLite write contention can return a busy error; explicit retry retains the same key. No guarantee of unrestricted simultaneous cart edits is claimed.
+
+After completion the session holds active_reference alongside its context/attempt. owned_sale matches all three to durable records; success/receipt are unavailable to unrelated or reset sessions. Receipt is always rendered from stored line and sale fields. Product edits/deletion do not change purchased snapshots. The API exposes no unrestricted transaction-history list.
+
+New Transaction validates the signed active receipt, uses POST/CSRF, rotates the Django session key, replaces kiosk state with empty cart/revision 0/new context, and preserves unrelated session fields. It retains Transaction/TransactionItem history and clears active confirmation/reference/payment fields. Previous cookie, reference URL and payment/reset tokens cannot reopen/clear the new customer's state. No-store views and history-restoration reload support the UI; actual browser cache behavior remains a human test.
+
+No migration or dependency change was needed. Tests use a separate database, including rollback and concurrency cases; a new temporary SQLite migration/seed/reseed check passed. Working SQLite retains three isolated HTTP acceptance sales, not zero after completion. No working data was deleted.
+
+References: [Django atomic transactions](https://docs.djangoproject.com/en/6.1/topics/db/transactions/), [signing](https://docs.djangoproject.com/en/6.1/topics/signing/), [sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/).

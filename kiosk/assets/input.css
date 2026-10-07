@@ -38,5 +38,8 @@
   .feedback-info { @apply border-plum bg-white text-plum; }
   .surface-card { @apply rounded-3xl border border-line/70 bg-white shadow-[0_4px_24px_-16px_rgba(36,52,46,0.22)]; }
   .eyebrow { @apply text-sm font-semibold tracking-[0.14em] uppercase; }
+  .payment-choice { @apply flex min-h-56 flex-col items-start gap-5 rounded-3xl border border-line bg-white p-6 text-left hover:border-leaf hover:bg-leaf-soft; }
+  .payment-symbol { @apply flex size-16 items-center justify-center rounded-2xl bg-leaf-soft text-3xl font-semibold text-leaf; }
+  .keypad-key { @apply flex min-h-14 items-center justify-center rounded-xl border border-line bg-canvas text-xl font-semibold hover:border-leaf hover:bg-leaf-soft disabled:opacity-50; }
   .hero-art { filter: drop-shadow(0 20px 24px rgb(0 0 0 / 0.18)); }
 }
