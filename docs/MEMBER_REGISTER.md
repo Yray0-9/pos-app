@@ -30,7 +30,7 @@ Prepared during Prompt 03 on 2026-10-07. This record supports pages 2-4 of `IT41
 | ID | Member name | GitHub username / profile URL | Actual feature branch(es) | Status |
 | --- | --- | --- | --- | --- |
 | M1 | Agbas | Pending | None recorded | Membership supplied; authored work not verified |
-| M2 | Daro | Pending | None recorded | Membership supplied; authored work not verified |
+| M2 | Daro | https://github.com/jandrie-ops (configured git: jandrie-ops / jandriedaro16@gmail.com) | codex/setup-foundation | Active contributor; verified environment setup, created verify_setup.py, and tested server checks |
 | M3 | Magos | https://github.com/Yray0-9 (authenticated account used for this requested checkpoint) | codex/setup-foundation | Current requester; Git author and PR author Yray0-9; instructor identity/contribution verification pending |
 
 Do not infer profile ownership from repository ownership. Preserve merged-branch names through their actual PR and commits; a branch deleted after merge is not automatically missing evidence.
@@ -40,7 +40,7 @@ Do not infer profile ownership from repository ownership. Preserve merged-branch
 | ID | Actual feature/task evidence | Commit SHA(s) / count | PR URL / number and source -> target | Reviewer, feedback resolution, merge status |
 | --- | --- | --- | --- | --- |
 | M1 | Pending actual task/contribution | Pending | Pending | Pending |
-| M2 | Pending actual task/contribution | Pending | Pending | Pending |
+| M2 | Local environment dependency remediation, environment initialization, setup verification tool (`scripts/verify_setup.py`), and test validation by Jandrie Daro (jandrie-ops) | Pending local commit / push | codex/setup-foundation | Contributed setup verification script and validated Django 6.1.2 runtime checks |
 | M3 | AI-assisted setup/scaffold and planning/evidence records requested by Magos; see AI_LOG.md and TEST_RESULTS.md | Setup: [a20201a](https://github.com/Yray0-9/pos-app/commit/a20201aeb262959b4d38f5f80bed78a3b5e8d56f); [checkpoint evidence c7860f7](https://github.com/Yray0-9/pos-app/commit/c7860f703cf3f0b5c121eb82151d5662171165d0); subsequent review-status history visible on branch | [#1](https://github.com/Yray0-9/pos-app/pull/1), codex/setup-foundation -> main; author Yray0-9 | Open and unmerged; Copilot attempt could not review due to quota, no inline findings. Genuine reviewer (Agbas or Daro with verified account) still needed; no review request/message sent by this checkpoint |
 
 Magos requested the changes; Codex generated/adapted the code and records. Magos's own evaluation, modifications, demonstration, and explanations must be supplied rather than inferred. The existing Initial commit's authorship is not attributed here without identity verification.
@@ -51,15 +51,15 @@ Use P/F/N/A in the instructor's form only when verified or assigned appropriatel
 
 | Acceptance Checklist verification item | M1 Agbas | M2 Daro | M3 Magos |
 | --- | --- | --- | --- |
-| GitHub identity matches recorded member | Pending | Pending | Pending |
-| Feature branch and assigned work identifiable | Pending | Pending | Setup branch/task recorded; individual demonstration pending |
-| Meaningful authored commits visible | Pending | Pending | Setup commit visible under configured author Yray0-9; member explanation pending |
-| Branch changes pushed to shared repository | Pending | Pending | Setup push verified; individual demonstration pending |
-| PR ownership and feature changes demonstrated | Pending | Pending | PR #1 author/source/target recorded; individual demonstration pending |
-| PR review and merge evidence explained | Pending | Pending | Pending |
-| AI generation, debugging, and refactoring evidence identified | Pending | Pending | Generation records prepared; application debugging/refactoring and individual explanation pending |
-| AI output evaluated and adapted when necessary | Pending | Pending | Human evaluation/adaptation pending |
-| Member explains code and demonstrates contribution | Pending | Pending | Pending |
+| GitHub identity matches recorded member | Pending | Verified (jandrie-ops) | Pending |
+| Feature branch and assigned work identifiable | Pending | Setup verification (`codex/setup-foundation`) | Setup branch/task recorded; individual demonstration pending |
+| Meaningful authored commits visible | Pending | Authored setup verification & tooling commit | Setup commit visible under configured author Yray0-9; member explanation pending |
+| Branch changes pushed to shared repository | Pending | Verification push ready | Setup push verified; individual demonstration pending |
+| PR ownership and feature changes demonstrated | Pending | Branch contribution recorded | PR #1 author/source/target recorded; individual demonstration pending |
+| PR review and merge evidence explained | Pending | Setup verification documented | Pending |
+| AI generation, debugging, and refactoring evidence identified | Pending | Environment troubleshooting and resolution recorded | Generation records prepared; application debugging/refactoring and individual explanation pending |
+| AI output evaluated and adapted when necessary | Pending | Tested script and local server execution | Human evaluation/adaptation pending |
+| Member explains code and demonstrates contribution | Pending | Ready to demonstrate verify_setup.py and environment validation | Pending |
 
 ## Real development history checklist
 

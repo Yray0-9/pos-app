@@ -62,3 +62,15 @@ For each future check: record date/time, responsible member/verifier, requiremen
 - API state: open, merged=false, author Yray0-9, no reviews at this checkpoint. No review feedback was fabricated/resolved and no merge/deployment performed.
 - Instructor access, other members' accounts/work, peer review, fresh clone demonstration, and the functional acceptance matrix remain pending.
 - After evidence commit c7860f7 was pushed, remote PR head matched that commit and the working tree was clean; changes since a20201a were documentation-only. GitHub check runs/statuses were empty, so no CI pass is asserted. The later Copilot COMMENTED entry reported quota exhaustion and had no inline findings; it is not a successful code review or human approval. This actual review attempt was inspected and recorded; no application changes were required from it.
+
+## Setup verification and tooling by Jandrie Daro (2026-10-08)
+
+- **Verifier:** Jandrie Daro (`jandrie-ops` / `jandriedaro16@gmail.com`).
+- **Branch:** `codex/setup-foundation`.
+- **Environment remediation:** In a clean local checkout/environment, missing runtime packages resolved via `pip install -r requirements.txt` (Django 6.1.2, asgiref 3.12.1, python-dotenv 1.2.4, sqlparse 0.6.0, tzdata 2026.5).
+- **Environment configuration:** Initialized local `.env` with secret key via `python scripts/init_env.py`.
+- **Automated verification tool:** Added [scripts/verify_setup.py](file:///c:/Users/Public/pos-app/scripts/verify_setup.py) to validate Python 3.10+, dependency imports, `.env` presence, and `manage.py check` in a single command.
+- **Observed results:**
+  - `python scripts/verify_setup.py` exited with code 0: `[SUCCESS] All environment and setup checks passed!`.
+  - `python manage.py check` completed with 0 issues identified (0 silenced).
+  - Dev server startup verified responding with `HTTP 200 OK` on `http://127.0.0.1:8000/`.

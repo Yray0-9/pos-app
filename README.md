@@ -44,9 +44,10 @@ Skip environment creation if the existing `venv` is already working. Invoke its 
 .\venv\Scripts\python.exe scripts/init_env.py
 .\venv\Scripts\python.exe -m pip check
 .\venv\Scripts\python.exe manage.py check
+.\venv\Scripts\python.exe scripts/verify_setup.py
 ```
 
-`init_env.py` creates an ignored `.env` with a fresh secret and the safe development settings from `.env.example`. It preserves an existing `.env` without printing values. Django also accepts real environment variables, which take precedence. A missing `DJANGO_SECRET_KEY` raises a clear setup error. Do not add `.env` or its values to commits, screenshots, or evidence logs.
+`init_env.py` creates an ignored `.env` with a fresh secret and the safe development settings from `.env.example`. `verify_setup.py` provides an automated smoke test for Python version, dependencies, `.env` file presence, and Django system check. It preserves an existing `.env` without printing values. Django also accepts real environment variables, which take precedence. A missing `DJANGO_SECRET_KEY` raises a clear setup error. Do not add `.env` or its values to commits, screenshots, or evidence logs.
 
 The template enables local development debugging and localhost hosts. It is not production configuration. Time display is configured for Asia/Singapore.
 
